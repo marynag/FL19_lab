@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './img/Logo.png';
 import voteTable from './img/vote-table.png';
 import petBreeds from './img/pet-breeds.png';
@@ -49,9 +50,3 @@ function StaticPart() {
 }
 
 export default StaticPart;
-
-/*
-<button className="btn votingBlockBtn">VOTING</button>
-                <button className="btn breedsBlockBtn">BREEDS</button>
-                <button className="btn">GALLERY</button>
-*/
