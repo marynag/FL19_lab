@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Timer from './timer.js'
 
 function Square(props) {
   return (
@@ -18,6 +19,16 @@ class Board extends React.Component {
         onClick={() => this.props.onClick(i)}
       />
     );
+  }
+
+  
+
+  shouldComponentUpdate(nextProps){
+    if (this.props!== nextProps) {
+      console.log("shouldComponentUpdate");
+      return true;
+    }
+    return false;
   }
 
   render() {
@@ -83,7 +94,12 @@ class Game extends React.Component {
     });
   }
 
-  render() {
+  render(prevProps) {
+    if(this.props===prevProps){
+      console.log('need update')
+      return true
+    }
+
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
@@ -102,6 +118,11 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
+      stopTimer()
+      //clearInterval(timeIsGoing)
+      console.log('')
+      clearInterval(this.timer)
+
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
@@ -145,4 +166,14 @@ function calculateWinner(squares) {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Game />);
+root.render(<div className='wraper'>
+              <Game />
+              <Timer />
+            </div>); 
+
+
+function stopTimer(){
+  console.log('stop')
+}
+
+
