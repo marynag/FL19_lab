@@ -1,0 +1,38 @@
+  .descriptionImg{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5vw;
+    align-content: center; 
+  }
+  
+  .boxImgWraper{
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+  }
+
+.header_sticky{
+    position: sticky;
+    top: 5px;
+}
+
+.greeting{
+    color: #8C8C8C;
+}
+
+.start{
+    margin-top:25px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.descriptionImg{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 50px;
+    align-content: center; 
+}
+
+main h1{
+    margin-top: 40px;
+}
+

@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import StaticPart from './StaticPart';
-import girlDog from './img/girl-and-pet 1.png'
+import StaticPart from './components/static/StaticPart';
+import Main from './components/main/main';
+import Breeds from './components/breeds/Breeds';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <main>
     <StaticPart />
-    <div className="girlDog "> 
-        <img className="imgGirlDog " src={girlDog} alt="girl and pet"/>
-    </div>
+    {/*<Breeds />*/}
+    <Main/>
   </main>
 );
 
