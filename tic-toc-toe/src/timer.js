@@ -5,12 +5,7 @@ class Timer extends React.Component {
   constructor(){
     super()
     this.state = {
-      date: "",
-      startTime:"",
-      hours: "",
-      minutes: "",
-      seconds:"",
-      time:0
+     time:0
     } 
     this.timeInterval = this.timeInterval.bind(this)
     this.stopTimer = this.stopTimer.bind(this)
@@ -28,15 +23,15 @@ class Timer extends React.Component {
   }
 
   componentDidMount() {
-    const startTime=new Date().getTime()
-    this.setState({ startTime });
     this.timeInterval()
   } 
 
-  render() {    
-    const currentTime=new Date().getTime()    
-    const difference = currentTime - this.state.startTime;
-    const time=countTime(difference) 
+  componentWillUnmount(){
+    this.stopTimer()
+  }
+
+  render() {  
+    const time=countTime(this.state.time) 
     return (
       <div className='timer'>
         <p>Timer:</p>

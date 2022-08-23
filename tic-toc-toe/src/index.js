@@ -24,7 +24,7 @@ class Board extends React.Component {
   
 
   shouldComponentUpdate(nextProps){
-    if (this.props!== nextProps) {
+    if (this.props.squares!== nextProps.squares) {
       console.log("shouldComponentUpdate");
       return true;
     }
@@ -54,7 +54,7 @@ class Board extends React.Component {
   }
 }
 
-class Game extends React.Component {
+class Game extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -94,11 +94,7 @@ class Game extends React.Component {
     });
   }
 
-  render(prevProps) {
-    if(this.props===prevProps){
-      console.log('need update')
-      return true
-    }
+  render() {    
 
     const history = this.state.history;
     const current = history[this.state.stepNumber];

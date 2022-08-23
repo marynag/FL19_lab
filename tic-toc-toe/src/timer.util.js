@@ -1,14 +1,15 @@
 
-export default function countTime(msec){
-    const SECOND_MS = 1000;
-    const MINUTE_MS = SECOND_MS * 60;
-    const HOUR_MS = MINUTE_MS * 60;
-    
-    const hours  =  Math.floor(msec/HOUR_MS);
-    msec -= hours * HOUR_MS;   
-    const minutes = Math.floor(msec / MINUTE_MS);
-    msec -= minutes * MINUTE_MS;
-    const seconds = Math.floor(msec / SECOND_MS);
+export default function countTime(secondsFromStart){
+    const SECOND=1
+    const MINUTE_IN_SECONDS = SECOND * 60;
+    const HOUR_IN_SECONDS = MINUTE_IN_SECONDS * 60;    
+
+    const hours = Math.floor(secondsFromStart / HOUR_IN_SECONDS);
+
+    const minutesS = secondsFromStart % HOUR_IN_SECONDS;
+    const minutes = Math.floor(minutesS / MINUTE_IN_SECONDS);
+
+    const seconds=secondsFromStart% MINUTE_IN_SECONDS
 
     return {hours, minutes, seconds}
 };
