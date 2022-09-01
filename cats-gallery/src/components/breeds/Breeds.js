@@ -1,28 +1,17 @@
 import React from 'react';
-import Vector from '../img/Vector.png'
-import Vector2 from '../img/Vector (Stroke).png'
-import Vector3 from '../img/Vector 348 (Stroke).png'
-import Vector4 from '../img/Vector (Stroke) (1).png'
+
 import Vector5 from '../img/ba.png'
 import Vector6 from '../img/ab.png'
 import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.utils.js'
 import './breeds.css'
 import LoadImg from '../loadImg/loadImg';
+import SearchImg from '../searchImg/SearchImg.js'
 
 
 function Breeds(){
     return(
-        <div className="breedsBlock ">
-            <div className="searchingLine">
-                <div className="search ">
-                    <input type="text"  column placeholder="Search for breeds by name" className="searchInput"/>                   
-                    <div className="searchItem"><img src={Vector} alt="girl and pet" className="search_img"/></div>
-                </div>            
-                <div className="reaction "><img src={Vector2} alt="smile"/></div>
-                <div className="reaction "><img src={Vector3} alt="heart"/></div>
-                <div className="reaction "><img src={Vector4} alt="sad"/></div>
-            </div> 
-
+        <div className="breeds">
+            <SearchImg/>
         <div className='wraperImgBlokSearchImages'>
         <div className="wraperImgBlokSearch">
                 <div className="headerBreeds">

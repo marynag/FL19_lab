@@ -1,4 +1,3 @@
-
 .benefitBox img{
     width: 80%;
 }
@@ -49,11 +48,12 @@
     border: none;
     text-align: center;
     color: #FF868E;
-    padding: 2px 15px;
-    height: 25px;
+    padding: 10px 43px;
     margin-top: 10px;
     border-radius: 10px;
     background-color: #FFFFFF;
+    
+    text-decoration: none;
 }
 
 .btn:hover{
@@ -65,8 +65,9 @@
     color: #FFFFFF
 }
 
-.btn{
+a{
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+    text-decoration: none;
+}

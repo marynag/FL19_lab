@@ -1,5 +1,6 @@
 import './addnavigationBlocks.css'
 
+
 var classNames = require('classnames');
 
 function AddNavigationBlocks(props){
@@ -9,7 +10,7 @@ function AddNavigationBlocks(props){
         <div className={divclasses}>
           <img src={props.imgname}  alt="benefit" />        
         </div>
-        <button className="btn" onClick={props.btn}>{props.text}</button>
+        <button className="btn">{props.text}</button>
       </div>
     )
   }
