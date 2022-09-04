@@ -1,37 +1,35 @@
 import React from 'react';
-import countTime from './timer.util'
+import convertTime from './timer.util'
 
 class Timer extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-     time:0
+     time:0,
+     handlerStopTimer:0
     } 
-    this.timeInterval = this.timeInterval.bind(this)
-    this.stopTimer = this.stopTimer.bind(this)
+    this.setTimeInterval = this.setTimeInterval.bind(this)
   }
 
-  timeInterval() {
+  setTimeInterval() {
     this.timer = setInterval(() => this.setState({
       time: this.state.time + 1
     }), 1000)
-    console.log("start")
-  }
-  stopTimer() {
-    clearInterval(this.timer)
-    console.log("stop")
   }
 
   componentDidMount() {
-    this.timeInterval()
+    this.setTimeInterval()
   } 
 
   componentWillUnmount(){
-    this.stopTimer()
+    clearInterval(this.timer)
   }
 
-  render() {  
-    const time=countTime(this.state.time) 
+  render() {    
+    if(this.props.handlerStopTimer){
+      clearInterval(this.timer)
+    }
+    const time=convertTime(this.state.time) 
     return (
       <div className='timer'>
         <p>Timer:</p>

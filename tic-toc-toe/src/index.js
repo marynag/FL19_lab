@@ -11,7 +11,7 @@ function Square(props) {
   );
 }
 
-class Board extends React.Component {
+class Board extends React.PureComponent {
   renderSquare(i) {
     return (
       <Square
@@ -19,16 +19,6 @@ class Board extends React.Component {
         onClick={() => this.props.onClick(i)}
       />
     );
-  }
-
-  
-
-  shouldComponentUpdate(nextProps){
-    if (this.props.squares!== nextProps.squares) {
-      console.log("shouldComponentUpdate");
-      return true;
-    }
-    return false;
   }
 
   render() {
@@ -54,7 +44,7 @@ class Board extends React.Component {
   }
 }
 
-class Game extends React.PureComponent {
+class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,8 +54,14 @@ class Game extends React.PureComponent {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
+      stopTimer: false 
     };
+  }
+  
+
+  shouldComponentUpdate(nextState) {
+    return(this.state.history !== nextState.history) ? true : false
   }
 
   handleClick(i) {
@@ -93,8 +89,7 @@ class Game extends React.PureComponent {
       xIsNext: (step % 2) === 0
     });
   }
-
-  render() {    
+  render() {   
 
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -112,18 +107,17 @@ class Game extends React.PureComponent {
     });
 
     let status;
+    let timer_final=false;
     if (winner) {
-      status = "Winner: " + winner;
-      stopTimer()
-      //clearInterval(timeIsGoing)
-      console.log('')
-      clearInterval(this.timer)
-
+      status= "Winner: " + winner
+      timer_final=true
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      (status = "Next player: " + (this.state.xIsNext ? "X" : "O")  )
+
     }
 
-    return (
+    return ( 
+      <React.Fragment>
       <div className="game">
         <div className="game-board">
           <Board
@@ -136,6 +130,8 @@ class Game extends React.PureComponent {
           <ol>{moves}</ol>
         </div>
       </div>
+      <Timer handlerStopTimer={timer_final}/>
+      </React.Fragment>
     );
   }
 }
@@ -161,15 +157,14 @@ function calculateWinner(squares) {
   return null;
 }
 
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+
 root.render(<div className='wraper'>
-              <Game />
-              <Timer />
+            <Game/>
             </div>); 
 
-
-function stopTimer(){
-  console.log('stop')
-}
 
 
