@@ -1,10 +1,8 @@
 import './addnavigationBlocks.css'
-
-
-var classNames = require('classnames');
+import classNames from 'classnames';
 
 function AddNavigationBlocks(props){
-    let divclasses=classNames('benefitBox', props.boxing)
+    const divclasses=classNames('benefitBox', props.className)
     return(
       <div className='boxImgWraper'>
         <div className={divclasses}>

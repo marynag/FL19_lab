@@ -1,10 +1,9 @@
 import React from 'react';
-
 import Vector5 from '../img/ba.png'
 import Vector6 from '../img/ab.png'
-import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.utils.js'
+import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import './breeds.css'
-import LoadImg from '../loadImg/loadImg';
+import Loader from '../Loader/Loader';
 import SearchImg from '../searchImg/SearchImg.js'
 
 
@@ -28,7 +27,7 @@ function Breeds(){
                 </div>
             </div>
             <div className='catImgBreedsWrapper'>
-                {CLASSES_FOR_DIVS.map(current => <LoadImg addClass={current}/> )}               
+                {CLASSES_FOR_DIVS.map(current => <Loader addClass={current}/> )}               
             </div>
         </div>           
     </div>

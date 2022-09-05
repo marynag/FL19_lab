@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-//import './loadImg.css'
+import classNames from 'classnames';
+import { CATS_URL } from '../constants';
 
-var classNames = require('classnames');
 
- function LoadImg(props){
+ function Loader(props){
     const [data, setData] = useState(null);    
-    let imgclasses=classNames('catImgBreeds', props.addClass)
+    const imgclasses=classNames('catImgBreeds', props.addClass)
 
     useEffect(() => {
-        fetch(`https://api.thecatapi.com/v1/images/search`)
+        fetch(CATS_URL)
         .then((response) => response.json())
         .then(actualData => {
             setData(actualData[0].url)
-            console.log(actualData[0].url)
         })
        }, []);  
   
@@ -21,4 +20,4 @@ var classNames = require('classnames');
         )
 }
 
-export default LoadImg
+export default Loader

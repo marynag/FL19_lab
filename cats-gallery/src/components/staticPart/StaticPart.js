@@ -13,9 +13,9 @@ function StaticPart() {
             <p className="greeting">Welcome to MI 2022 Front-end test</p>
             <p className="start">Lets start using The Cat API</p>
             <div className="descriptionImg">
-              <AddNavigationBlocks imgname={voteTable} boxing='benefitBox1' text='VOTING' btn='/voting'/>
-              <AddNavigationBlocks imgname={petBreeds} boxing='benefitBox2' text='BREEDS'  btn='breeds/'/>
-              <AddNavigationBlocks imgname={imageSearch} boxing='benefitBox3' text='GALLERY'  btn='/gallery'/>             
+              <AddNavigationBlocks imgname={voteTable} className='benefitBox1' text='VOTING' btn='/voting'/>
+              <AddNavigationBlocks imgname={petBreeds} className='benefitBox2' text='BREEDS'  btn='breeds/'/>
+              <AddNavigationBlocks imgname={imageSearch} className='benefitBox3' text='GALLERY'  btn='/gallery'/>             
             
             </div>
         </div>
