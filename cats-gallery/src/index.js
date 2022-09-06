@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import StaticPart from './StaticPart';
-import girlDog from './img/girl-and-pet 1.png'
+import StaticPart from './components/staticPart/StaticPart';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Main from './components/main/main';
+import Breeds from './components/breeds/Breeds';
+import Gallery from './components/gallery/Gallery';
+import Voting from './components/voting/Voting';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <main>
-    <StaticPart />
-    <div className="girlDog "> 
-        <img className="imgGirlDog " src={girlDog} alt="girl and pet"/>
-    </div>
+    <StaticPart/>
+          <Main/>
+          {/*<Voting />
+           <Breeds />
+          {/*<Gallery />*/}
   </main>
 );
 

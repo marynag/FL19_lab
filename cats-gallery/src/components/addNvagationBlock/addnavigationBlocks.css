@@ -1,0 +1,74 @@
+.benefitBox img{
+    width: 80%;
+}
+
+.benefitBox{
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 4px #ffffff98;
+}
+  
+.benefitBox1{
+    background-color: #B4B7FF; 
+}
+  
+.benefitBox2{
+    background-color: #97EAB9; 
+}
+  
+.benefitBox3{
+    background-color: #FFD280;
+}
+
+.boxImgWraper{
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+}
+
+.benefitBox1:hover{
+    border: solid 4px #B4B7FF; 
+}
+  
+.benefitBox2:hover{
+    border: solid 4px #97EAB9; 
+}
+  
+.benefitBox3:hover{
+    border: solid 4px #FFD280;
+}
+
+.benefitBox:active{
+    border: solid 4px #FBE0DC; 
+  }
+
+.btn{
+    grid-row: 2;
+    border: none;
+    text-align: center;
+    color: #FF868E;
+    padding: 10px 43px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    
+    text-decoration: none;
+}
+
+.btn:hover{
+    background-color: #FBE0DC;
+}
+
+.btn:active{
+    background-color: #FF868E;
+    color: #FFFFFF
+}
+
+a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+

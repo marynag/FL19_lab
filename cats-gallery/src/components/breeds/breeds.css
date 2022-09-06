@@ -1,0 +1,73 @@
+   .breeds{
+    grid-column:2;
+    grid-row: 1;
+    margin:-10px 30px -70px 160px;
+
+  }
+  .catImgBreedsWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    gap:7px;
+  }
+    
+  .catImgBreedsDiv{
+    margin-top: 0;
+    width:100%;
+    border-radius: 10px;
+  }
+  
+  .catImgBreedsDiv1{
+    grid-column: 1;
+    grid-row: 1/3;
+  }
+  
+  .catImgBreedsDiv4{
+    grid-column: 2/4;
+    grid-row: 2/4;
+  }
+  .catImgBreedsDiv8{
+    grid-column: 3;
+    grid-row: 4/6;
+  }
+  .catImgBreedsDiv9{
+    grid-column: 1/3;
+    grid-row: 5/7;
+  }
+  .catImgBreedsDiv11{
+    grid-column: 1;
+    grid-row: 7/9;
+  }
+  .catImgBreedsDiv14{
+    grid-column: 2/4;
+    grid-row: 8/10;
+  }
+  .catImgBreedsDiv15{
+    margin-top: 0;
+    grid-column: 1;
+    grid-row: 9;
+  } 
+
+  .catImgBreedsDiv:hover,.catImg:hover{
+    filter: invert(30%) grayscale(80%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(200%) contrast(1);
+      filter: grayscale(80%) brightness(60%) sepia(40%) hue-rotate(-50deg) saturate(400%) contrast(1);
+  }
+  
+  .catImgBreedsDiv {
+    position: relative;
+  }
+
+  .catImgBreeds{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+  } 
+  
+  .wraperImgBlokSearchImages{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 0 10px;
+  }
+
+  
+  
