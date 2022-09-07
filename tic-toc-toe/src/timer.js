@@ -6,7 +6,7 @@ class Timer extends React.Component {
     super(props)
     this.state = {
      time:0,
-     handlerStopTimer:0
+     isGameFinished:0
     } 
     this.setTimeInterval = this.setTimeInterval.bind(this)
   }
@@ -25,10 +25,14 @@ class Timer extends React.Component {
     clearInterval(this.timer)
   }
 
-  render() {    
-    if(this.props.handlerStopTimer){
+  shouldComponentUpdate(nextState) {
+    if(this.props.isGameFinished ){
       clearInterval(this.timer)
     }
+    return this.state.isGameFinished !== nextState.isGameFinished;
+  }
+
+  render() {        
     const time=convertTime(this.state.time) 
     return (
       <div className='timer'>

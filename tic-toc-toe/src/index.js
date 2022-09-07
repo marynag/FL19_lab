@@ -54,14 +54,13 @@ class Game extends React.Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true,
-      stopTimer: false 
+      xIsNext: true
     };
   }
   
 
   shouldComponentUpdate(nextState) {
-    return(this.state.history !== nextState.history) ? true : false
+    return this.state.history !== nextState.history;
   }
 
   handleClick(i) {
@@ -107,17 +106,21 @@ class Game extends React.Component {
     });
 
     let status;
-    let timer_final=false;
+    let isGameEnded=false;
     if (winner) {
       status= "Winner: " + winner
-      timer_final=true
+      isGameEnded=true
     } else {
-      (status = "Next player: " + (this.state.xIsNext ? "X" : "O")  )
-
+      if(history.length===10){
+        status='Draw'
+        isGameEnded=true
+      }else{     
+        status = "Next player: " + (this.state.xIsNext ? "X" : "O")  
+      }
     }
 
     return ( 
-      <React.Fragment>
+      <>
       <div className="game">
         <div className="game-board">
           <Board
@@ -130,8 +133,8 @@ class Game extends React.Component {
           <ol>{moves}</ol>
         </div>
       </div>
-      <Timer handlerStopTimer={timer_final}/>
-      </React.Fragment>
+      <Timer isGameFinished={isGameEnded}/>
+      </>
     );
   }
 }
