@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Timer from './timer.js'
+import { getGameStatus } from './timer.util';
 
 function Square(props) {
   return (
@@ -105,19 +106,7 @@ class Game extends React.Component {
       );
     });
 
-    let status;
-    let isGameEnded=false;
-    if (winner) {
-      status= "Winner: " + winner
-      isGameEnded=true
-    } else {
-      if(history.length===10){
-        status='Draw'
-        isGameEnded=true
-      }else{     
-        status = "Next player: " + (this.state.xIsNext ? "X" : "O")  
-      }
-    }
+    const {isGameEnded, displayStatus} = getGameStatus(history, winner, this.state.xIsNext);
 
     return ( 
       <>
@@ -129,7 +118,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <div>{displayStatus}</div>
           <ol>{moves}</ol>
         </div>
       </div>
