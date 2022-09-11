@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { CATS_URL } from '../constants';
+import styles from './Loader.module.scss'
 
 
  function Loader(props){
     const [data, setData] = useState(null);    
-    const imgclasses=classNames('catImgBreeds', props.addClass)
+    const imgclasses=classNames(`${styles.catImgBreeds} ${styles[props.addClass]}`)
 
     useEffect(() => {
         fetch(CATS_URL)
