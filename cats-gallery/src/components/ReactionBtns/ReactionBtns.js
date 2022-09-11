@@ -7,6 +7,7 @@ import smile from '../img/Vector (Stroke) (1242).png'
 import heart from '../img/VectorStroke1232.png'
 import sad from '../img/Vector (Stroke) (122).png'
 import { getTime } from '../voting/voting.utils';
+import PropTypes from 'prop-types';
 
 
 export  function ReactionBtns(props) {
@@ -39,6 +40,7 @@ export  function ReactionBtns(props) {
   );
 };
 
+//how to add key in AddReaction
 
 export function AddReaction(props){
   const history=props.history
@@ -52,4 +54,12 @@ return(
 );
 };
 
+ReactionBtns.propTypes = {
+  history: PropTypes.array
+};
 
+AddReaction.propTypes = {
+  history: PropTypes.array,
+  icon: PropTypes.object,
+  text: PropTypes.string  
+};

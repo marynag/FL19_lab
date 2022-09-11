@@ -5,8 +5,6 @@ import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
 import Loader from '../Loader/Loader';
 import SearchImg from '../searchImg/SearchImg.js'
-import classNames from 'classnames';
-
 
 function Breeds(){
     return(

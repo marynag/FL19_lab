@@ -1,5 +1,4 @@
 export default function getId(link, history){
-    console.log(link, history)
     link = link ?? 'https://cdn2.thecatapi.com/images/MTYxMDIwNw.jpg'
     const devidedLink=link.split('/')
     const fileName=devidedLink.pop()

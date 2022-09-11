@@ -1,5 +1,6 @@
 import styles from  './addnavigationBlocks.module.scss'
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 function AddNavigationBlocks(props){
   const divclasses=classNames(`${styles.benefitBox} ${styles[props.className]}`)
@@ -12,5 +13,10 @@ function AddNavigationBlocks(props){
     </div>
   )
 }
+
+AddNavigationBlocks.propTypes = {
+  className: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default AddNavigationBlocks

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { CATS_URL } from '../constants';
 import styles from './Loader.module.scss'
+import PropTypes from 'prop-types';
 
 
  function Loader(props){
@@ -20,5 +21,9 @@ import styles from './Loader.module.scss'
             <img className ={imgclasses} src={data} alt="sad"/>
         )
 }
+
+Loader.propTypes = {
+    addClass: PropTypes.string
+  };
 
 export default Loader

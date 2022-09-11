@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../voting/voting.module.scss'
 import getId from '../voting/voting.utils'
 import { CATS_URL } from '../constants';
+import PropTypes from 'prop-types';
 
 
 export default function GetPhoto(props){
@@ -19,6 +20,10 @@ export default function GetPhoto(props){
        }, []);  
        getId(data, history)
         return(                       
-            <img className ={styles.votingImg} src={data} alt="sad"/>
+            <img className ={styles.votingImg} src={data} alt="cat"/>
         )
 }
+
+GetPhoto.propTypes = {
+    history: PropTypes.array
+  };
