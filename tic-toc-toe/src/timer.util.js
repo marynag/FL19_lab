@@ -17,12 +17,11 @@ export default function convertTime(duration){
 
 export function getGameStatus(history, winner, xIsNext){
     let displayStatus;
-    let isGameEnded=false;
 
-    if (winner || history.length===MAX_HISTORY_LENGTH) {
-        const defineWinner= winner ?? 'Draw'
-        displayStatus= winner ? "Winner:"+defineWinner: defineWinner
-        isGameEnded=true
+    const isGameEnded = winner || history.length===MAX_HISTORY_LENGTH;    
+
+    if (isGameEnded) {
+        displayStatus = winner ? "Winner: "+ winner : "Draw";
       } else {        
           displayStatus = "Next player: " + (xIsNext ? "X" : "O")          
       }
