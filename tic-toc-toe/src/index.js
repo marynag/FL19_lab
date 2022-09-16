@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Timer from './timer.js'
+import { getGameStatus } from './timer.util';
 
 function Square(props) {
   return (
@@ -10,7 +12,7 @@ function Square(props) {
   );
 }
 
-class Board extends React.Component {
+class Board extends React.PureComponent {
   renderSquare(i) {
     return (
       <Square
@@ -56,6 +58,11 @@ class Game extends React.Component {
       xIsNext: true
     };
   }
+  
+
+  shouldComponentUpdate(nextState) {
+    return this.state.history !== nextState.history;
+  }
 
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -82,8 +89,8 @@ class Game extends React.Component {
       xIsNext: (step % 2) === 0
     });
   }
+  render() {   
 
-  render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
@@ -99,14 +106,10 @@ class Game extends React.Component {
       );
     });
 
-    let status;
-    if (winner) {
-      status = "Winner: " + winner;
-    } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
-    }
+    const {isGameEnded, displayStatus} = getGameStatus(history, winner, this.state.xIsNext);
 
-    return (
+    return ( 
+      <>
       <div className="game">
         <div className="game-board">
           <Board
@@ -115,10 +118,12 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <div>{displayStatus}</div>
           <ol>{moves}</ol>
         </div>
       </div>
+      <Timer isGameFinished={isGameEnded}/>
+      </>
     );
   }
 }
@@ -144,5 +149,14 @@ function calculateWinner(squares) {
   return null;
 }
 
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Game />);
+
+
+root.render(<div className='wraper'>
+            <Game/>
+            </div>); 
+
+
+
