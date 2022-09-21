@@ -1,35 +1,28 @@
 import React from 'react';
 import Square from './game.utils';
+//import groupedSquares from './constants'
 
-class Board extends React.PureComponent {
-    renderSquare(i) {
-      return (
-        <Square
-          value={this.props.squares[i]}
-          onClick={() => this.props.onClick(i)}
-        />
-      );
-    }
-  
+class Board extends React.PureComponent {    
+      
     render() {
+      const groupedSquares=[[0,1,2],
+                            [3,4,5],
+                            [6,7,8]]
+      
       return (
+        
         <div>
-          <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div>
-        </div>
+          <div>
+          { groupedSquares.map(row => (            
+          <div className = "board-row" >
+              {row.map(square => 
+              <Square key={square} value={this.props.squares[square]} onClick={() => this.props.onClick(square)}/>)}
+          </div> 
+
+))}
+</div>
+
+</div>
       );
     }
   }

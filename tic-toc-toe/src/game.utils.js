@@ -1,3 +1,5 @@
+import LINES from './constants'
+
 export default function Square(props) {
     return (
       <button className="square" onClick={props.onClick}>
@@ -6,22 +8,16 @@ export default function Square(props) {
     );
   }
 
-export function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+export function calculateWinner(squares) {  
+  let result=''
+    LINES.find((element, index)=>{
+    const [a, b, c] = LINES[index];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      result=squares[a]
+      return true;
     }
-  }
-  return null;
+    return false;
+   })
+   return result
+
 }

@@ -15,15 +15,13 @@ export default function convertTime(duration){
     return {hours, minutes, seconds}
 };
 
-export function getGameStatus(history, winner, xIsNext){
-    let displayStatus;
-
-    const isGameEnded = winner || history.length===MAX_HISTORY_LENGTH;    
+export function getGameStatus(isGameEnded, winner, xIsNext){
+    let displayStatus;    
 
     if (isGameEnded) {
         displayStatus = winner ? "Winner: "+ winner : "Draw";
       } else {        
           displayStatus = "Next player: " + (xIsNext ? "X" : "O")          
       }
-    return {isGameEnded, displayStatus}
+    return displayStatus
 }
