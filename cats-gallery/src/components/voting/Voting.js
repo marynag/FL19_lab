@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './voting.module.scss'
 import SearchImg from '../searchImg/SearchImg.js'
-import {ReactionBtns} from '../ReactionBtns/ReactionBtns'
+import {ReactionButtons} from '../ReactionButtons/ReactionButtons.js'
 import GetPhoto from '../GetPhoto/GetPhoto'
 
 
@@ -18,7 +18,7 @@ function Voting(){
                 
                 <GetPhoto history={history}/>                
                 
-                <ReactionBtns history={history}/>                
+                <ReactionButtons history={history}/>                
             </div>
         </div>
     )

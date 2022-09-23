@@ -10,12 +10,12 @@ export default function getId(link, history){
 
 export function getTime(){
     const date=new Date()
-    const housrs=date.getHours()
+    const hours=date.getHours()
     let minutes=date.getMinutes()
-    if(minutes.toString().length===1){
+    if(minutes<10){
         minutes='0'+minutes
     }     
-    return `${housrs}:${minutes}`
+    return `${hours}:${minutes}`
 }
 
 

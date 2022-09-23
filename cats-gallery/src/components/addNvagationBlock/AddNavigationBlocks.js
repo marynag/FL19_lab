@@ -1,12 +1,10 @@
 import styles from  './addnavigationBlocks.module.scss'
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 function AddNavigationBlocks(props){
-  const divclasses=classNames(`${styles.benefitBox} ${styles[props.className]}`)
   return(
     <div className='boxImgWraper'>
-      <div className={divclasses}>
+      <div className={`${styles.benefitBox} ${styles[props.className]}`}>
         <img src={props.imgname}  alt="benefit" />       
       </div>
       <button className={styles.btn}>{props.text}</button>
@@ -15,8 +13,8 @@ function AddNavigationBlocks(props){
 }
 
 AddNavigationBlocks.propTypes = {
-  className: PropTypes.string,
-  text: PropTypes.string,
+  className: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default AddNavigationBlocks

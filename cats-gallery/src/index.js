@@ -19,7 +19,7 @@ root.render(
     <StaticPart/>
           {/*<Main/>*/}
           <Voting />
-          {/* <Breeds />*/}
+           {/*<Breeds />*/}
           {/*<Gallery />*/}
   </main>
 );

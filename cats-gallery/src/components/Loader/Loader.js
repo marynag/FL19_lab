@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import classNames from 'classnames';
 import { CATS_URL } from '../constants';
 import styles from './Loader.module.scss'
 import PropTypes from 'prop-types';
@@ -7,7 +6,6 @@ import PropTypes from 'prop-types';
 
  function Loader(props){
     const [data, setData] = useState(null);    
-    const imgclasses=classNames(`${styles.catImgBreeds} ${styles[props.addClass]}`)
 
     useEffect(() => {
         fetch(CATS_URL)
@@ -18,7 +16,7 @@ import PropTypes from 'prop-types';
        }, []);  
   
         return(
-            <img className ={imgclasses} src={data} alt="sad"/>
+            <img className ={`${styles.catImgBreeds} ${styles[props.addClass]}`} src={data} alt="sad"/>
         )
 }
 
