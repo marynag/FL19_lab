@@ -15,10 +15,10 @@ export default function GetPhoto(props){
         .then((response) => response.json())
         .then(actualData => {
             setData(actualData[0].url)
-        })
-    
+            getId(actualData[0].url, history)
+        })    
        }, []);  
-       getId(data, history)
+
         return(                       
             <img className ={styles.votingImg} src={data} alt="cat"/>
         )

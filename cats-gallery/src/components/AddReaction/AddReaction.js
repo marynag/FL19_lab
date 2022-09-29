@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 
 
 export default function AddReaction(props){
-    const [time, setTime] = useState(getTime())
-    const history=props.history
+   
+    const { history } = props;
+    const { time } = props;
     const { currentReactionSad, currentReactionLike, currentReactionSmile } = props.icon;
     const iconLink = currentReactionSad ?? currentReactionLike ?? currentReactionSmile;
-    console.log(history)
   return(
         <div className={styles.reactionDescription}>
             <p>{time}</p>
@@ -19,7 +19,6 @@ export default function AddReaction(props){
         </div>
   );
   };
-
 
 
 AddReaction.propTypes = {

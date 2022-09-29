@@ -6,10 +6,17 @@ import smile from '../img/Vector (Stroke) (1242).png'
 import heart from '../img/VectorStroke1232.png'
 import sad from '../img/Vector (Stroke) (122).png'
 
-const reactionsButtonsList=[
-    [`${styles.currentReaction} ${styles.smile}`, 'smile', {currentReactionSmile},`${smile}`],
-    [`${styles.currentReaction} ${styles.like}`,'like',{currentReactionLike},`${heart}`],
-    [`${styles.currentReaction} ${styles.sad}`,'sad',{currentReactionSad},`${sad}`]
-]
+export const reactionsMap={
+  smile: {currentReactionSmile},
+  like: {currentReactionLike},
+  sad: {currentReactionSad}
+}
 
-export default reactionsButtonsList
+
+const REACTIONS = [
+    { className: styles.smile, text: 'smile', img: `${smile}`}, 
+    { className: styles.like, text: 'like', img: `${heart}`}, 
+    { className: styles.sad, text: 'sad',  img: `${sad}`}, 
+  ];
+
+export default REACTIONS
