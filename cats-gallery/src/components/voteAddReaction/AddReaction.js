@@ -1,6 +1,5 @@
 import styles from '../voting/voting.module.scss'
-import React, {useState} from 'react';
-import { getTime } from '../voting/voting.utils';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 

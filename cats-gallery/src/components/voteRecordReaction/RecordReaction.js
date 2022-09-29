@@ -1,12 +1,12 @@
 import styles from '../voting/voting.module.scss'
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import REACTIONS, {reactionsMap} from './ReactionButtons.constants'
-import AddReaction from '../AddReaction/AddReaction';
+import REACTIONS, {reactionsMap} from './recordReaction.constants'
+import AddReaction from '../voteAddReaction/AddReaction';
 import { getTime } from '../voting/voting.utils';
 
 
-export  function ReactionButtons(props) {
+export  function RecordReaction(props) {
   const history=props.history
 
   const [reactions, setReactions]=useState({}) 
@@ -35,7 +35,7 @@ export  function ReactionButtons(props) {
 };
 
 
-ReactionButtons.propTypes = {
+RecordReaction.propTypes = {
   history: PropTypes.array
 };
 
