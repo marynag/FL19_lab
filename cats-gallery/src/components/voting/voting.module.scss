@@ -78,3 +78,36 @@
     background-color:#ffd3807e;
   }
   
+  .next{   
+    color: #FF868E;
+    padding: 2px 8px;
+    font-size: 25px;
+    background-color: #FBE0DC;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .vote{
+    padding: 8px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF868E;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    font-size: 15px;
+    color: #FFFFFF;
+  }
+  
+  .reactionDescription{
+    padding: 0 20px;
+    display: flex;
+    background-color: #F5F5F5;;
+    border-radius: 10px;
+    margin: 7px 25px;
+    justify-content: space-between;
+  }
+
+  .reactionImg{
+    padding:11px 0px;
+  }

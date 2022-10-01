@@ -169,19 +169,6 @@ opacity: 0.8;
   gap:10px;    
 }
 
-.sort{
-  width: 100%;
-}
-
-.next{   
-  color: #FF868E;
-  padding: 2px 8px;
-  font-size: 25px;
-  background-color: #FBE0DC;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
 .vote{
   padding: 8px 20px;
   display: flex;

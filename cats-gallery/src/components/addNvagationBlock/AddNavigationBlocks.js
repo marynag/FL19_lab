@@ -1,16 +1,20 @@
-import './addnavigationBlocks.css'
-import classNames from 'classnames';
+import styles from  './addnavigationBlocks.module.scss'
+import PropTypes from 'prop-types';
 
 function AddNavigationBlocks(props){
-    const divclasses=classNames('benefitBox', props.className)
-    return(
-      <div className='boxImgWraper'>
-        <div className={divclasses}>
-          <img src={props.imgname}  alt="benefit" />        
-        </div>
-        <button className="btn">{props.text}</button>
+  return(
+    <div className='boxImgWraper'>
+      <div className={`${styles.benefitBox} ${styles[props.className]}`}>
+        <img src={props.imgname}  alt="benefit" />       
       </div>
-    )
-  }
+      <button className={styles.btn}>{props.text}</button>
+    </div>
+  )
+}
+
+AddNavigationBlocks.propTypes = {
+  className: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default AddNavigationBlocks
