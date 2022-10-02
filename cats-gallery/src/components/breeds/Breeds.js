@@ -4,7 +4,7 @@ import Vector6 from '../img/ab.png'
 import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
 import Loader from '../Loader/Loader';
-import SearchImg from '../voteSearchImg/SearchImg.js'
+import SearchImg from '../searchImg/SearchImg.js'
 
 function Breeds(){
     return(

@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import styles from './voting.module.scss'
 import SearchImg from '../searchImg/SearchImg.js'
-import {RecordReaction} from '../voteRecordReaction/RecordReaction.js'
-import GetPhoto from '../voteGetPhoto/GetPhoto'
+import {ReactionsPanel} from '../voteReactionsPanel/ReactionsPanel.js'
+import LoaderPhoto from '../voteLoaderPhoto/LoaderPhoto'
 
 
 function Voting(){
+    const h=useRef([5]);
     const history=[]
     return(
         <div className={styles.voting}>
@@ -16,9 +17,9 @@ function Voting(){
                     <p className={styles.vote}>BREEDS</p>
                 </div>
                 
-                <GetPhoto history={history}/>                
+                <LoaderPhoto ref={h} history={history}/>                
                 
-                <RecordReaction history={history}/>                
+                <ReactionsPanel history={history}/>                
             </div>
         </div>
     )

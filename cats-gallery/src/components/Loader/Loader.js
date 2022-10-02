@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 
  function Loader(props){
-    const [data, setData] = useState(null);    
-
+    const [data, setData] = useState(null);   
+    
     useEffect(() => {
         fetch(CATS_URL)
         .then((response) => response.json())

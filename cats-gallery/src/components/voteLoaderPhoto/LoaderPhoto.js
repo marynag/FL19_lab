@@ -5,8 +5,9 @@ import { CATS_URL } from '../constants';
 import PropTypes from 'prop-types';
 
 
-export default function GetPhoto(props){
+export default function LoaderPhoto(props){
     const history=props.history
+    console.log(props.ref)
 
     const [data, setData] = useState(null);          
 
@@ -24,6 +25,6 @@ export default function GetPhoto(props){
         )
 }
 
-GetPhoto.propTypes = {
+LoaderPhoto.propTypes = {
     history: PropTypes.array
   };
