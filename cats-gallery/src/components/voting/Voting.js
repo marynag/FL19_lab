@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styles from './voting.module.scss'
 import SearchImg from '../searchImg/SearchImg.js'
 import {ReactionsPanel} from '../voteReactionsPanel/ReactionsPanel.js'
@@ -6,7 +6,6 @@ import LoaderPhoto from '../voteLoaderPhoto/LoaderPhoto'
 
 
 function Voting(){
-    const h=useRef([5]);
     const history=[]
     return(
         <div className={styles.voting}>
