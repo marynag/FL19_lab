@@ -1,4 +1,4 @@
-import LINES from './constants'
+import {WIN_LINES} from './constants'
 
 export default function Square(props) {
     return (
@@ -9,15 +9,26 @@ export default function Square(props) {
   }
 
 export function calculateWinner(squares) {  
-  let result=''
-    LINES.find((element, index)=>{
-    const [a, b, c] = LINES[index];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      result=squares[a]
-      return true;
-    }
-    return false;
-   })
-   return result
+  const winLine = WIN_LINES.find(line => {
+    const [a, b, c] = line;
+    return squares[a] && squares[a] === squares[b] && squares[a] === squares[c]
+ });
 
+ if(!winLine) return winLine;
+
+ const winLineIndex = winLine[0]; 
+ return squares[winLineIndex];
+}
+
+
+export function splitGameSquares(items, size) {  
+  const groupedSquares = []
+
+  while (items.length) {
+    groupedSquares.push(
+      items.splice(0, size)
+    )
+  }
+
+  return groupedSquares
 }

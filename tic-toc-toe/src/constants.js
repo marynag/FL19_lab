@@ -1,6 +1,6 @@
 export const MAX_HISTORY_LENGTH = 10
 
-const LINES = [
+export const WIN_LINES  = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -11,7 +11,8 @@ const LINES = [
     [2, 4, 6]
   ];
 
-export const x='X'
+export const PLAYER_X='X'
+export const PLAYER_O='O'
 
 export const o='O'
 
@@ -20,9 +21,10 @@ export const groupedSquares=[[0,1,2],
                              [6,7,8]]
 
 export const NEXT_PLAYER = {
-  X: "Y",
-  Y: "X"
+  [PLAYER_X]: PLAYER_O,
+
+  [PLAYER_O]: PLAYER_X
 }
 
-export default LINES
+
 

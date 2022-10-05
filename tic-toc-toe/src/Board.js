@@ -1,26 +1,30 @@
 import React from 'react';
 import Square from './game.utils';
-//import groupedSquares from './constants'
+import {splitGameSquares} from './game.utils'
 
-class Board extends React.PureComponent {    
+
+class Board extends React.PureComponent {
       
     render() {
-      const groupedSquares=[[0,1,2],
-                            [3,4,5],
-                            [6,7,8]]
-      
-      return (
-        
+      const squaresArray=this.props.squares     
+      let squares =[]
+        for(let i=0;i<squaresArray.length;i++){         
+          squares.push(i)          
+        }      
+
+      const groupedSquares=splitGameSquares(squares, squaresArray.length**(1/2))
+
+      return (    
         <div>
-          <div>
-          { groupedSquares.map(row => (            
-          <div className = "board-row" >
+
+          { groupedSquares.map((row, index) => (            
+          <div key={index} className = "board-row" >
               {row.map(square => 
-              <Square key={square} value={this.props.squares[square]} onClick={() => this.props.onClick(square)}/>)}
+              <Square key={square} value={this.props.squares[square]} onClick={() => this.props.onClick?.(square)}/>)}
           </div> 
 
 ))}
-</div>
+
 
 </div>
       );

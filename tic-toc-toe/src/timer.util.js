@@ -1,4 +1,4 @@
-import { MAX_HISTORY_LENGTH } from './constants';
+import {NEXT_PLAYER} from './constants';
 
 
 export default function convertTime(duration){
@@ -15,13 +15,13 @@ export default function convertTime(duration){
     return {hours, minutes, seconds}
 };
 
-export function getGameStatus(isGameEnded, winner, xIsNext){
-    let displayStatus;    
-
-    if (isGameEnded) {
-        displayStatus = winner ? "Winner: "+ winner : "Draw";
-      } else {        
-          displayStatus = "Next player: " + (xIsNext ? "X" : "O")          
-      }
-    return displayStatus
+export function getGameStatus(isGameEnded, winner, currentPlayer){
+    if(isGameEnded) {
+       return  winner 
+           ? `Winner: ${winner}` 
+           : "Draw";
+    }
+ 
+   const nextPlayer = NEXT_PLAYER[currentPlayer]
+   return `Next player: ${nextPlayer}`
 }

@@ -4,9 +4,8 @@ import Timer from './timer.js'
 import { getGameStatus } from './timer.util';
 import Board from './Board';
 import { calculateWinner } from './game.utils';
-import { x, o } from './constants'
-import { MAX_HISTORY_LENGTH } from './constants';
- 
+import { PLAYER_X, NEXT_PLAYER, MAX_HISTORY_LENGTH } from './constants'
+
 
 export class Game extends React.Component {
   constructor(props) {
@@ -14,26 +13,25 @@ export class Game extends React.Component {
     this.state = {
       history: [
         {
-          squares: Array(9).fill()
+          squares: Array(9).fill(undefined)
         }
       ],
       isStepNumber: 0,
-      xIsNext: true,
-      stepNumber: 1,
-      currentPlayer: x
+      currentPlayer:PLAYER_X    
     };
+    this.handleClick=this.handleClick.bind(this)
   }
   
 
   shouldComponentUpdate(nextState) {
-    return (this.state.isStepNumber !== nextState.isStepNumber && this.state.xIsNext !== nextState.xIsNext);
+    return (this.state.isStepNumber !== nextState.isStepNumber && this.state.currentPlayer !== nextState.currentPlayer);
   }
 
-  handleClick(i) {
+  handleClick(index) {
     const history = this.state.history.slice(0, this.state.isStepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-    squares[i] = this.state.xIsNext ? x : o;
+    squares[index] = this.state.currentPlayer 
     this.setState({
       history: history.concat([
         {
@@ -41,14 +39,14 @@ export class Game extends React.Component {
         }
       ]),
       isStepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      currentPlayer: NEXT_PLAYER[this.state.currentPlayer]
     });
   }
 
   jumpTo(step) {
     this.setState({
       isStepNumber: step,
-      xIsNext: !(step % 2)
+      currentPlayer: !(step % 2)
     });
   }
   render() {   
@@ -62,14 +60,12 @@ export class Game extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <div key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </div>
+          <button key={move} onClick={() => this.jumpTo(move)}>{desc}</button>
       );
     });
 
     const isGameEnded = winner || history.length===MAX_HISTORY_LENGTH;  
-    const displayStatus = getGameStatus(isGameEnded, winner, this.state.xIsNext)
+    const displayStatus = getGameStatus(isGameEnded, winner, this.state.currentPlayer)
 
     return ( 
       <>
@@ -77,12 +73,12 @@ export class Game extends React.Component {
         <div className="game-board">
           <Board
             squares={current.squares}
-            onClick={event => winner ? null : this.handleClick(event) }
+            onClick={winner ? null : this.handleClick}
           />
         </div>
         <div className="game-info">
           <div>{displayStatus}</div>
-          <ol>{moves}</ol>
+          <div>{moves}</div>
         </div>
       </div>
       <Timer isGameFinished={isGameEnded}/>
