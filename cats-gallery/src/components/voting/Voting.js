@@ -6,7 +6,8 @@ import LoaderPhoto from '../voteLoaderPhoto/LoaderPhoto'
 
 
 function Voting(){
-    const history=[]
+    const history =[]
+
     return(
         <div className={styles.voting}>
             <SearchImg/>
@@ -16,7 +17,7 @@ function Voting(){
                     <p className={styles.vote}>BREEDS</p>
                 </div>
                 
-                <LoaderPhoto ref={h} history={history}/>                
+                <LoaderPhoto  history={history}/>                
                 
                 <ReactionsPanel history={history}/>                
             </div>

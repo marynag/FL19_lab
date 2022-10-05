@@ -21,13 +21,13 @@ export  function ReactionsPanel (props) {
             <div className={styles.currentReactionBlockWrapper}>          
               
               {REACTIONS.map(reaction => <div key={reaction.text} className={`${styles.currentReaction} ${reaction.className}`} onClick={() =>  handleReactionClick(reaction.text)}>
-                                                    <img src={reaction.img} alt="reaction"  className={styles.mainLike} key={reaction.text}/>
+                                                    <img src={reaction.img} alt="reaction"  className={styles.mainLike} />
                                                 </div>)}
 
              </div>
         </div>   
-        { Object.entries(reactions).map(current=>(<div key={current[0]}>   
-          <RecordReaction time={current[1]} text={current[0]}  icon={reactionsMap[current[0]]} history={history}/></div>))}  
+        { Object.entries(reactions).map(current=>(<div>   
+          <RecordReaction time={current[1]} text={current[0]} key={current[0]} icon={reactionsMap[current[0]]} history={history}/></div>))}  
     </div>
     
   );
