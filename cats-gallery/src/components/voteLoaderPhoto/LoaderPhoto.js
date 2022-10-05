@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 export default function LoaderPhoto(props){
     const history=props.history
-    console.log(props.ref)
 
     const [data, setData] = useState(null);          
 

@@ -26,7 +26,7 @@ export  function ReactionsPanel (props) {
 
              </div>
         </div>   
-        { Object.entries(reactions).map(current=>(<div>   
+        { Object.entries(reactions).map(current=>(<div key={current[0]}>   
           <RecordReaction time={current[1]} text={current[0]} key={current[0]} icon={reactionsMap[current[0]]} history={history}/></div>))}  
     </div>
     

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import styles from './voting.module.scss'
 import SearchImg from '../searchImg/SearchImg.js'
 import {ReactionsPanel} from '../voteReactionsPanel/ReactionsPanel.js'
@@ -6,7 +6,11 @@ import LoaderPhoto from '../voteLoaderPhoto/LoaderPhoto'
 
 
 function Voting(){
-    const history =[]
+    const [history, setHistory] = useState([])
+
+    const historyStorage = useRef([])
+
+    historyStorage.current.push(1)
 
     return(
         <div className={styles.voting}>
@@ -17,9 +21,9 @@ function Voting(){
                     <p className={styles.vote}>BREEDS</p>
                 </div>
                 
-                <LoaderPhoto  history={history}/>                
+                <LoaderPhoto  history={historyStorage.current}/>                
                 
-                <ReactionsPanel history={history}/>                
+                <ReactionsPanel history={historyStorage.current}/>                
             </div>
         </div>
     )
