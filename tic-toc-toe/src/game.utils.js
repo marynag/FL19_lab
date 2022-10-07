@@ -21,7 +21,8 @@ export function calculateWinner(squares) {
 }
 
 
-export function splitGameSquares(items, size) {  
+export function splitGameSquares(items) {  
+  const size=items.length**(1/2)
   const groupedSquares = []
 
   while (items.length) {

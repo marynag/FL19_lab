@@ -13,10 +13,10 @@ export class Game extends React.Component {
     this.state = {
       history: [
         {
-          squares: Array(9).fill(undefined)
+          squares: Array(9)
         }
       ],
-      isStepNumber: 0,
+      stepNumber: 0,
       currentPlayer:PLAYER_X    
     };
     this.handleClick=this.handleClick.bind(this)
@@ -24,11 +24,11 @@ export class Game extends React.Component {
   
 
   shouldComponentUpdate(nextState) {
-    return (this.state.isStepNumber !== nextState.isStepNumber && this.state.currentPlayer !== nextState.currentPlayer);
+    return (this.state.stepNumber !== nextState.stepNumber && this.state.currentPlayer !== nextState.currentPlayer);
   }
 
   handleClick(index) {
-    const history = this.state.history.slice(0, this.state.isStepNumber + 1);
+    const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     squares[index] = this.state.currentPlayer 
@@ -38,22 +38,24 @@ export class Game extends React.Component {
           squares: squares
         }
       ]),
-      isStepNumber: history.length,
+      stepNumber: history.length,
       currentPlayer: NEXT_PLAYER[this.state.currentPlayer]
     });
   }
 
   jumpTo(step) {
     this.setState({
-      isStepNumber: step,
-      currentPlayer: !(step % 2)
+      stepNumber: step,
     });
   }
   render() {   
 
     const history = this.state.history;
-    const current = history[this.state.isStepNumber];
+    console.log(history)
+    const current = history[this.state.stepNumber];
+    console.log(current)
     const winner = calculateWinner(current.squares);
+    console.log(winner)
 
     const moves = history.map((step, move) => {
       const desc = move ?

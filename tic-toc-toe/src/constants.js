@@ -14,12 +14,6 @@ export const WIN_LINES  = [
 export const PLAYER_X='X'
 export const PLAYER_O='O'
 
-export const o='O'
-
-export const groupedSquares=[[0,1,2],
-                             [3,4,5],
-                             [6,7,8]]
-
 export const NEXT_PLAYER = {
   [PLAYER_X]: PLAYER_O,
 

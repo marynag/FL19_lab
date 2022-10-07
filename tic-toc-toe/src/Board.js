@@ -6,21 +6,22 @@ import {splitGameSquares} from './game.utils'
 class Board extends React.PureComponent {
       
     render() {
-      const squaresArray=this.props.squares     
+      const squaresValue=this.props.squares        
+
       let squares =[]
-        for(let i=0;i<squaresArray.length;i++){         
+        for(let i=0;i<squaresValue.length;i++){         
           squares.push(i)          
         }      
 
-      const groupedSquares=splitGameSquares(squares, squaresArray.length**(1/2))
+      const groupedSquares=splitGameSquares(squares)
 
       return (    
         <div>
 
           { groupedSquares.map((row, index) => (            
           <div key={index} className = "board-row" >
-              {row.map(square => 
-              <Square key={square} value={this.props.squares[square]} onClick={() => this.props.onClick?.(square)}/>)}
+              {row.map(square => (
+              <Square key={square} value={this.props.squares[square]} onClick={() => this.props.onClick?.(square)}/>))}
           </div> 
 
 ))}
