@@ -9,8 +9,10 @@ export default function Square(props) {
   }
 
 export function calculateWinner(squares) {  
+
+  console.log({squares})
   const winLine = WIN_LINES.find(line => {
-    const [a, b, c] = line;
+    const [a, b, c] = line;   
     return squares[a] && squares[a] === squares[b] && squares[a] === squares[c]
  });
 

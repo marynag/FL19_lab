@@ -11,11 +11,7 @@ export class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      history: [
-        {
-          squares: Array(9)
-        }
-      ],
+      history: [Array(9)],
       stepNumber: 0,
       currentPlayer:PLAYER_X    
     };
@@ -29,18 +25,20 @@ export class Game extends React.Component {
 
   handleClick(index) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    //const history = this.state.history;   
+
     const current = history[history.length - 1];
-    const squares = current.squares.slice();
+    const squares = [...current]
     squares[index] = this.state.currentPlayer 
+    console.log('history concat',history.concat([squares ]))
+
+
     this.setState({
-      history: history.concat([
-        {
-          squares: squares
-        }
-      ]),
+      history: history.concat([squares]),
       stepNumber: history.length,
       currentPlayer: NEXT_PLAYER[this.state.currentPlayer]
     });
+    
   }
 
   jumpTo(step) {
@@ -49,13 +47,10 @@ export class Game extends React.Component {
     });
   }
   render() {   
-
     const history = this.state.history;
-    console.log(history)
     const current = history[this.state.stepNumber];
-    console.log(current)
-    const winner = calculateWinner(current.squares);
-    console.log(winner)
+    const winner = calculateWinner(current);
+
 
     const moves = history.map((step, move) => {
       const desc = move ?
@@ -74,7 +69,7 @@ export class Game extends React.Component {
       <div className="game">
         <div className="game-board">
           <Board
-            squares={current.squares}
+            squares={current}
             onClick={winner ? null : this.handleClick}
           />
         </div>
