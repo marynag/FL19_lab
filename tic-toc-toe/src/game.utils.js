@@ -9,8 +9,6 @@ export default function Square(props) {
   }
 
 export function calculateWinner(squares) {  
-
-  console.log({squares})
   const winLine = WIN_LINES.find(line => {
     const [a, b, c] = line;   
     return squares[a] && squares[a] === squares[b] && squares[a] === squares[c]
@@ -23,15 +21,28 @@ export function calculateWinner(squares) {
 }
 
 
-export function splitGameSquares(items) {  
-  const size=items.length**(1/2)
+export function splitGameSquares(squaresValue) {
+    const size = squaresValue.length**(1/2);
+
+    let squares =[]
+    for(let i=0;i<squaresValue.length;i++){
+        squares.push(i)
+    }
+
   const groupedSquares = []
 
-  while (items.length) {
+  while (squares.length) {
     groupedSquares.push(
-      items.splice(0, size)
+      squares.splice(0, size)
     )
   }
 
   return groupedSquares
+}
+
+export function getTitle(move){
+  const title = move ?
+  'Go to move #' + move :
+  'Go to game start';
+  return title
 }

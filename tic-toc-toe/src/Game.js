@@ -3,7 +3,7 @@ import './index.css';
 import Timer from './timer.js'
 import { getGameStatus } from './timer.util';
 import Board from './Board';
-import { calculateWinner } from './game.utils';
+import { calculateWinner, getTitle } from './game.utils';
 import { PLAYER_X, NEXT_PLAYER, MAX_HISTORY_LENGTH } from './constants'
 
 
@@ -24,14 +24,11 @@ export class Game extends React.Component {
   }
 
   handleClick(index) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    //const history = this.state.history;   
+    const history = this.state.history.slice(0, this.state.stepNumber + 1);   
 
     const current = history[history.length - 1];
     const squares = [...current]
     squares[index] = this.state.currentPlayer 
-    console.log('history concat',history.concat([squares ]))
-
 
     this.setState({
       history: history.concat([squares]),
@@ -46,18 +43,17 @@ export class Game extends React.Component {
       stepNumber: step,
     });
   }
+
   render() {   
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current);
 
-
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
       return (
-          <button key={move} onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button key={move} onClick={() => this.jumpTo(move)}>
+            {getTitle(move)}
+            </button>
       );
     });
 
