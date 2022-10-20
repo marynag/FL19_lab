@@ -8,12 +8,12 @@ class Board extends React.PureComponent {
     render() {
       const squaresValue=this.props.squares 
 
-      const groupedSquares=splitGameSquares(squaresValue)
+      const groupedIndex=splitGameSquares(squaresValue)
       
       return (    
         <div>
 
-          { groupedSquares.map((row, groupIndex) => (            
+          { groupedIndex.map((row, groupIndex) => (            
           <div key={groupIndex} className = "board-row" >
               {row.map((square) => (
               <Square key={square} 

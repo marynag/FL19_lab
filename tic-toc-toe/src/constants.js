@@ -1,4 +1,5 @@
-export const MAX_HISTORY_LENGTH = 10
+const SQURES_AMOUNT = 9
+export const MAX_HISTORY_LENGTH = SQURES_AMOUNT+1
 
 export const WIN_LINES  = [
     [0, 1, 2],

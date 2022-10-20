@@ -22,27 +22,22 @@ export function calculateWinner(squares) {
 
 
 export function splitGameSquares(squaresValue) {
-    const size = squaresValue.length**(1/2);
+  const size = squaresValue.length**(1/2);
 
-    let squares =[]
-    for(let i=0;i<squaresValue.length;i++){
-        squares.push(i)
-    }
+  const indeces = squaresValue.map((current, index) => index);
 
-  const groupedSquares = []
+  const groupedIndeces = []
 
-  while (squares.length) {
-    groupedSquares.push(
-      squares.splice(0, size)
-    )
+  while (indeces.length) {
+    const group = indeces.splice(0, size);
+    groupedIndeces.push(group);
   }
 
-  return groupedSquares
+  return groupedIndeces
 }
 
 export function getTitle(move){
-  const title = move ?
+  return move ?
   'Go to move #' + move :
   'Go to game start';
-  return title
 }

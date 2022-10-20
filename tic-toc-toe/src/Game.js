@@ -4,14 +4,14 @@ import Timer from './timer.js'
 import { getGameStatus } from './timer.util';
 import Board from './Board';
 import { calculateWinner, getTitle } from './game.utils';
-import { PLAYER_X, NEXT_PLAYER, MAX_HISTORY_LENGTH } from './constants'
+import { PLAYER_X, NEXT_PLAYER, MAX_HISTORY_LENGTH} from './constants'
 
 
 export class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      history: [Array(9)],
+      history: [Array(9).fill(undefined)],
       stepNumber: 0,
       currentPlayer:PLAYER_X    
     };
@@ -41,6 +41,7 @@ export class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
+      currentPlayer: !(step % 2)
     });
   }
 
