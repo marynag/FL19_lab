@@ -1,6 +1,3 @@
-import { MAX_HISTORY_LENGTH } from './constants';
-
-
 export default function convertTime(duration){
     const MINUTE_SECONDS = 60;
     const HOUR_SECONDS  = MINUTE_SECONDS * 60;    
@@ -14,16 +11,3 @@ export default function convertTime(duration){
 
     return {hours, minutes, seconds}
 };
-
-export function getGameStatus(history, winner, xIsNext){
-    let displayStatus;
-
-    const isGameEnded = winner || history.length===MAX_HISTORY_LENGTH;    
-
-    if (isGameEnded) {
-        displayStatus = winner ? "Winner: "+ winner : "Draw";
-      } else {        
-          displayStatus = "Next player: " + (xIsNext ? "X" : "O")          
-      }
-    return {isGameEnded, displayStatus}
-}
