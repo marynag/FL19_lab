@@ -3,10 +3,9 @@ import Vector5 from '../img/ba.png'
 import Vector6 from '../img/ab.png'
 import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
-import Loader from '../Loader/Loader';
-import SearchImg from '../voteSearchImg/SearchImg.js'
+import {Loader, SearchImg} from '../index';
 
-function Breeds(){
+export const Breeds = () => {
     return(
         <div className={styles.breeds}>
             <SearchImg/>
@@ -32,6 +31,3 @@ function Breeds(){
     </div>
     )
 }
-
-
-export default Breeds

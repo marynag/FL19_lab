@@ -1,11 +1,8 @@
 import React from 'react';
 import styles from './voting.module.scss'
-import SearchImg from '../searchImg/SearchImg.js'
-import {RecordReaction} from '../voteRecordReaction/RecordReaction.js'
-import GetPhoto from '../voteGetPhoto/GetPhoto'
+import {SearchImg, RecordReaction, GetPhoto} from '../index'
 
-
-function Voting(){
+export const Voting = () => {
     const history=[]
     return(
         <div className={styles.voting}>
@@ -25,4 +22,3 @@ function Voting(){
 }
 
 
-export default Voting

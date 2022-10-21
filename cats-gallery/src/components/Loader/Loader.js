@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { CATS_URL } from '../constants';
-import styles from './Loader.module.scss'
+import styles from './loader.module.scss'
 import PropTypes from 'prop-types';
 
 
- function Loader(props){
+export const Loader = (props) => {
     const [data, setData] = useState(null);    
 
     useEffect(() => {
@@ -23,5 +23,3 @@ import PropTypes from 'prop-types';
 Loader.propTypes = {
     addClass: PropTypes.string
   };
-
-export default Loader

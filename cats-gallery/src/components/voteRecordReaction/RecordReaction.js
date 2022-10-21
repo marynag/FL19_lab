@@ -2,7 +2,7 @@ import styles from '../voting/voting.module.scss'
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import REACTIONS, {reactionsMap} from './recordReaction.constants'
-import AddReaction from '../voteAddReaction/AddReaction';
+import {AddReaction} from '../index';
 import { getTime } from '../voting/voting.utils';
 
 

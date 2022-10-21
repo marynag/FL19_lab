@@ -5,7 +5,7 @@ import { CATS_URL } from '../constants';
 import PropTypes from 'prop-types';
 
 
-export default function GetPhoto(props){
+export const GetPhoto = (props) => {
     const history=props.history
 
     const [data, setData] = useState(null);          

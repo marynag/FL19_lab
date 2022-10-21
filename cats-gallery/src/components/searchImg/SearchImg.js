@@ -4,7 +4,7 @@ import Vector3 from '../img/Vector 348 (Stroke).png'
 import Vector4 from '../img/Vector (Stroke) (1).png'
 import styles from './searchImg.module.scss'
 
-function SearchImg(){
+export const SearchImg = () => {
     return(
         <div className={styles.searchingLine}>
                 <div className={styles.search}>
@@ -17,5 +17,3 @@ function SearchImg(){
         </div> 
     )
 }
-
-export default SearchImg
