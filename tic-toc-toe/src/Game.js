@@ -41,7 +41,6 @@ export class Game extends React.Component {
   }
 
   jumpTo(step) {
-    console.log(step % 2)
     this.setState({
       stepNumber: step,
       currentPlayer: (step % 2) ? 'O' : 'X'
