@@ -1,4 +1,4 @@
-import {WIN_LINES} from './constants'
+import {WIN_LINES, NEXT_PLAYER} from './constants'
 
 export default function Square(props) {
     return (
@@ -40,4 +40,15 @@ export function getTitle(move){
   return move ?
   'Go to move #' + move :
   'Go to game start';
+}
+
+export function getGameStatus(isGameEnded, winner, currentPlayer){
+  if(isGameEnded) {
+     return  winner 
+         ? `Winner: ${winner}` 
+         : "Draw";
+  }
+
+ const nextPlayer = NEXT_PLAYER[currentPlayer]
+ return `Next player: ${nextPlayer}`
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
 import Timer from './timer.js'
-import { getGameStatus } from './timer.util';
+import { getGameStatus } from './game.utils';
 import Board from './Board';
 import { calculateWinner, getTitle } from './game.utils';
-import { PLAYER_X, NEXT_PLAYER, MAX_HISTORY_LENGTH} from './constants'
+import { PLAYER_X, MAX_HISTORY_LENGTH, PLAYER_ORDER} from './constants'
 
 
 export class Game extends React.Component {
@@ -24,39 +24,34 @@ export class Game extends React.Component {
   }
 
   handleClick(index) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);   
+    const {currentPlayer, stepNumber} = this.state;
+
+    const history = this.state.history.slice(0, stepNumber + 1);   
 
     const current = history[history.length - 1];
     const squares = [...current]
-    squares[index] = this.state.currentPlayer 
+    squares[index] = currentPlayer
 
     this.setState({
       history: history.concat([squares]),
       stepNumber: history.length,
-      currentPlayer: NEXT_PLAYER[this.state.currentPlayer]
+      currentPlayer: PLAYER_ORDER[stepNumber % 2]
     });
     
   }
 
   jumpTo(step) {
+    console.log(step % 2)
     this.setState({
       stepNumber: step,
-      currentPlayer: !(step % 2)
+      currentPlayer: (step % 2) ? 'O' : 'X'
     });
   }
 
   render() {   
     const history = this.state.history;
     const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current);
-
-    const moves = history.map((step, move) => {
-      return (
-          <button key={move} onClick={() => this.jumpTo(move)}>
-            {getTitle(move)}
-            </button>
-      );
-    });
+    const winner = calculateWinner(current);   
 
     const isGameEnded = winner || history.length===MAX_HISTORY_LENGTH;  
     const displayStatus = getGameStatus(isGameEnded, winner, this.state.currentPlayer)
@@ -72,7 +67,13 @@ export class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{displayStatus}</div>
-          <div>{moves}</div>
+          <div>
+            {history.map((step, move) => (
+              <button key={move} onClick={() => this.jumpTo(move)}>
+              {getTitle(move)}
+        </button>
+      ))}
+          </div>
         </div>
       </div>
       <Timer isGameFinished={isGameEnded}/>

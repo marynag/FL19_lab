@@ -1,6 +1,3 @@
-import {NEXT_PLAYER} from './constants';
-
-
 export default function convertTime(duration){
     const MINUTE_SECONDS = 60;
     const HOUR_SECONDS  = MINUTE_SECONDS * 60;    
@@ -14,14 +11,3 @@ export default function convertTime(duration){
 
     return {hours, minutes, seconds}
 };
-
-export function getGameStatus(isGameEnded, winner, currentPlayer){
-    if(isGameEnded) {
-       return  winner 
-           ? `Winner: ${winner}` 
-           : "Draw";
-    }
- 
-   const nextPlayer = NEXT_PLAYER[currentPlayer]
-   return `Next player: ${nextPlayer}`
-}

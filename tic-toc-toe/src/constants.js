@@ -1,5 +1,5 @@
-const SQURES_AMOUNT = 9
-export const MAX_HISTORY_LENGTH = SQURES_AMOUNT+1
+const SQUARES_AMOUNT = 9
+export const MAX_HISTORY_LENGTH = SQUARES_AMOUNT+1
 
 export const WIN_LINES  = [
     [0, 1, 2],
@@ -14,6 +14,7 @@ export const WIN_LINES  = [
 
 export const PLAYER_X='X'
 export const PLAYER_O='O'
+export const PLAYER_ORDER = [PLAYER_O, PLAYER_X];
 
 export const NEXT_PLAYER = {
   [PLAYER_X]: PLAYER_O,
