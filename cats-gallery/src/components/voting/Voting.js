@@ -1,11 +1,8 @@
 import React, {useRef, useState} from 'react';
 import styles from './voting.module.scss'
-import SearchImg from '../searchImg/SearchImg.js'
-import {ReactionsPanel} from '../voteReactionsPanel/ReactionsPanel.js'
-import LoaderPhoto from '../voteLoaderPhoto/LoaderPhoto'
+import {ReactionsPanel, LoaderPhoto, SearchImg} from '../index'
 
-
-function Voting(){
+export const Voting = () =>{
     const [history, setHistory] = useState([])
 
     const historyStorage = useRef([])
@@ -28,6 +25,3 @@ function Voting(){
         </div>
     )
 }
-
-
-export default Voting

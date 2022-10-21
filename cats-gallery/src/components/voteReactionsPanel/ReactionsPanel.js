@@ -2,11 +2,11 @@ import styles from '../voting/voting.module.scss'
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import REACTIONS, {reactionsMap} from './reactionsPanel.constants'
-import RecordReaction from '../voteRecordReaction/RecordReaction';
+import {RecordReaction} from '../index';
 import { getTime } from '../voting/voting.utils';
 
 
-export  function ReactionsPanel (props) {
+export  const ReactionsPanel  = (props) => {
   const history=props.history
 
   const [reactions, setReactions]=useState({}) 

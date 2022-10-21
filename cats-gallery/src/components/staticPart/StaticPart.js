@@ -2,10 +2,10 @@ import logo from '../img/Logo.png';
 import voteTable from '../img/vote-table.png';
 import petBreeds from '../img/pet-breeds.png';
 import imageSearch from '../img/images-search.png';
-import AddNavigationBlocks from '../addNvagationBlock/AddNavigationBlocks.js';
+import {AddNavigationBlocks} from '../index';
 import styles from './staticPart.module.scss';
 
-function StaticPart() {
+export const StaticPart = () =>{
   return (
     <div className={styles.header_sticky}>
             <img className={styles.logo} src={logo} alt="logo" />
@@ -22,4 +22,3 @@ function StaticPart() {
   );
 }
 
-export default StaticPart;

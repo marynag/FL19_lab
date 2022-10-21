@@ -2,9 +2,7 @@ import styles from '../voting/voting.module.scss'
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-
-export default function RecordReaction(props){
+export const RecordReaction = (props) => {
    
     const { history } = props;
     const { time } = props;
