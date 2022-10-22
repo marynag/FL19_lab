@@ -2,7 +2,7 @@ import styles from '../voting/voting.module.scss'
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const RecordReaction = (props) => {
+export const VoteReactionRecord = (props) => {
    
     const { history } = props;
     const { time } = props;
@@ -18,7 +18,7 @@ export const RecordReaction = (props) => {
   };
 
 
-RecordReaction.propTypes = {
+  VoteReactionRecord.propTypes = {
   history: PropTypes.array,
   icon: PropTypes.object,
   text: PropTypes.string

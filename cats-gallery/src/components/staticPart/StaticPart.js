@@ -2,7 +2,7 @@ import logo from '../img/Logo.png';
 import voteTable from '../img/vote-table.png';
 import petBreeds from '../img/pet-breeds.png';
 import imageSearch from '../img/images-search.png';
-import {AddNavigationBlocks} from '../index';
+import {AddNavigationBlocks} from '../addNvagationBlock/addNavigationBlocks';
 import styles from './staticPart.module.scss';
 
 export const StaticPart = () =>{

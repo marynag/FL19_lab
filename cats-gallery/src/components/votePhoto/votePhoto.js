@@ -5,7 +5,7 @@ import { CATS_URL } from '../constants';
 import PropTypes from 'prop-types';
 
 
-export const LoaderPhoto = (props) => {
+export const VotePhoto = (props) => {
     const history=props.history
 
     const [data, setData] = useState(null);          
@@ -24,6 +24,6 @@ export const LoaderPhoto = (props) => {
         )
 }
 
-LoaderPhoto.propTypes = {
+VotePhoto.propTypes = {
     history: PropTypes.array
   };

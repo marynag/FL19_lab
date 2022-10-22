@@ -1,9 +1,10 @@
 import React from 'react';
-import Vector5 from '../img/ba.png'
-import Vector6 from '../img/ab.png'
+import vector5 from '../img/ba.png'
+import vector6 from '../img/ab.png'
 import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
-import {Loader,SearchImg}  from '../index';
+import {SearchImg}  from '../searchImg/searchImg';
+import {Loader}  from '../loader/loader';
 
 
 export const Breeds = () => {
@@ -21,8 +22,8 @@ export const Breeds = () => {
                     <select className={`${styles.vote} ${styles.breedsLimit}`}>
                         {LIMITS.map(current => <option key={current}>Limit: {current}</option> )} 
                     </select>
-                    <div className={styles.sortImg}><img className={styles.sort} src={Vector5} alt="sort" /></div>
-                    <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={Vector6} alt="sort" /></div>
+                    <div className={styles.sortImg}><img className={styles.sort} src={vector5} alt="sort" /></div>
+                    <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={vector6} alt="sort" /></div>
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>

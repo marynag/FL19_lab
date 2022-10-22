@@ -1,12 +1,12 @@
 import styles from '../voting/voting.module.scss'
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import REACTIONS, {reactionsMap} from './reactionsPanel.constants'
-import {RecordReaction} from '../index';
+import REACTIONS, {reactionsMap} from './voteReactionsPanel.constants'
+import {VoteReactionRecord} from '../voteReactionRecord/voteReactionRecord';
 import { getTime } from '../voting/voting.utils';
 
 
-export  const ReactionsPanel  = (props) => {
+export  const VoteReactionsPanel  = (props) => {
   const history=props.history
 
   const [reactions, setReactions]=useState({}) 
@@ -27,14 +27,14 @@ export  const ReactionsPanel  = (props) => {
              </div>
         </div>   
         { Object.entries(reactions).map(current=>(<div key={current[0]}>   
-          <RecordReaction time={current[1]} text={current[0]} key={current[0]} icon={reactionsMap[current[0]]} history={history}/></div>))}  
+          <VoteReactionRecord time={current[1]} text={current[0]} key={current[0]} icon={reactionsMap[current[0]]} history={history}/></div>))}  
     </div>
     
   );
 };
 
 
-ReactionsPanel.propTypes = {
+VoteReactionsPanel.propTypes = {
   history: PropTypes.array
 };
 

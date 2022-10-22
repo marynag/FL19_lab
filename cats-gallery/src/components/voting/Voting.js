@@ -1,6 +1,9 @@
 import React, {useRef, useState} from 'react';
 import styles from './voting.module.scss'
-import {ReactionsPanel, LoaderPhoto, SearchImg} from '../index'
+import { VoteReactionsPanel } from '../voteReactionsPanel/voteReactionsPanel';
+import {VotePhoto } from '../votePhoto/votePhoto';
+import {SearchImg} from '../searchImg/searchImg'
+
 
 export const Voting = () =>{
     const [history, setHistory] = useState([])
@@ -18,9 +21,9 @@ export const Voting = () =>{
                     <p className={styles.vote}>BREEDS</p>
                 </div>
                 
-                <LoaderPhoto  history={historyStorage.current}/>                
+                <VotePhoto  history={historyStorage.current}/>                
                 
-                <ReactionsPanel history={historyStorage.current}/>                
+                <VoteReactionsPanel history={historyStorage.current}/>                
             </div>
         </div>
     )
