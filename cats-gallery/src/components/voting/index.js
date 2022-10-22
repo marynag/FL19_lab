@@ -1,1 +1,1 @@
-export * from '../voting/voting'
+export * from './voting'
