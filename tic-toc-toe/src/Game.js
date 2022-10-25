@@ -11,10 +11,10 @@ export class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      history: [Array(9).fill(undefined)],
       stepNumber: 0,
       currentPlayer:PLAYER_X    
     };
+    this.history=[Array(9).fill(undefined)]
     this.handleClick=this.handleClick.bind(this)
   }
   
@@ -26,14 +26,14 @@ export class Game extends React.Component {
   handleClick(index) {
     const {currentPlayer, stepNumber} = this.state;
 
-    const history = this.state.history.slice(0, stepNumber + 1);   
+    const history = this.history.slice(0, stepNumber + 1);   
 
     const current = history[history.length - 1];
     const squares = [...current]
     squares[index] = currentPlayer
+    this.history=history.concat([squares])
 
     this.setState({
-      history: history.concat([squares]),
       stepNumber: history.length,
       currentPlayer: PLAYER_ORDER[stepNumber % 2]
     });
@@ -45,10 +45,11 @@ export class Game extends React.Component {
       stepNumber: step,
       currentPlayer: (step % 2) ? 'O' : 'X'
     });
+    this.history=this.history.slice(0,step+1)
   }
 
   render() {   
-    const history = this.state.history;
+    const history = this.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current);   
 
