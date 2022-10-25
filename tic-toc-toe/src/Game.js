@@ -45,15 +45,14 @@ export class Game extends React.Component {
       stepNumber: step,
       currentPlayer: (step % 2) ? 'O' : 'X'
     });
-    this.history=this.history.slice(0,step+1)
+    this.history=this.history.splice(0,step+1)
   }
 
   render() {   
-    const history = this.history;
-    const current = history[this.state.stepNumber];
+    const current = this.history[this.state.stepNumber];
     const winner = calculateWinner(current);   
 
-    const isGameEnded = winner || history.length===MAX_HISTORY_LENGTH;  
+    const isGameEnded = winner || this.history.length===MAX_HISTORY_LENGTH;  
     const displayStatus = getGameStatus(isGameEnded, winner, this.state.currentPlayer)
 
     return ( 
@@ -68,7 +67,7 @@ export class Game extends React.Component {
         <div className="game-info">
           <div>{displayStatus}</div>
           <div>
-            {history.map((step, move) => (
+            {this.history.map((step, move) => (
               <button key={move} onClick={() => this.jumpTo(move)}>
               {getTitle(move)}
         </button>
