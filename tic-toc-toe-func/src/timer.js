@@ -1,47 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import convertTime from './timer.util'
 
-class Timer extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-     time:0
-    } 
-    this.setTimeInterval = this.setTimeInterval.bind(this)
-  }
+export const Timer = (props) =>{
+  const isGameFinished=props.isGameFinished
+  const [time, setTime] = useState(0);
 
-  setTimeInterval() {
-    this.timer = setInterval(() => this.setState({
-      time: this.state.time + 1
-    }), 1000)
-  }
-
-  componentDidMount() {
-    this.setTimeInterval()
-  } 
-
-  componentWillUnmount(){
-    clearInterval(this.timer)
-  }
-
-  componentDidUpdate(nextProps) {
-    if(this.props.isGameFinished){
-      clearInterval(this.timer)
+  useEffect(() =>{
+    let interval = null;
+    if(!isGameFinished){
+      interval = setInterval(() => {
+        setTime(time => time + 1);
+      }, 1000);
+    }else{
+      clearInterval(interval)
     }
-    return this.props.isGameFinished !== nextProps;
-  }
+    return () => clearInterval(interval);
+  }, [time]);
 
-  render() {       
-    const time=convertTime(this.state.time) 
-    return (
-      <div className='timer'>
-        <p>Timer:</p>
-        <p>{time.hours}:{time.minutes}:{time.seconds}</p>
-      </div>
-    )
-  }
+  const convertedTime=convertTime(time) 
+
+      return (
+        <div className='timer'>
+          <p>Timer:</p>
+          <p>{convertedTime.hours}:{convertedTime.minutes}:{convertedTime.seconds}</p>
+        </div>
+      )
 }
-
-
-export default Timer
-
+ 
