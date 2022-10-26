@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import Timer from './timer.js'
 import { getGameStatus } from './game.utils';
-import Board from './Board';
+import {Board} from './Board';
 import { calculateWinner, getTitle } from './game.utils';
 import { PLAYER_X, MAX_HISTORY_LENGTH, PLAYER_ORDER} from './constants'
 
