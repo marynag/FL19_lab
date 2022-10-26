@@ -45,7 +45,7 @@ export class Game extends React.Component {
       stepNumber: step,
       currentPlayer: (step % 2) ? 'O' : 'X'
     });
-    this.history=this.history.splice(0,step+1)
+    this.history.slice(0,step+1)
   }
 
   render() {   
