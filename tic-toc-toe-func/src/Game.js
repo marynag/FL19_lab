@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import './index.css';
 import {Timer} from './timer.js'
 import { getGameStatus } from './game.utils';
@@ -6,69 +6,60 @@ import {Board} from './Board';
 import { calculateWinner, getTitle } from './game.utils';
 import { PLAYER_X, MAX_HISTORY_LENGTH, PLAYER_ORDER} from './constants'
 
-
-export class Game extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stepNumber: 0,
-      currentPlayer:PLAYER_X    
-    };
-    this.history=[Array(9).fill(undefined)]
-    this.handleClick=this.handleClick.bind(this)
-  }
+export const Game = () =>{
   
+  const [stepNumber, setStepNumber] = useState(0)
+  const [currentPlayer, setCurrentPlayer] = useState(PLAYER_X)
 
-  shouldComponentUpdate(nextState) {
-    return (this.state.stepNumber !== nextState.stepNumber && this.state.currentPlayer !== nextState.currentPlayer);
-  }
+  const historyStorage = useRef([Array(9).fill(undefined)])
 
-  handleClick(index) {
-    const {currentPlayer, stepNumber} = this.state;
+  console.log('historyStorage')
+  console.log(historyStorage.current)
 
-    const history = this.history.slice(0, stepNumber + 1);   
+  
+  const current = historyStorage.current[stepNumber];
 
-    const current = history[history.length - 1];
+  const winner = calculateWinner(current);   
+
+  const isGameEnded = winner || historyStorage.current.length===MAX_HISTORY_LENGTH;  
+  const displayStatus = getGameStatus(isGameEnded, winner, currentPlayer)
+  
+  const handle = (index) =>{
+    const historyTemp = historyStorage.current.slice(0, stepNumber + 1); 
+
+    const current = historyStorage.current[historyStorage.current.length - 1];
+
     const squares = [...current]
     squares[index] = currentPlayer
-    this.history=history.concat([squares])
 
-    this.setState({
-      stepNumber: history.length,
-      currentPlayer: PLAYER_ORDER[stepNumber % 2]
-    });
-    
+
+    historyStorage.current= historyTemp.concat([squares])
+
+    setCurrentPlayer( PLAYER_ORDER[stepNumber % 2])
+    setStepNumber(historyStorage.current.length-1)
+  } 
+
+  const jumpTo = (step)=> {    
+    setStepNumber(step)
+    setCurrentPlayer((step % 2) ? 'O' : 'X')
+
+    historyStorage.current=historyStorage.current.slice(0,step+1)
   }
-
-  jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      currentPlayer: (step % 2) ? 'O' : 'X'
-    });
-    this.history.slice(0,step+1)
-  }
-
-  render() {   
-    const current = this.history[this.state.stepNumber];
-    const winner = calculateWinner(current);   
-
-    const isGameEnded = winner || this.history.length===MAX_HISTORY_LENGTH;  
-    const displayStatus = getGameStatus(isGameEnded, winner, this.state.currentPlayer)
-
-    return ( 
-      <>
+  
+  return(
+    <>
       <div className="game">
         <div className="game-board">
           <Board
             squares={current}
-            onClick={winner ? null : this.handleClick}
+            onClick={(index) => winner ? null : handle(index) }
           />
         </div>
         <div className="game-info">
           <div>{displayStatus}</div>
           <div>
-            {this.history.map((step, move) => (
-              <button key={move} onClick={() => this.jumpTo(move)}>
+            {historyStorage.current.map((step, move) => (
+              <button key={move} onClick={() => jumpTo(move)}>
               {getTitle(move)}
         </button>
       ))}
@@ -77,11 +68,7 @@ export class Game extends React.Component {
       </div>
       <Timer isGameFinished={isGameEnded}/>
       </>
-    );
-  }
+  )
 }
-
-
-
 
 
