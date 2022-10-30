@@ -12,10 +12,6 @@ export const Game = () =>{
   const [currentPlayer, setCurrentPlayer] = useState(PLAYER_X)
 
   const historyStorage = useRef([Array(9).fill(undefined)])
-
-  console.log('historyStorage')
-  console.log(historyStorage.current)
-
   
   const current = historyStorage.current[stepNumber];
 
