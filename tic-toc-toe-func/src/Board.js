@@ -3,12 +3,12 @@ import Square from './game.utils';
 import {splitGameSquares} from './game.utils'
 
 export const Board = (props) =>{
-  const squaresValue=props.squares 
-  const groupedIndex=splitGameSquares(squaresValue)
+    const { squares } = props;
+  const groupedIndexes=splitGameSquares(squares)
   return (    
     <div>
 
-      { groupedIndex.map((row, groupIndex) => (            
+      { groupedIndexes.map((row, groupIndex) => (
       <div key={groupIndex} className = "board-row" >
           {row.map((square) => (
           <Square key={square} 

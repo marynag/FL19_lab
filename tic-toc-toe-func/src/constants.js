@@ -1,4 +1,4 @@
-const SQUARES_AMOUNT = 9
+export const SQUARES_AMOUNT = 9
 export const MAX_HISTORY_LENGTH = SQUARES_AMOUNT+1
 
 export const WIN_LINES  = [

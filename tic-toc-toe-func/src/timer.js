@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import convertTime from './timer.util'
 
 export const Timer = (props) =>{
-  const isGameFinished=props.isGameFinished
   const [time, setTime] = useState(0);
+
+  const {isGameFinished} = props;
 
   useEffect(() =>{
     let interval = null;
@@ -17,7 +18,7 @@ export const Timer = (props) =>{
     return () => clearInterval(interval);
   }, [time]);
 
-  const convertedTime=convertTime(time) 
+  const convertedTime=convertTime(time)
 
       return (
         <div className='timer'>
