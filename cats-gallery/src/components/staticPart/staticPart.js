@@ -2,7 +2,7 @@ import logo from '../img/Logo.png';
 import voteTable from '../img/vote-table.png';
 import petBreeds from '../img/pet-breeds.png';
 import imageSearch from '../img/images-search.png';
-import {AddNavigationBlocks} from '../addNvagationBlock/addNavigationBlocks';
+import {NavigationBlocks} from '../navigationBlock/navigationBlocks';
 import styles from './staticPart.module.scss';
 
 export const StaticPart = () =>{
@@ -13,9 +13,9 @@ export const StaticPart = () =>{
             <p className={styles.greeting}>Welcome to MI 2022 Front-end test</p>
             <p className={styles.start}>Lets start using The Cat API</p>
             <div className={styles.descriptionImg}>
-              <AddNavigationBlocks imgname={voteTable} className='benefitBox1' text='VOTING' btn='/voting'/>
-              <AddNavigationBlocks imgname={petBreeds} className='benefitBox2' text='BREEDS'  btn='breeds/'/>
-              <AddNavigationBlocks imgname={imageSearch} className='benefitBox3' text='GALLERY'  btn='/gallery'/>            
+              <NavigationBlocks imgname={petBreeds} className='benefitBox2' text='BREEDS'  btn='breeds/'/>
+              <NavigationBlocks imgname={imageSearch} className='benefitBox3' text='GALLERY'  btn='/gallery'/>
+              <NavigationBlocks imgname={voteTable} className='benefitBox1' text='VOTING' btn='/voting'/>
 
             </div>
         </div>

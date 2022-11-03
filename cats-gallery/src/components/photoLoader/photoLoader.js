@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { CATS_URL } from '../constants';
-import styles from './loader.module.scss'
+import styles from './photoLoader.module.scss'
 import PropTypes from 'prop-types';
 
 
-export const Loader = (props) => {
+export const PhotoLoader = (props) => {
     const [data, setData] = useState(null);   
     
     useEffect(() => {
@@ -20,6 +20,6 @@ export const Loader = (props) => {
         )
 }
 
-Loader.propTypes = {
+PhotoLoader.propTypes = {
     addClass: PropTypes.string
   };

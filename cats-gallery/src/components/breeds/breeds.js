@@ -4,7 +4,7 @@ import vector6 from '../img/ab.png'
 import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
 import {SearchImg}  from '../searchImg/searchImg';
-import {Loader}  from '../loader/loader';
+import {PhotoLoader}  from '../photoLoader/photoLoader';
 
 
 export const Breeds = () => {
@@ -27,7 +27,7 @@ export const Breeds = () => {
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>
-                {CLASSES_FOR_DIVS.map(current => <Loader addClass={current}/> )}               
+                {CLASSES_FOR_DIVS.map(current => <PhotoLoader addClass={current}/> )}
             </div>
         </div>           
     </div>
