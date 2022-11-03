@@ -1,14 +1,13 @@
 import React, {useRef, useState} from 'react';
-import './index.css';
-import {Timer} from './timer.js'
+import styles from './game.module.scss';
+import {Timer} from '../timer/timer.js'
 import { getGameStatus } from './game.utils';
-import {Board} from './Board';
+import {Board} from '../board/board';
 import { calculateWinner, getTitle } from './game.utils';
-import {PLAYER_X, MAX_HISTORY_LENGTH, PLAYER_ORDER, SQUARES_AMOUNT, PLAYER_O} from './constants'
+import {PLAYER_X, MAX_HISTORY_LENGTH, PLAYER_ORDER, SQUARES_AMOUNT, PLAYER_O} from '../constants'
 
 export const Game = () =>{
   const [game, setGame] = useState({ move: 0, player: PLAYER_X});
-
   const historyStorage = useRef([Array(SQUARES_AMOUNT).fill(undefined)])
 
   const current = historyStorage.current[game.move];
@@ -17,6 +16,7 @@ export const Game = () =>{
 
   const isGameEnded = winner || historyStorage.current.length===MAX_HISTORY_LENGTH;  
   const displayStatus = getGameStatus(isGameEnded, winner, game.player)
+
   
   const handleBoardClick = (squareIndex) =>{
     const history = historyStorage.current;
@@ -43,14 +43,14 @@ export const Game = () =>{
   
   return(
     <>
-      <div className="game">
-        <div className="game-board">
+      <div className={styles.game}>
+        <div className={styles.game_board}>
           <Board
             squares={current}
             onClick={(squareIndex) => winner ? null : handleBoardClick(squareIndex) }
           />
         </div>
-        <div className="game-info">
+        <div className={styles.game_info}>
           <div>{displayStatus}</div>
           <div>
             {historyStorage.current.map((step, move) => (

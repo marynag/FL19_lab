@@ -1,15 +1,15 @@
 import React from 'react';
-import Square from './game.utils';
-import {splitGameSquares} from './game.utils'
+import Square, {splitGameSquares} from './board.utils'
+import styles from './board.module.scss'
 
 export const Board = (props) =>{
-    const { squares } = props;
+  const { squares } = props;
   const groupedIndexes=splitGameSquares(squares)
   return (    
     <div>
 
       { groupedIndexes.map((row, groupIndex) => (
-      <div key={groupIndex} className = "board-row" >
+      <div key={groupIndex} className = {styles.board-row} >
           {row.map((square) => (
           <Square key={square} 
           value={props.squares[square]} 

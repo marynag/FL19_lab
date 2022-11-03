@@ -21,7 +21,7 @@ export const Timer = (props) =>{
   const convertedTime=convertTime(time)
 
       return (
-        <div className='timer'>
+        <div>
           <p>Timer:</p>
           <p>{convertedTime.hours}:{convertedTime.minutes}:{convertedTime.seconds}</p>
         </div>
