@@ -1,16 +1,12 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import styles from './voting.module.scss'
-import { VoteReactionsPanel } from '../voteReactionsPanel/voteReactionsPanel';
-import {VotePhoto } from '../votePhoto/votePhoto';
-import {SearchImg} from '../searchImg/searchImg'
+import { VoteReactionsPanel } from '../voteReactionsPanel';
+import {VotePhoto } from '../votePhoto';
+import {SearchImg} from '../searchImg'
 
 
 export const Voting = () =>{
-    const [history, setHistory] = useState([])
-
     const historyStorage = useRef([])
-
-    historyStorage.current.push(1)
 
     return(
         <div className={styles.voting}>
