@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import styles from './game.module.scss';
-import {Timer} from '../timer/timer.js'
+import {Timer} from '../timer'
 import { getGameStatus } from './game.utils';
-import {Board} from '../board/board';
+import {Board} from '../board';
 import { calculateWinner, getTitle } from './game.utils';
 import {PLAYER_X, MAX_HISTORY_LENGTH, PLAYER_ORDER, PLAYER_O} from '../constants'
 import {useHistory} from "./useHistory";
 
 export const Game = () =>{
-  const [game, setGame] = useState({ move: 0, player: PLAYER_X});
+  const [game, setGame] = useState({ move: 0, player: PLAYER_ORDER[0]});
 
   const history = useHistory();
 
@@ -25,28 +25,28 @@ export const Game = () =>{
 
     generatedRecord[squareIndex] = game.player
 
-    history.add(generatedRecord)
+    history.addMove(generatedRecord)
 
     const move = game.move+1;
-    const player = PLAYER_ORDER[game.move % 2];
+
+    const player = ((move % PLAYER_ORDER.length) ? PLAYER_O : PLAYER_X);
 
     setGame({ move, player });
   } 
 
-  const handleHistoryClick = (step)=> {
-    const move = step;
-    const player = ((step % 2) ? PLAYER_O : PLAYER_X);
+  const handleHistoryClick = (move)=> {
+    const player = PLAYER_ORDER[move % PLAYER_ORDER.length]
+    console.log((move % PLAYER_ORDER.length) ? PLAYER_O : PLAYER_X)
+    console.log(PLAYER_ORDER[move % PLAYER_ORDER.length])
 
-    history.slice(step)
+    history.backTo(move)
 
     setGame({ move, player });
-
   }
   
   return(
-    <>
-      <div className={styles.game}>
-        <div>
+    <div className={styles.game}>
+      <div>
           <Board
             squares={current}
             onClick={(squareIndex) => winner ? null : handleBoardClick(squareIndex) }
@@ -62,9 +62,9 @@ export const Game = () =>{
       ))}
           </div>
         </div>
-      </div>
+
       <Timer isGameFinished={isGameEnded}/>
-      </>
+    </div>
   )
 }
 

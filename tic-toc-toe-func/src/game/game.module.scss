@@ -1,6 +1,7 @@
 .game {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 .game_info {
@@ -9,4 +10,8 @@
 
 button{
     display: block;
+}
+
+.history{
+    background-color: #97EAB9;
 }

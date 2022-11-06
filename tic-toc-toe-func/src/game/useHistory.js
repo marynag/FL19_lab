@@ -8,15 +8,15 @@ export const useHistory = () => {
     const history = historyStorage.current;
     const records = historyStorage.current;
     const size = history.length;
-    const lastRecord = history[history.length - 1];
+    const lastRecord = records[size - 1];
 
-    const add = record => {
+    const addMove = record => {
         historyStorage.current = [...historyStorage.current, record];
     }
 
-    const slice = (step)=>{
+    const backTo = (step)=>{
         historyStorage.current = historyStorage.current.slice(0,step+1)
     }
 
-    return { records, size, lastRecord, add, slice};
+    return { records, size, lastRecord, addMove, backTo};
 }

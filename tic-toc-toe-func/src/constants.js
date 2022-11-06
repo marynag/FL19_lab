@@ -14,7 +14,7 @@ export const WIN_LINES  = [
 
 export const PLAYER_X='X'
 export const PLAYER_O='O'
-export const PLAYER_ORDER = [PLAYER_O, PLAYER_X];
+export const PLAYER_ORDER = [PLAYER_X, PLAYER_O];
 
 export const NEXT_PLAYER = {
   [PLAYER_X]: PLAYER_O,

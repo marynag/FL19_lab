@@ -9,7 +9,7 @@ export const Board = (props) =>{
     <div>
 
       { groupedIndeсes.map((row, groupIndex) => (
-      <div key={groupIndex} className = {styles.board-row} >
+      <div key={groupIndex} className = {styles['board-row']} >
           {row.map((square) => (
           <Square key={square} 
           value={props.squares[square]} 

@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import convertTime from './timer.util'
-import {useHistory} from "../game/useHistory";
 
 export const Timer = (props) =>{
   const [time, setTime] = useState(0);
@@ -18,19 +17,17 @@ export const Timer = (props) =>{
   },[])
 
     useEffect(()=>{
-        if(!isGameFinished){
-            return
-        }
+        if(!isGameFinished) return
         clearInterval(intervalId.current)
     },[isGameFinished])
 
   const convertedTime=convertTime(time)
 
       return (
-        <div>
+        <>
           <p>Timer:</p>
           <p>{convertedTime.hours}:{convertedTime.minutes}:{convertedTime.seconds}</p>
-        </div>
+        </>
       )
 }
  
