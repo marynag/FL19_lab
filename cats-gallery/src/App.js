@@ -11,10 +11,10 @@ function App () {
   return(
     <main>
       <StaticSection/>
-            {/*<MainSection/>*/}
-            <Voting />
-            {/* <Breeds />*/}
-            {/*<Gallery />*/}
+        {/*<MainSection/>*/}
+        <Voting />
+        {/* <Breeds />*/}
+        {/*<Gallery />*/}
     </main>
   )
 }
