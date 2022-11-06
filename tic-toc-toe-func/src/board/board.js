@@ -4,11 +4,11 @@ import styles from './board.module.scss'
 
 export const Board = (props) =>{
   const { squares } = props;
-  const groupedIndexes=splitGameSquares(squares)
+  const groupedIndeсes=splitGameSquares(squares)
   return (    
     <div>
 
-      { groupedIndexes.map((row, groupIndex) => (
+      { groupedIndeсes.map((row, groupIndex) => (
       <div key={groupIndex} className = {styles.board-row} >
           {row.map((square) => (
           <Square key={square} 
