@@ -3,9 +3,9 @@ import voteTable from '../img/vote-table.png';
 import petBreeds from '../img/pet-breeds.png';
 import imageSearch from '../img/images-search.png';
 import {NavigationBlocks} from '../navigationBlock/navigationBlocks';
-import styles from './staticPart.module.scss';
+import styles from './staticSection.module.scss';
 
-export const StaticPart = () =>{
+export const StaticSection = () =>{
   return (
     <div className={styles.header_sticky}>
             <img className={styles.logo} src={logo} alt="logo" />

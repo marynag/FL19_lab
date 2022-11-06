@@ -1,5 +1,5 @@
 export * from './breeds'
 export * from './gallery/gallery'
-export * from './main/main'
-export * from './staticPart/staticPart'
+export * from './mainSection/mainSection'
+export * from './staticSection/staticSection'
 export * from './voting/voting'

@@ -5,13 +5,13 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 // eslint-disable-next-line
-import {Voting, Gallery, Breeds, StaticPart, Main} from './components';
+import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
 
 function App () {
   return(
     <main>
-      <StaticPart/>
-            {/*<Main/>*/}
+      <StaticSection/>
+            {/*<MainSection/>*/}
             <Voting />
             {/* <Breeds />*/}
             {/*<Gallery />*/}
