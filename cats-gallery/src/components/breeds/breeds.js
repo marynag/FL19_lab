@@ -1,6 +1,6 @@
 import React from 'react';
-import vector5 from '../img/ba.png'
-import vector6 from '../img/ab.png'
+import vector5 from '../../img/ba.png'
+import vector6 from '../../img/ab.png'
 import {BREED_OPTIONS, LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
 import {SearchImg}  from '../searchImg';

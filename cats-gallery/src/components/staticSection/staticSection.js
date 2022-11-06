@@ -1,7 +1,7 @@
-import logo from '../img/Logo.png';
-import voteTable from '../img/vote-table.png';
-import petBreeds from '../img/pet-breeds.png';
-import imageSearch from '../img/images-search.png';
+import logo from '../../img/Logo.png';
+import voteTable from '../../img/vote-table.png';
+import petBreeds from '../../img/pet-breeds.png';
+import imageSearch from '../../img/images-search.png';
 import {NavigationBlocks} from '../navigationBlock';
 import styles from './staticSection.module.scss';
 

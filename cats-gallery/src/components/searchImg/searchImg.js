@@ -1,7 +1,7 @@
-import vector from '../img/Vector.png'
-import vector2 from '../img/Vector (Stroke).png'
-import vector3 from '../img/Vector 348 (Stroke).png'
-import vector4 from '../img/Vector (Stroke) (1).png'
+import vector from '../../img/Vector.png'
+import vector2 from '../../img/Vector (Stroke).png'
+import vector3 from '../../img/Vector 348 (Stroke).png'
+import vector4 from '../../img/Vector (Stroke) (1).png'
 import styles from './searchImg.module.scss'
 
 export const SearchImg = () => {
