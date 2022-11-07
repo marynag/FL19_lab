@@ -5,9 +5,8 @@ const INIT_RECORD = Array(SQUARES_AMOUNT).fill(undefined);
 
 export const useHistory = () => {
     const historyStorage = useRef([INIT_RECORD]);
-    const history = historyStorage.current;
     const records = historyStorage.current;
-    const size = history.length;
+    const size = records.length;
     const lastRecord = records[size - 1];
 
     const addMove = (squareIndex, player) => {

@@ -40,12 +40,10 @@ export const Game = () =>{
   
   return(
     <div className={styles.game}>
-      <div>
           <Board
             squares={current}
             onClick={(squareIndex) => winner ? null : handleBoardClick(squareIndex) }
           />
-        </div>
         <div className={styles.game_info}>
           <div>{displayStatus}</div>
           <div>
