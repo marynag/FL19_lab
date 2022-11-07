@@ -1,0 +1,17 @@
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.game_info {
+    margin-left: 20px;
+}
+
+button{
+    display: block;
+}
+
+.history{
+    background-color: #97EAB9;
+}

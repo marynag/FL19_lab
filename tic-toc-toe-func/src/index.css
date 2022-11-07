@@ -1,0 +1,9 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+.wraper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
