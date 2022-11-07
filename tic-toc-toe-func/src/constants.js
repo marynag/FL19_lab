@@ -12,9 +12,10 @@ export const WIN_LINES  = [
     [2, 4, 6]
   ];
 
-export const PLAYER_X='X'
-export const PLAYER_O='O'
+const PLAYER_X='X'
+const PLAYER_O='O'
 export const PLAYER_ORDER = [PLAYER_X, PLAYER_O];
+export const PLAYERS=PLAYER_ORDER.length
 
 export const NEXT_PLAYER = {
   [PLAYER_X]: PLAYER_O,

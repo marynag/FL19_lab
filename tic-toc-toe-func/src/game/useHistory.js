@@ -10,7 +10,11 @@ export const useHistory = () => {
     const size = history.length;
     const lastRecord = records[size - 1];
 
-    const addMove = record => {
+    const addMove = (squareIndex, player) => {
+        const record = [...lastRecord];
+
+        record[squareIndex] = player
+
         historyStorage.current = [...historyStorage.current, record];
     }
 
