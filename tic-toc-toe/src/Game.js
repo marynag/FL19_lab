@@ -4,7 +4,7 @@ import Timer from './timer.js'
 import { getGameStatus } from './game.utils';
 import Board from './Board';
 import { calculateWinner, getTitle } from './game.utils';
-import { PLAYER_X, MAX_HISTORY_LENGTH, PLAYER_ORDER} from './constants'
+import { MAX_HISTORY_LENGTH, PLAYER_ORDER, SQUARES_AMOUNT, PLAYERS} from './constants'
 
 
 export class Game extends React.Component {
@@ -12,9 +12,9 @@ export class Game extends React.Component {
     super(props);
     this.state = {
       stepNumber: 0,
-      currentPlayer:PLAYER_X    
+      currentPlayer:PLAYER_ORDER[0]
     };
-    this.history=[Array(9).fill(undefined)]
+    this.history=[Array(SQUARES_AMOUNT).fill(undefined)]
     this.handleClick=this.handleClick.bind(this)
   }
   
@@ -23,27 +23,28 @@ export class Game extends React.Component {
     return (this.state.stepNumber !== nextState.stepNumber && this.state.currentPlayer !== nextState.currentPlayer);
   }
 
-  handleClick(index) {
+  handleClick(squareIndex) {
     const {currentPlayer, stepNumber} = this.state;
 
-    const history = this.history.slice(0, stepNumber + 1);   
+    const history = this.history;
+    const lastRecord = history[stepNumber];
 
-    const current = history[history.length - 1];
-    const squares = [...current]
-    squares[index] = currentPlayer
-    this.history=history.concat([squares])
+    const generatedRecord = [...lastRecord];
+    generatedRecord[squareIndex] = currentPlayer;
+
+    this.history= [...history, generatedRecord];
 
     this.setState({
-      stepNumber: history.length,
-      currentPlayer: PLAYER_ORDER[stepNumber % 2]
+      stepNumber: stepNumber+1,
+      currentPlayer: PLAYER_ORDER[Math.abs((stepNumber % PLAYERS)-1)]
     });
     
   }
 
-  jumpTo(step) {
+  handleHistoryClick(step) {
     this.setState({
       stepNumber: step,
-      currentPlayer: (step % 2) ? 'O' : 'X'
+      currentPlayer: PLAYER_ORDER[step % PLAYERS]
     });
     this.history=this.history.splice(0,step+1)
   }
@@ -68,7 +69,7 @@ export class Game extends React.Component {
           <div>{displayStatus}</div>
           <div>
             {this.history.map((step, move) => (
-              <button key={move} onClick={() => this.jumpTo(move)}>
+              <button key={move} onClick={() => this.handleHistoryClick(move)}>
               {getTitle(move)}
         </button>
       ))}
