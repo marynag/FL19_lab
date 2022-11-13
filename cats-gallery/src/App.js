@@ -10,11 +10,27 @@ import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components'
 function App () {
   return(
     <main>
-      <StaticSection/>
-        {/*<MainSection/>*/}
-        <Voting />
-        {/* <Breeds />*/}
-        {/*<Gallery />*/}
+        <Router>
+            <StaticSection/>
+            <Switch>
+                <Route exect path="/home">
+                    <MainSection/>
+                </Route>
+                <Route path="/voting">
+                    <Voting/>
+                </Route>
+                <Route path="/breeds">
+                    <Breeds/>
+                </Route>
+                <Route path="/gallery">
+                    <Gallery/>
+                </Route>
+
+            </Switch>
+            {/*<Voting />*/}
+            {/* <Breeds />*/}
+            {/*<Gallery />*/}
+        </Router>
     </main>
   )
 }

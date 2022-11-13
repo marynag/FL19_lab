@@ -5,6 +5,8 @@ import imageSearch from '../../img/images-search.png';
 import {NavigationBlocks} from '../navigationBlock';
 import styles from './staticSection.module.scss';
 
+
+
 export const StaticSection = () =>{
   return (
     <div className={styles.header_sticky}>
@@ -13,9 +15,9 @@ export const StaticSection = () =>{
             <p className={styles.greeting}>Welcome to MI 2022 Front-end test</p>
             <p className={styles.start}>Lets start using The Cat API</p>
             <div className={styles.descriptionImg}>
-              <NavigationBlocks imgname={petBreeds} className='benefitBox2' text='BREEDS'  btn='breeds/'/>
-              <NavigationBlocks imgname={imageSearch} className='benefitBox3' text='GALLERY'  btn='/gallery'/>
-              <NavigationBlocks imgname={voteTable} className='benefitBox1' text='VOTING' btn='/voting'/>
+              <NavigationBlocks imgname={petBreeds} className='benefitBox2' text='BREEDS'  path='/breeds' />
+              <NavigationBlocks imgname={imageSearch} className='benefitBox3' text='GALLERY'  path='/gallery'/>
+              <NavigationBlocks imgname={voteTable} className='benefitBox1' text='VOTING' path='/voting'/>
 
             </div>
         </div>
