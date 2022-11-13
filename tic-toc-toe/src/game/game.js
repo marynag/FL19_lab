@@ -1,10 +1,9 @@
 import React from 'react';
-import './index.css';
-import Timer from './timer.js'
-import { getGameStatus } from './game.utils';
-import Board from './Board';
-import { calculateWinner, getTitle } from './game.utils';
-import { MAX_HISTORY_LENGTH, PLAYER_ORDER, SQUARES_AMOUNT, PLAYERS} from './constants'
+import '../index.css';
+import Timer from '../timer/timer.js'
+import { getGameStatus, calculateWinner, getTitle } from './game.utils';
+import Board from '../board/board';
+import { MAX_HISTORY_LENGTH, PLAYER_ORDER, SQUARES_AMOUNT, PLAYERS} from '../constants'
 
 
 export class Game extends React.Component {
