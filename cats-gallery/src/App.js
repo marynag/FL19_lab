@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 
+
 // eslint-disable-next-line
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 // eslint-disable-next-line
 import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
+import { BREEDS_PATH, GALLERY_PATH, VOTING_PATH } from './components/constants/path.constants';
 
 function App () {
   return(
@@ -16,20 +18,17 @@ function App () {
                 <Route exect path="/home">
                     <MainSection/>
                 </Route>
-                <Route path="/voting">
+                <Route path={VOTING_PATH}>
                     <Voting/>
                 </Route>
-                <Route path="/breeds">
+                <Route path={BREEDS_PATH}>
                     <Breeds/>
                 </Route>
-                <Route path="/gallery">
+                <Route path={GALLERY_PATH}>
                     <Gallery/>
                 </Route>
 
             </Switch>
-            {/*<Voting />*/}
-            {/* <Breeds />*/}
-            {/*<Gallery />*/}
         </Router>
     </main>
   )
