@@ -10,50 +10,50 @@ export class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stepNumber: 0,
-      currentPlayer:PLAYER_ORDER[0]
+      move: 0,
+      player:PLAYER_ORDER[0]
     };
     this.history=[Array(SQUARES_AMOUNT).fill(undefined)]
-    this.handleClick=this.handleClick.bind(this)
+    this.handleBoardClick =this.handleBoardClick.bind(this)
   }
   
 
   shouldComponentUpdate(nextState) {
-    return (this.state.stepNumber !== nextState.stepNumber && this.state.currentPlayer !== nextState.currentPlayer);
+    return (this.state.move !== nextState.move && this.state.player !== nextState.player);
   }
 
-  handleClick(squareIndex) {
-    const {currentPlayer, stepNumber} = this.state;
+  handleBoardClick(squareIndex) {
+    const {player, move} = this.state;
 
     const history = this.history;
-    const lastRecord = history[stepNumber];
+    const lastRecord = history[move];
 
     const generatedRecord = [...lastRecord];
-    generatedRecord[squareIndex] = currentPlayer;
+    generatedRecord[squareIndex] = player;
 
     this.history= [...history, generatedRecord];
 
     this.setState({
-      stepNumber: stepNumber+1,
-      currentPlayer: PLAYER_ORDER[Math.abs((stepNumber % PLAYERS)-1)]
+      move: move+1,
+      player:PLAYER_ORDER[((move+1)%PLAYERS)]
     });
     
   }
 
   handleHistoryClick(step) {
     this.setState({
-      stepNumber: step,
-      currentPlayer: PLAYER_ORDER[step % PLAYERS]
+      move: step,
+      player: PLAYER_ORDER[step % PLAYERS]
     });
     this.history=this.history.splice(0,step+1)
   }
 
   render() {   
-    const current = this.history[this.state.stepNumber];
+    const current = this.history[this.state.move];
     const winner = calculateWinner(current);   
 
     const isGameEnded = winner || this.history.length===MAX_HISTORY_LENGTH;  
-    const displayStatus = getGameStatus(isGameEnded, winner, this.state.currentPlayer)
+    const displayStatus = getGameStatus(isGameEnded, winner, this.state.player)
 
     return ( 
       <>
@@ -61,7 +61,7 @@ export class Game extends React.Component {
         <div className="game-board">
           <Board
             squares={current}
-            onClick={winner ? null : this.handleClick}
+            onClick={winner ? null : this.handleBoardClick}
           />
         </div>
         <div className="game-info">
