@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CATS_URL } from '../constants';
+import { CATS_URL } from '../constants/constants';
 import styles from './photoLoader.module.scss'
 import PropTypes from 'prop-types';
 
