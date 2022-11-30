@@ -1,12 +1,4 @@
-import {WIN_LINES, NEXT_PLAYER} from './constants'
-
-export default function Square(props) {
-    return (
-      <button className="square" onClick={props.onClick}>
-        {props.value}
-      </button>
-    );
-  }
+import {WIN_LINES, NEXT_PLAYER} from '../constants'
 
 export function calculateWinner(squares) {  
   const winLine = WIN_LINES.find(line => {
@@ -20,21 +12,6 @@ export function calculateWinner(squares) {
  return squares[winLineIndex];
 }
 
-
-export function splitGameSquares(squaresValue) {
-  const size = squaresValue.length**(1/2);
-
-  const indeces = squaresValue.map((current, index) => index);
-
-  const groupedIndeces = []
-
-  while (indeces.length) {
-    const group = indeces.splice(0, size);
-    groupedIndeces.push(group);
-  }
-
-  return groupedIndeces
-}
 
 export function getTitle(move){
   return move ?
