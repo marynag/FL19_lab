@@ -5,7 +5,6 @@ import { CATS_URL_BY_BREEDS } from '../constants/constants';
 export const GalleryPhoto = (props) => {
 
     const [data, setData] = useState();
-    console.log(CATS_URL_BY_BREEDS+props.breed)
 
     useEffect(() => {
         fetch(CATS_URL_BY_BREEDS+props.breed)
