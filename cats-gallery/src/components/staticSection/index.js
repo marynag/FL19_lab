@@ -1,1 +1,1 @@
-export * from './staticSection'
+export * from './staticSection';

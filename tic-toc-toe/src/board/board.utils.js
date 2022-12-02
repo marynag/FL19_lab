@@ -1,22 +1,22 @@
 export function splitGameSquares(squaresValue) {
-    const size = squaresValue.length**(1/2);
+	const size = squaresValue.length ** (1 / 2);
 
-    const indeces = squaresValue.map((current, index) => index);
+	const indeces = squaresValue.map((current, index) => index);
 
-    const groupedIndeces = []
+	const groupedIndeces = [];
 
-    while (indeces.length) {
-        const group = indeces.splice(0, size);
-        groupedIndeces.push(group);
-    }
+	while (indeces.length) {
+		const group = indeces.splice(0, size);
+		groupedIndeces.push(group);
+	}
 
-    return groupedIndeces
+	return groupedIndeces;
 }
 
 export default function Square(props) {
-    return (
-        <button className="square" onClick={props.onClick}>
-            {props.value}
-        </button>
-    );
+	return (
+		<button className='square' onClick={props.onClick}>
+			{props.value}
+		</button>
+	);
 }

@@ -1,1 +1,1 @@
-export * from './photoLoader'
+export * from './photoLoader';
