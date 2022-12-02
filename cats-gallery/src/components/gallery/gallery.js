@@ -8,11 +8,16 @@ import vector4 from "../../img/Vector (Stroke) (1).png";
 import {CLASSES_FOR_DIVS} from "./gallery.utils";
 
 export const Gallery = () => {
-    const [userBreed, setUserBreed] = useState('ae')
+    const [inputBreed, setInputBreed] = useState('');
+    const [userBreed, setUserBreed] = useState('')
 
-    const handleChange = (event) =>{
+    const handleChange = (event) => {
         const breed=event.target.value
-        setUserBreed(breed)
+        setInputBreed(breed)
+    }
+    
+    const handleBreed = () => {
+        setUserBreed(inputBreed)
     }
 
 
@@ -22,7 +27,7 @@ export const Gallery = () => {
             <div className={styles.searchingLine}>
                 <div className={styles.search}>
                     <input type="text"  column placeholder="Search for breeds by name" className={styles.searchInput} onChange={handleChange}/>
-                    <div className={styles.searchItem}><img src={vector} alt="girl and pet" className={styles.search_img}/></div>
+                    <div className={styles.searchItem} onClick={handleBreed}><img src={vector} alt="girl and pet" className={styles.search_img}/></div>
                 </div>
                 <div className={styles.reaction}><img src={vector2} alt="smile"/></div>
                 <div className={styles.reaction}><img src={vector3} alt="heart"/></div>
