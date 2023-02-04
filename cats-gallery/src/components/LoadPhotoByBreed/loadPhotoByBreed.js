@@ -30,15 +30,15 @@ export const LoadPhotoByBreed = (props) => {
         <>
             <div className ={`${styles.catImgBreeds}, ${styles[props.className]}`}>
                 <Link
-                    to={{
-                        pathname: `/img`,
-                        state:  {photoData,
-                            url: data,
-                            breedName:props.breedName
-                        },
+                to={{
+                    pathname: `/img`,
+                    state:  {photoData,
+                        url: data,
+                        breedName:props.breedName
+                    },
 
-                    }}
-                >
+                }}
+            >
                     <img
                     className={`${styles.catImgBreeds} `}
                        src={data} alt="sad"

@@ -1,9 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App'
+import {applyMiddleware, createStore} from "redux";
+import { rootReducer } from "./store";
+import { Provider } from "react-redux";
+import {getBreeds} from "./store/breeds/thunk";
+
+const asyncFunctionMiddleware = (store) => (next) => (action) => {
+    if (typeof action === 'function') {
+        return action(store.dispatch, store.getState);
+    }
+    return next(action);
+};
+
+
+const middlewareEnhancer = applyMiddleware(asyncFunctionMiddleware);
+const store = createStore(rootReducer, middlewareEnhancer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+store.dispatch(getBreeds());
+
 root.render(
-    <App/>
+        <Provider store={store}>
+            <App/>
+        </Provider>
 );
 

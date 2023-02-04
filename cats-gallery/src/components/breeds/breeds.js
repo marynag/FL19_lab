@@ -6,22 +6,17 @@ import styles from './breeds.module.scss'
 import {SearchImg}  from '../searchImg';
 import { IMG_INFO} from "../constants/constants";
 import {LoadPhotoByBreed} from "../LoadPhotoByBreed/loadPhotoByBreed";
+import {useSelector} from "react-redux";
 
 
 export const Breeds = () => {
-    const [breedInfo, setBereedInfo] = useState()
     const [breedList, setBereedList] = useState()
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [breedNameId, setBreedNameId] = useState();
     const [breedName, setBreedName] = useState();
     const [imgAmount, setImgAmount] = useState(CLASSES_FOR_DIVS.slice(0,5))
 
-
-    useEffect(() =>{
-        const result = fetch(IMG_INFO)
-            .then(response => response.json())
-            .then(response =>setBereedInfo(response))
-    }, [])
+    const breedInfo = useSelector(state => state.breeds)
 
     useEffect(()=>{
         if(breedInfo){
