@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './gallery.module.scss'
 import { CATS_URL_BY_BREEDS } from '../constants/constants';
 
-export const GalleryPhoto = (props) => {
-
+export const LoadPhotoByBreed = (props) => {
     const [data, setData] = useState();
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from "./gallery.module.scss";
-import {GalleryPhoto} from "./galleryPhoto";
+import {LoadPhotoByBreed} from "./loadPhotoByBreed";
 import vector from "../../img/Vector.png";
 import vector2 from "../../img/Vector (Stroke).png";
 import vector3 from "../../img/Vector 348 (Stroke).png";
@@ -42,7 +42,7 @@ export const Gallery = () => {
                 </div>
 
                 <div className={styles.catImgBreedsWrapper}>
-                    {CLASSES_FOR_DIVS.map(current => <GalleryPhoto breed={userBreed} className={current}/> )}
+                    {CLASSES_FOR_DIVS.map(current => <LoadPhotoByBreed breed={userBreed} className={current}/> )}
                 </div>
 
             </div>
