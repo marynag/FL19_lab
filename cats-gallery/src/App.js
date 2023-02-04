@@ -8,6 +8,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 // eslint-disable-next-line
 import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
 import { BREEDS_PATH, GALLERY_PATH, VOTING_PATH } from './components/constants/path.constants';
+import {PhotoInfo} from "./components/photoInfo/photoInfo";
 
 function App () {
   return(
@@ -26,6 +27,10 @@ function App () {
                 </Route>
                 <Route path={GALLERY_PATH}>
                     <Gallery/>
+                </Route>
+
+                <Route path={'/img'}>
+                    <PhotoInfo />
                 </Route>
 
             </Switch>

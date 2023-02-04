@@ -1,0 +1,49 @@
+.photoInfoWrapper{
+  grid-column:2;
+  grid-row: 1;
+  margin:-10px 30px -70px 160px;
+}
+
+.wraperImgBlokSearchImages{
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 0 10px 10px 10px;
+}
+
+.next{
+  color: #FF868E;
+  padding: 2px 8px;
+  font-size: 25px;
+  background-color: #FBE0DC;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.headerBreeds{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  gap:10px;
+}
+
+.vote{
+  padding: 8px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FF868E;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+
+.catPhoto{
+  border-radius: 20px;
+  width: 90%;
+  height: 350px;
+  padding: 5px;
+  align-self: center;
+}
