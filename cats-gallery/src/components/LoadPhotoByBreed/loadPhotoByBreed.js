@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './gallery.module.scss'
+import styles from '../LoadPhotoByBreed/LoadPhotoByBreed.module.scss'
 import {CATS_URL, CATS_URL_BY_BREEDS} from '../constants/constants';
 
 export const LoadPhotoByBreed = (props) => {

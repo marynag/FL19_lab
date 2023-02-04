@@ -4,9 +4,8 @@ import vector6 from '../../img/ab.png'
 import { LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
 import {SearchImg}  from '../searchImg';
-import {PhotoLoader}  from '../photoLoader';
 import { IMG_INFO} from "../constants/constants";
-import { LoadPhotoByBreed } from "../gallery/loadPhotoByBreed";
+import {LoadPhotoByBreed} from "../LoadPhotoByBreed/loadPhotoByBreed";
 
 
 export const Breeds = () => {
