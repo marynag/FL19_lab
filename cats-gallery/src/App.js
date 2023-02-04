@@ -15,7 +15,7 @@ function App () {
         <Router>
             <StaticSection/>
             <Switch>
-                <Route exect path="/home">
+                <Route exect path="/home" >
                     <MainSection/>
                 </Route>
                 <Route path={VOTING_PATH}>

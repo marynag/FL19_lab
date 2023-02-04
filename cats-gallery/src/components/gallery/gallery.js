@@ -42,7 +42,7 @@ export const Gallery = () => {
                 </div>
 
                 <div className={styles.catImgBreedsWrapper}>
-                    {CLASSES_FOR_DIVS.map(current => <LoadPhotoByBreed breed={userBreed} className={current}/> )}
+                    {CLASSES_FOR_DIVS.map(current => <LoadPhotoByBreed breed={userBreed} className={current} key={current}/> )}
                 </div>
 
             </div>

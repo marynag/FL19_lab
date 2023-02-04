@@ -14,6 +14,7 @@ export const Breeds = () => {
     const [breedList, setBereedList] = useState()
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [breedNameId, setBreedNameId] = useState();
+    const [imgAmount, setImgAmount] = useState(CLASSES_FOR_DIVS.slice(0,5))
 
 
     useEffect(() =>{
@@ -40,7 +41,12 @@ export const Breeds = () => {
     const handleBreedChange = (event) => {
         const selectedBreed=event.target.value
         setSelectedBreedId(breedNameId[selectedBreed])
+    }
 
+    const handleLimitChange = (event) => {
+        const selectedLimit = event.target.value;
+        const imgLength = CLASSES_FOR_DIVS.slice(0,selectedLimit)
+        setImgAmount(imgLength)
     }
 
     return(
@@ -54,7 +60,7 @@ export const Breeds = () => {
                     <select className={`${styles.vote} ${styles.breedSelect}`} onChange={handleBreedChange}>
                         {breedList ? breedList.map(current => <option key={current}>{current}</option> ): null}
                     </select>
-                    <select className={`${styles.vote} ${styles.breedsLimit}`} >
+                    <select className={`${styles.vote} ${styles.breedsLimit}`} onChange={handleLimitChange} >
                         {LIMITS.map(current => <option key={current} value={current}>Limit: {current}</option> )}
                     </select>
                     <div className={styles.sortImg}><img className={styles.sort} src={vector5} alt="sort" /></div>
@@ -62,9 +68,7 @@ export const Breeds = () => {
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>
-                {selectedBreedId ? CLASSES_FOR_DIVS.map(current => <LoadPhotoByBreed breed={selectedBreedId} className={current} key={current}/> )
-                    :
-                    CLASSES_FOR_DIVS.map(current => <PhotoLoader addClass={current} key={current}/> )}
+                {imgAmount.map(current => <LoadPhotoByBreed breed={selectedBreedId} className={current} key={current}/>)}
             </div>
         </div>           
     </div>

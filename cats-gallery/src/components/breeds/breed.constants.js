@@ -1,19 +1,7 @@
-export const BREED_OPTIONS=[
-    'All breeds',
-    'Abyssinian',
-    'Aegean',
-    'American Bobtail',
-    'American Curl',
-    'American Shorthair',
-    'American Wirehair',
-    '...',
-]
-
 export const LIMITS=[
     5,
     10,
     15,
-    20
 ]
 
 export const CLASSES_FOR_DIVS=[
