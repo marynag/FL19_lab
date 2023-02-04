@@ -13,6 +13,7 @@ export const Breeds = () => {
     const [breedList, setBereedList] = useState()
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [breedNameId, setBreedNameId] = useState();
+    const [breedName, setBreedName] = useState();
     const [imgAmount, setImgAmount] = useState(CLASSES_FOR_DIVS.slice(0,5))
 
 
@@ -40,6 +41,7 @@ export const Breeds = () => {
     const handleBreedChange = (event) => {
         const selectedBreed=event.target.value
         setSelectedBreedId(breedNameId[selectedBreed])
+        setBreedName(selectedBreed)
     }
 
     const handleLimitChange = (event) => {
@@ -67,7 +69,7 @@ export const Breeds = () => {
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>
-                {imgAmount.map(current => <LoadPhotoByBreed breed={selectedBreedId} className={current} key={current}/>)}
+                {imgAmount.map(current => <LoadPhotoByBreed breedId={selectedBreedId} className={current} breedName={breedName} key={current}/>)}
             </div>
         </div>           
     </div>
