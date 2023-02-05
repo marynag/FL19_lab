@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from "./gallery.module.scss";
-import {LoadPhotoByBreed} from "../LoadPhotoByBreed/loadPhotoByBreed";
+import {LoadPhotoByBreed} from "../loadPhotoByBreed/loadPhotoByBreed";
 import vector from "../../img/Vector.png";
 import vector2 from "../../img/Vector (Stroke).png";
 import vector3 from "../../img/Vector 348 (Stroke).png";

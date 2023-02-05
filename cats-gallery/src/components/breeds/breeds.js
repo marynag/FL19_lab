@@ -4,7 +4,7 @@ import vector6 from '../../img/ab.png'
 import { LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
 import { SearchImg }  from '../searchImg';
-import { LoadPhotoByBreed } from '../LoadPhotoByBreed/loadPhotoByBreed';
+import { LoadPhotoByBreed } from '../loadPhotoByBreed/loadPhotoByBreed';
 import { useSelector } from 'react-redux';
 
 

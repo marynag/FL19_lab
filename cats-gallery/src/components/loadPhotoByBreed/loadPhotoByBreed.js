@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../LoadPhotoByBreed/LoadPhotoByBreed.module.scss'
-import {CATS_URL, CATS_URL_BY_BREEDS, IMG_BY_ID} from '../constants/constants';
-import {Link} from "react-router-dom";
+import styles from '../loadPhotoByBreed/loadPhotoByBreed.module.scss'
+import { CATS_URL_BY_BREEDS, IMG_BY_ID } from '../constants/constants';
+import { Link } from 'react-router-dom';
 
 export const LoadPhotoByBreed = (props) => {
     const [data, setData] = useState();
@@ -44,7 +44,7 @@ export const LoadPhotoByBreed = (props) => {
     }
     return(
         <>
-            <div className ={`${styles.catImgBreeds}, ${styles[props.className]}`}>
+            <div className ={`${styles[props.className]} , ${styles.catImgBreedsDiv}`}>
                 <Link
                 to={{
                     pathname: `/img`,
