@@ -3,18 +3,18 @@ import vector5 from '../../img/ba.png'
 import vector6 from '../../img/ab.png'
 import { LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
 import styles from './breeds.module.scss'
-import {SearchImg}  from '../searchImg';
-import { IMG_INFO} from "../constants/constants";
-import {LoadPhotoByBreed} from "../LoadPhotoByBreed/loadPhotoByBreed";
-import {useSelector} from "react-redux";
+import { SearchImg }  from '../searchImg';
+import { LoadPhotoByBreed } from '../LoadPhotoByBreed/loadPhotoByBreed';
+import { useSelector } from 'react-redux';
 
 
 export const Breeds = () => {
     const [breedList, setBereedList] = useState()
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [breedNameId, setBreedNameId] = useState();
-    const [breedName, setBreedName] = useState();
+    const [breedName, setBreedName] = useState('Bengal');
     const [imgAmount, setImgAmount] = useState(CLASSES_FOR_DIVS.slice(0,5))
+    const [inputId, setInputId] = useState();
 
     const breedInfo = useSelector(state => state.breeds)
 
@@ -47,7 +47,7 @@ export const Breeds = () => {
 
     return(
         <div className={styles.breeds}>
-            <SearchImg/>
+            <SearchImg onChange={setInputId}/>
         <div className={styles.wraperImgBlokSearchImages}>
         <div className={styles.wraperImgBlokSearch}>
                 <div className={styles.headerBreeds}>
@@ -64,7 +64,7 @@ export const Breeds = () => {
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>
-                {imgAmount.map(current => <LoadPhotoByBreed breedId={selectedBreedId} className={current} breedName={breedName} key={current}/>)}
+                {imgAmount.map(current => <LoadPhotoByBreed breedId={selectedBreedId} className={current} breedName={breedName} key={current} imgId={inputId} />)}
             </div>
         </div>           
     </div>
