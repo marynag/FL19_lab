@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
-
 
 // eslint-disable-next-line
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -9,11 +8,17 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
 import { BREEDS_PATH, GALLERY_PATH, VOTING_PATH } from './components/constants/path.constants';
 import {PhotoInfo} from "./components/photoInfo/photoInfo";
+import {useHistory} from "react-router";
 
 function App () {
+    const history = useHistory();
+
+    useEffect(()=>{
+        history.push('/home');
+    },[])
+
   return(
     <main>
-        <Router>
             <StaticSection/>
             <Switch>
                 <Route exect path="/home" >
@@ -32,9 +37,7 @@ function App () {
                 <Route path={'/img'}>
                     <PhotoInfo />
                 </Route>
-
             </Switch>
-        </Router>
     </main>
   )
 }

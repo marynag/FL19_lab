@@ -1,10 +1,12 @@
 import styles from './photoInfo.module.scss'
 import {SearchImg} from "../searchImg";
 import React from "react";
-import {useLocation} from "react-router";
+import { useHistory, useLocation} from "react-router";
 import {useSelector} from "react-redux";
+import {BREEDS_PATH} from "../constants/path.constants";
 
 export const PhotoInfo = () => {
+    const history = useHistory()
     const location = useLocation();
     const {url, breedName, photoData} = location.state
     const id = photoData.map(item => {
@@ -23,6 +25,9 @@ export const PhotoInfo = () => {
     const {temperament, origin, weight, life_span, description} = selectedBreedInfo
     const weigthMetric = weight.metric
 
+    const handleClick = () =>{
+        history.push(BREEDS_PATH)
+    }
 
     return (
         <div className={styles.photoInfoWrapper}>
@@ -30,7 +35,7 @@ export const PhotoInfo = () => {
             <div className={styles.wraperImgBlokSearchImages}>
                 <div className={styles.wraperImgBlokSearch}>
                     <div className={styles.headerBreeds}>
-                        <p className={styles.next}>&lt;</p>
+                        <p className={styles.next} onClick={handleClick}>&lt;</p>
                         <p className={styles.vote}>BREEDS</p>
                         <p className={styles.vote}>{id}</p>
                     </div>
