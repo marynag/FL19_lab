@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../loadPhotoByBreed/loadPhotoByBreed.module.scss'
-import { CATS_URL_BY_BREEDS, IMG_BY_ID } from '../constants/constants';
+import {CATS_URL, CATS_URL_BY_BREEDS, IMG_BY_ID} from '../constants/constants';
 import { Link } from 'react-router-dom';
 
 export const LoadPhotoByBreed = (props) => {
     const [data, setData] = useState();
     const [isHovering, setIsHovering] = useState(false);
     const [photoData, setPhotoData] = useState([]);
-    const [url, setUrl] = useState(CATS_URL_BY_BREEDS+'beng')
 
     useEffect(() => {
-        if(props.breedId){
-            setUrl(CATS_URL_BY_BREEDS+props.breedId);
-        }
-            fetch(url)
+        fetch(CATS_URL)
+            .then((response) => response.json())
+            .then(res  => {
+                setData(res[0].url)
+                const capyData=[...photoData]
+                setPhotoData([...capyData, res[0]])
+            })
+    }, []);
+
+    useEffect(() => {
+        fetch(CATS_URL_BY_BREEDS+props.breedId)
         .then((response) => response.json())
         .then(res  => {
             setData(res[0].url)
@@ -23,9 +29,6 @@ export const LoadPhotoByBreed = (props) => {
        }, [props.breedId]);
 
     useEffect(() => {
-        if(props.imgId) {
-            setUrl(IMG_BY_ID + props.imgId);
-        }
         fetch(IMG_BY_ID + props.imgId)
             .then((response) => response.json())
             .then(res  => {
