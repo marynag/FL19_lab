@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 import styles from "./gallery.module.scss";
-import {LoadPhotoByBreed} from "../loadPhotoByBreed/loadPhotoByBreed";
-import vector from "../../img/Vector.png";
-import vector2 from "../../img/Vector (Stroke).png";
-import vector3 from "../../img/Vector 348 (Stroke).png";
-import vector4 from "../../img/Vector (Stroke) (1).png";
-import {CLASSES_FOR_DIVS} from "./gallery.utils";
+import { LoadPhotoByBreed } from "../loadPhotoByBreed/loadPhotoByBreed";
+import imgSearch from "../../img/Vector.png";
+import {GRID_PHOTO_CLASSES, REACTIONS} from "./gallery.utils";
 
 export const Gallery = () => {
     const [inputBreed, setInputBreed] = useState('');
-    const [userBreed, setUserBreed] = useState('')
+    const [enteredBreed, setEnteredBreed] = useState('')
 
     const handleBreedChange = (event) => {
         const breed=event.target.value
@@ -17,21 +14,20 @@ export const Gallery = () => {
     }
     
     const handleBreed = () => {
-        setUserBreed(inputBreed)
+        setEnteredBreed(inputBreed)
     }
 
 
     return(
         <div className={styles.voting}>
-
             <div className={styles.searchingLine}>
                 <div className={styles.search}>
                     <input type="text"  column placeholder="Search for breeds by name" className={styles.searchInput} onChange={handleBreedChange}/>
-                    <div className={styles.searchItem} onClick={handleBreed}><img src={vector} alt="girl and pet" className={styles.search_img}/></div>
+                    <div className={styles.searchItem} onClick={handleBreed}><img src={imgSearch} alt="search" className={styles.search_img}/></div>
                 </div>
-                <div className={styles.reaction}><img src={vector2} alt="smile"/></div>
-                <div className={styles.reaction}><img src={vector3} alt="heart"/></div>
-                <div className={styles.reaction}><img src={vector4} alt="sad"/></div>
+                { REACTIONS.map(current => (<div key={current.name} className={styles.reaction}>
+                    <img src={current.img} alt={current.name}/>
+                </div>))}
             </div>
 
 
@@ -42,7 +38,7 @@ export const Gallery = () => {
                 </div>
 
                 <div className={styles.catImgBreedsWrapper}>
-                    {CLASSES_FOR_DIVS.map(current => <LoadPhotoByBreed breed={userBreed} className={current} key={current}/> )}
+                    {GRID_PHOTO_CLASSES.map(current => <LoadPhotoByBreed breed={enteredBreed} className={current} key={current}/> )}
                 </div>
 
             </div>

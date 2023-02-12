@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import vector5 from '../../img/ba.png'
 import vector6 from '../../img/ab.png'
-import { LIMITS, CLASSES_FOR_DIVS} from './breed.constants'
+import { LIMITS, GRID_PHOTO_CLASSES} from './breed.constants'
 import styles from './breeds.module.scss'
 import { SearchImg }  from '../searchImg';
 import { LoadPhotoByBreed } from '../loadPhotoByBreed/loadPhotoByBreed';
@@ -13,7 +13,7 @@ export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [breedNameId, setBreedNameId] = useState();
     const [breedName, setBreedName] = useState('Bengal');
-    const [imgAmount, setImgAmount] = useState(CLASSES_FOR_DIVS.slice(0,5))
+    const [imgAmount, setImgAmount] = useState(GRID_PHOTO_CLASSES.slice(0,5))
     const [inputId, setInputId] = useState();
 
     const breedInfo = useSelector(state => state.breeds)
@@ -41,7 +41,7 @@ export const Breeds = () => {
 
     const handleLimitChange = (event) => {
         const selectedLimit = event.target.value;
-        const imgLength = CLASSES_FOR_DIVS.slice(0,selectedLimit)
+        const imgLength = GRID_PHOTO_CLASSES.slice(0,selectedLimit)
         setImgAmount(imgLength)
     }
 

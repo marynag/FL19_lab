@@ -4,7 +4,7 @@ export const LIMITS=[
     15,
 ]
 
-export const CLASSES_FOR_DIVS=[
+export const GRID_PHOTO_CLASSES=[
     'catImgBreedsDiv1',
     'catImgBreedsDiv2',
     'catImgBreedsDiv3',
