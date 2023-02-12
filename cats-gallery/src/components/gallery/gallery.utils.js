@@ -1,7 +1,3 @@
-import imgSmile from "../../img/Vector (Stroke).png";
-import imgLike from "../../img/Vector 348 (Stroke).png";
-import imgSad from "../../img/Vector (Stroke) (1).png";
-
 export const GRID_PHOTO_CLASSES=[
     'catImgBreedsDiv1',
     'catImgBreedsDiv2',
@@ -19,14 +15,3 @@ export const GRID_PHOTO_CLASSES=[
     'catImgBreedsDiv14',
     'catImgBreedsDiv15',
 ]
-
-export const REACTIONS = [{
-    name: 'smile',
-    img: imgSmile,
-}, {
-    name: 'heart',
-    img: imgLike,
-}, {
-    name: 'sad',
-    img: imgSad,
-}];
