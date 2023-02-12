@@ -11,7 +11,7 @@ export const Gallery = () => {
     const [inputBreed, setInputBreed] = useState('');
     const [userBreed, setUserBreed] = useState('')
 
-    const handleChange = (event) => {
+    const handleBreedChange = (event) => {
         const breed=event.target.value
         setInputBreed(breed)
     }
@@ -26,7 +26,7 @@ export const Gallery = () => {
 
             <div className={styles.searchingLine}>
                 <div className={styles.search}>
-                    <input type="text"  column placeholder="Search for breeds by name" className={styles.searchInput} onChange={handleChange}/>
+                    <input type="text"  column placeholder="Search for breeds by name" className={styles.searchInput} onChange={handleBreedChange}/>
                     <div className={styles.searchItem} onClick={handleBreed}><img src={vector} alt="girl and pet" className={styles.search_img}/></div>
                 </div>
                 <div className={styles.reaction}><img src={vector2} alt="smile"/></div>
