@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
-import { LIMITS, GRID_PHOTO_CLASSES} from './breed.constants'
+import { LIMITS } from './breed.constants'
 import styles from './breeds.module.scss'
 import { SearchImg }  from '../searchImg';
 import { LoadPhotoByBreed } from '../loadPhotoByBreed/loadPhotoByBreed';
 import { useSelector } from 'react-redux';
 
-
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [breedName, setBreedName] = useState('');
-    const [imgAmount, setImgAmount] = useState(GRID_PHOTO_CLASSES.slice(0,5))
+    const [limit, setLimit] = useState(LIMITS[0])
     const [inputId, setInputId] = useState();
 
     const breedInfo = useSelector(state => state.breeds)
@@ -32,8 +31,7 @@ export const Breeds = () => {
 
     const handleLimitChange = (event) => {
         const selectedLimit = event.target.value;
-        const imgLength = GRID_PHOTO_CLASSES.slice(0,selectedLimit)
-        setImgAmount(imgLength)
+        setLimit(selectedLimit)
     }
 
     return(
@@ -55,7 +53,7 @@ export const Breeds = () => {
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>
-                {imgAmount.map(current => <LoadPhotoByBreed breedId={selectedBreedId} className={current} breedName={breedName} key={current} imgId={inputId} />)}
+                <LoadPhotoByBreed breedId={selectedBreedId} breedName={breedName} imgId={inputId} limit={limit}/>
             </div>
         </div>           
     </div>

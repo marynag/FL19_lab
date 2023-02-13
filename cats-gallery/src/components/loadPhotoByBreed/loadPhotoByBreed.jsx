@@ -1,46 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../loadPhotoByBreed/loadPhotoByBreed.module.scss'
-import {CATS_URL} from '../constants/constants';
 import { Link } from 'react-router-dom';
-import {getImagesByBreedsId, getImagesByBreedsMatch} from "./loadPhoto.utils";
+import {convertDataToArr, getImagesByBreedId, getImagesByImageId, getImagesCommon} from "./loadPhoto.utils";
 
 export const LoadPhotoByBreed = (props) => {
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
     const [photoData, setPhotoData] = useState([]);
 
     useEffect(() => {
-        fetch(CATS_URL)
+        if(props.breedId) return
+        if (props.imgId) return;
+       getImagesCommon(props.limit)
             .then((response) => response.json())
             .then(res  => {
-                setData(res[0].url)
+                const result= convertDataToArr(res)
+                setData(result)
                 const capyData=[...photoData]
                 setPhotoData([...capyData, res[0]])
             })
             .catch((error) =>{
                 console.log('Error:', error)
             })
-    }, []);
+    }, [props.limit]);
 
     useEffect(() => {
         if(!props.breedId) return;
-        getImagesByBreedsMatch(props.breedId)
+        getImagesByBreedId(props.breedId, props.limit)
         .then((response) => response.json())
         .then(res  => {
-            setData(res[0].url)
+            const result= convertDataToArr(res)
+            setData(result)
             const capyData=[...photoData]
             setPhotoData([...capyData, res[0]])
         })
         .catch((error) =>{
             console.log('Error:', error)
         })
-       }, [props.breedId]);
+       }, [props.breedId,props.limit]);
 
     useEffect(() => {
         if(!props.imgId) return;
-        getImagesByBreedsId(props.imgId)
+        getImagesByImageId(props.imgId)
             .then((response) => response.json())
             .then(res  => {
-                setData(res.url)
+                setData([res.url])
                 const capyData=[...photoData]
                 setPhotoData([...capyData, res])
             })
@@ -51,25 +54,28 @@ export const LoadPhotoByBreed = (props) => {
 
     return(
         <>
-            <div className ={`${styles[props.className]} , ${styles.catImgBreedsDiv}`}>
+                {data.map((current)=>(
+                <div className={`${styles.catImgBreedsDiv}`} key={current}>
                 <Link
-                to={{
-                    pathname: `/img`,
-                    state:  {photoData,
-                        url: data,
-                        breedName:props.breedName
-                    },
+                    to={{
+                        pathname: `/img`,
+                        state: {
+                            photoData,
+                            url: current,
+                            breedName: props.breedName
+                        },
 
-                }}
-            >
+                    }}
+                >
                     <img
                         className={`${styles.catImgBreeds} `}
-                        src={data}
-                        alt="sad"
+                        src={current}
+                        alt="cat"
                     />
                     <p className={styles.breedName}>{props.breedName}</p>
                 </Link>
             </div>
+                ))}
         </>
         )
 }

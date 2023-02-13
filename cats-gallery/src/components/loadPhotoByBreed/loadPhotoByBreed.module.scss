@@ -14,32 +14,37 @@
   filter: grayscale(40%) brightness(60%) sepia(50%) hue-rotate(-55deg) saturate(500%) contrast(0.6);
 }
 
-.catImgBreedsDiv1{
+.catImgBreedsDiv:first-child{
   grid-column: 1;
   grid-row: 1/3;
 }
 
-.catImgBreedsDiv4{
+.catImgBreedsDiv:nth-child(4){
   grid-column: 2/4;
   grid-row: 2/4;
 }
-.catImgBreedsDiv8{
+
+.catImgBreedsDiv:nth-child(8){
   grid-column: 3;
   grid-row: 4/6;
 }
-.catImgBreedsDiv9{
+
+.catImgBreedsDiv:nth-child(9){
   grid-column: 1/3;
   grid-row: 5/7;
 }
-.catImgBreedsDiv11{
+
+.catImgBreedsDiv:nth-child(11){
   grid-column: 1;
   grid-row: 7/9;
 }
-.catImgBreedsDiv14{
+
+.catImgBreedsDiv:nth-child(14){
   grid-column: 2/4;
   grid-row: 8/10;
 }
-.catImgBreedsDiv15{
+
+.catImgBreedsDiv:nth-child(15){
   margin-top: 0;
   grid-column: 1;
   grid-row: 9;

@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import styles from "./gallery.module.scss";
 import { LoadPhotoByBreed } from "../loadPhotoByBreed/loadPhotoByBreed";
-import {GRID_PHOTO_CLASSES} from "./gallery.utils";
-import {SearchImg} from "../searchImg";
+import { SearchImg } from "../searchImg";;
 
 export const Gallery = () => {
     const [inputBreed, setInputBreed] = useState('');
@@ -16,7 +15,7 @@ export const Gallery = () => {
                 </div>
 
                 <div className={styles.catImgBreedsWrapper}>
-                    {GRID_PHOTO_CLASSES.map(current => <LoadPhotoByBreed className={current} key={current} imgId={inputBreed} /> )}
+                    <LoadPhotoByBreed imgId={inputBreed}/>
                 </div>
 
             </div>
