@@ -6,7 +6,6 @@ import {getImagesByBreedsId, getImagesByBreedsMatch} from "./loadPhoto.utils";
 
 export const LoadPhotoByBreed = (props) => {
     const [data, setData] = useState();
-    const [isHovering, setIsHovering] = useState(false);
     const [photoData, setPhotoData] = useState([]);
 
     useEffect(() => {
@@ -50,13 +49,6 @@ export const LoadPhotoByBreed = (props) => {
             })
     }, [props.imgId]);
 
-    const handleMouseOver = () =>{
-        setIsHovering(true);
-    }
-
-    const handleMouseOut = () =>{
-        setIsHovering(false);
-    }
     return(
         <>
             <div className ={`${styles[props.className]} , ${styles.catImgBreedsDiv}`}>
@@ -71,12 +63,11 @@ export const LoadPhotoByBreed = (props) => {
                 }}
             >
                     <img
-                    className={`${styles.catImgBreeds} `}
-                       src={data} alt="sad"
-                        onMouseOver={handleMouseOver}
-                        onMouseOut={handleMouseOut}
+                        className={`${styles.catImgBreeds} `}
+                        src={data}
+                        alt="sad"
                     />
-                    {props.breedName ? (isHovering && <p className={styles.breedName}>{props.breedName}</p>) : null}
+                    <p className={styles.breedName}>{props.breedName}</p>
                 </Link>
             </div>
         </>

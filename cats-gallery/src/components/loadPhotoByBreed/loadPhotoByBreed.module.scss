@@ -52,3 +52,11 @@
   padding: 7px;
   border-radius: 10px;
 }
+
+.breedName{
+  display: none;
+}
+
+.catImgBreedsDiv:hover .breedName {
+  display: block;
+}
