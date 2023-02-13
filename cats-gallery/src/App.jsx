@@ -25,7 +25,7 @@ function App () {
                     <Gallery/>
                 </Route>
 
-                <Route exect path={PHOTO_INFO_PATH}>
+                <Route path={PHOTO_INFO_PATH}>
                     <PhotoInfo />
                 </Route>
             </Switch>

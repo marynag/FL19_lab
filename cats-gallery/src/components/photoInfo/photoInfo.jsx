@@ -22,8 +22,8 @@ export const PhotoInfo = () => {
         }
     })
 
-    const {temperament, origin, weight, life_span, description} = selectedBreedInfo
-    const weigthMetric = weight.metric
+    const {temperament, origin, weight, life_span, description} = selectedBreedInfo ?? ''
+    const weigthMetric = weight ? weight.metric : ''
 
     return (
         <div className={styles.photoInfoWrapper}>
@@ -39,24 +39,32 @@ export const PhotoInfo = () => {
                     </div>
 
                     <img className ={styles.catPhoto} src={url} alt="cat"/>
-                    <div className={styles.photoInfo}>
+                    {selectedBreedInfo &&(
+                        <div className={styles.photoInfo}>
                         <div className={styles.photoInfoHeader}>
                             <h2>{breedName}</h2>
                             <p className={styles.description}>{description}</p>
                         </div>
+
                         <div className={styles.details}>
                             <div>
                                 <p>Temperament:</p>
                                 <p className={styles.description}>{temperament}</p>
                             </div>
                             <div>
-                                <p>Origin: <p className={[`${styles.description}, ${styles.dataDetails}`]}>{origin}</p></p>
-                                <p>Weight: <p className={[`${styles.description}, ${styles.dataDetails}`]}>{weigthMetric} kgs</p></p>
-                                <p>Life span: <p className={[`${styles.description}, ${styles.dataDetails}`]}>{life_span}  years</p></p>
+                                <p>Origin: <p className={[`${styles.description}, ${styles.dataDetails}`]}>{origin}</p>
+                                </p>
+                                <p>Weight: <p
+                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{weigthMetric} kgs</p>
+                                </p>
+                                <p>Life span: <p
+                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{life_span} years</p>
+                                </p>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
+                    )}
 
                 </div>
                 </div>
