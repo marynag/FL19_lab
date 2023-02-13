@@ -16,7 +16,7 @@ export const LoadPhotoByBreed = (props) => {
                 const result= convertDataToArr(res)
                 setData(result)
                 const capyData=[...photoData]
-                setPhotoData([...capyData, res[0]])
+                setPhotoData([...capyData, ...res])
             })
             .catch((error) =>{
                 console.log('Error:', error)
@@ -31,7 +31,7 @@ export const LoadPhotoByBreed = (props) => {
             const result= convertDataToArr(res)
             setData(result)
             const capyData=[...photoData]
-            setPhotoData([...capyData, res[0]])
+            setPhotoData([...capyData, ...res])
         })
         .catch((error) =>{
             console.log('Error:', error)
@@ -58,7 +58,7 @@ export const LoadPhotoByBreed = (props) => {
                 <div className={`${styles.catImgBreedsDiv}`} key={current}>
                 <Link
                     to={{
-                        pathname: `/img`,
+                        pathname: 'img',
                         state: {
                             photoData,
                             url: current,

@@ -1,12 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
-
-// eslint-disable-next-line
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-
-// eslint-disable-next-line
+import {Route, Switch} from 'react-router-dom'
 import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
-import { BREEDS_PATH, GALLERY_PATH, VOTING_PATH } from './components/constants/path.constants';
+import {BREEDS_PATH, GALLERY_PATH, PHOTO_INFO_PATH, VOTING_PATH} from './components/constants/path.constants';
 import {PhotoInfo} from "./components/photoInfo/photoInfo";
 import {Redirect} from "react-router";
 
@@ -29,7 +25,7 @@ function App () {
                     <Gallery/>
                 </Route>
 
-                <Route path={'/img'}>
+                <Route exect path={PHOTO_INFO_PATH}>
                     <PhotoInfo />
                 </Route>
             </Switch>

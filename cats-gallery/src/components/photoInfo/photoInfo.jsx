@@ -1,7 +1,7 @@
 import styles from './photoInfo.module.scss'
 import {SearchImg} from "../searchImg";
 import React from "react";
-import { useLocation} from "react-router";
+import {useLocation} from "react-router";
 import {useSelector} from "react-redux";
 import {BREEDS_PATH} from "../constants/path.constants";
 import { Link } from "react-router-dom";
