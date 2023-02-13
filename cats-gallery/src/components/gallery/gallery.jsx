@@ -11,11 +11,11 @@ export const Gallery = () => {
             <div className={styles.votingWraper}>
                 <div className={styles.votingBlockName}>
                     <p className={styles.next}>&lt;</p>
-                    <p className={styles.vote}>BREEDS</p>
+                    <p className={styles.vote}>GALLERY</p>
                 </div>
 
                 <div className={styles.catImgBreedsWrapper}>
-                    <LoadPhotoByBreed imgId={inputBreed}/>
+                    <LoadPhotoByBreed imgId={inputBreed} limit='25'/>
                 </div>
 
             </div>

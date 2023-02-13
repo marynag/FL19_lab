@@ -1,66 +1,16 @@
-.searchingLine{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  
-  }
-  
-  .search{
-    flex-grow: 2;
-    display: flex;
-    justify-content: space-between;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-  }
-  
-  .searchInput{
-    width: 100%;
-    border: none;
-    font-size: 15px;
-    margin-left: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #8C8C8C;
-  }
-  
-  .searchItem{
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 5px;
-    background-color: #FBE0DC;
-    border-radius: 10px;
-  }
-  
-  .reaction{
-    background-color: #ffffff;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 8px;
-  }
-  
-  .reaction:hover{
-    background-color: #FBE0DC;
-  }
-  
   .voting{
     grid-column:2;
     grid-row: 1;
     margin:-10px 30px -60px 160px;
   }
-  
+
   .votingWraper{
     display: flex;
     flex-direction: column;
-  
     background-color: #ffffff;
     border-radius: 10px;
   }
-  
+
   .votingBlockName{
     margin: 0 25px;
     display: flex;
@@ -68,65 +18,7 @@
     align-items: center;
     gap: 10px;
   }
-  
-  .votingImg{
-    border-radius: 20px;
-    width: 90%;
-    height: 350px;
-    padding: 5px;
-    align-self: center;
-  }
-  
-  .currentReactionBlock{
-    margin-top: -35px;
-    display:flex;
-    justify-content: center;
-    z-index: 3;
-  }
-  
-  .currentReactionBlockWrapper{
-    display:flex;
-    justify-content: space-evenly;
-    background-color: #ffffff;
-    border: solid 4px #ffffff;
-    border-radius: 20px;
-    z-index: 3;
-  
-  }
-  .currentReaction{
-    margin-right: 4px;
-    padding: 15px 17px;
-    display: flex;
-  }
-  
-  .smile{
-    background-color: #97EAB9;
-    border-radius: 15px 0 0 15px;
-  }
-  
-  .like{
-    background-color:#FF868E;
-  }
-  
-  .sad{
-    background-color:#FFD280;
-    border-radius: 0 15px 15px 0;
-    margin-right: 0;
-  }
-  
-  
-  .smile:hover{
-    background-color: #97eaba85;
-  }
-  
-  .like:hover{
-    background-color:#ff868e86;
-  }
-  
-  .sad:hover{
-    background-color:#ffd3807e;
-  }
-  
+
   .next{
     color: #FF868E;
     padding: 2px 8px;
@@ -135,42 +27,10 @@
     border-radius: 10px;
     cursor: pointer;
   }
-  
-  .vote{
-    padding: 8px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #FF868E;
-    border-radius: 10px;
-    letter-spacing: 2px;
-    font-size: 15px;
-    color: #FFFFFF;
-  }
-  
-  .reactionDescription{
-    padding: 0 20px;
-    display: flex;
-    background-color: #F5F5F5;;
-    border-radius: 10px;
-    margin: 7px 25px;
-    justify-content: space-between;
-  }
-  
-  .reactionImg{
-    padding:11px 0px;
-  }
-  
-  .breeds{
-    grid-column:2;
-    grid-row: 1;
-    margin:-10px 30px -70px 160px;
-  
-  }
+
   .catImgBreedsWrapper{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(9, 120px);
     gap:7px;
     padding: 0 10px 10px 10px;
   }

@@ -50,6 +50,26 @@
   grid-row: 9;
 }
 
+.catImgBreedsDiv:nth-child(16){
+  grid-column: 1;
+  grid-row: 10/12;
+}
+
+.catImgBreedsDiv:nth-child(19){
+  grid-column: 2/4;
+  grid-row: 11/13;
+}
+
+.catImgBreedsDiv:nth-child(23){
+  grid-column: 3;
+  grid-row: 13/15;
+}
+
+.catImgBreedsDiv:nth-child(24){
+  grid-column: 1/3;
+  grid-row: 14/16;
+}
+
 .breedName {
   text-align: center;
   position: absolute;
