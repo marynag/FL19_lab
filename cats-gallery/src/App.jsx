@@ -8,18 +8,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
 import { BREEDS_PATH, GALLERY_PATH, VOTING_PATH } from './components/constants/path.constants';
 import {PhotoInfo} from "./components/photoInfo/photoInfo";
-import {useHistory} from "react-router";
+import {Redirect} from "react-router";
 
 function App () {
-    const history = useHistory();
-
-    useEffect(()=>{
-        history.push('/home');
-    },[])
-
   return(
     <main>
-            <StaticSection/>
+        <Redirect to="/home" />
+        <StaticSection/>
             <Switch>
                 <Route exect path="/home" >
                     <MainSection/>
