@@ -15,13 +15,12 @@ export const Breeds = () => {
 
     const breedInfo = useSelector(state => state.breeds)
 
-    const breed = breedInfo.reduce((acc, item) =>{
+    const breedNameId = breedInfo.reduce((acc, item) =>{
         acc[item.name]=item.id
         return acc
     }, {})
 
-    const breeds = Object.keys(breed)
-    const breedNameId = breed
+    const breedsNames = Object.keys(breedNameId)
 
     const handleBreedChange = (event) => {
         const selectedBreed=event.target.value
@@ -42,7 +41,7 @@ export const Breeds = () => {
                     <p className={styles.next}>&lt;</p>
                     <p className={styles.vote}>BREEDS</p>
                     <select className={`${styles.vote} ${styles.breedSelect}`} onChange={handleBreedChange}>
-                        {breeds ? breeds.map(current => <option key={current}>{current}</option> ): null}
+                        {breedsNames.map(current => <option key={current}>{current}</option> )}
                     </select>
                     <select className={`${styles.vote} ${styles.breedsLimit}`} onChange={handleLimitChange} >
                         {LIMITS.map(current => <option key={current} value={current}>Limit: {current}</option> )}
