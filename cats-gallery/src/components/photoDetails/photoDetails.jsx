@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export const PhotoDetails = () => {
     const location = useLocation();
-    const {url, breedName, photoData} = location.state
+    const {url, photoData, breedId} = location.state
     const id = photoData.map(item => {
         if(item.url===url){
             return item.id
@@ -17,12 +17,12 @@ export const PhotoDetails = () => {
 
     const allbreedsInfo = useSelector(state => state.breeds)
     const selectedBreedInfo = allbreedsInfo.find(item => {
-        if(item.name==breedName){
+        if(item.id==breedId){
             return item
         }
     })
 
-    const {temperament, origin, weight, life_span, description} = selectedBreedInfo ?? ''
+    const {name, temperament, origin, weight, life_span, description} = selectedBreedInfo ?? ''
     const weigthMetric = weight ? weight.metric : ''
 
     return (
@@ -42,7 +42,7 @@ export const PhotoDetails = () => {
                     {selectedBreedInfo &&(
                         <div className={styles.photoInfo}>
                         <div className={styles.photoInfoHeader}>
-                            <h2>{breedName}</h2>
+                            <h2>{name}</h2>
                             <p className={styles.description}>{description}</p>
                         </div>
 

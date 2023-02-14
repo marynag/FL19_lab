@@ -32,7 +32,7 @@ export const BreedsPhotoLoader = (props) => {
 
     useEffect(() => {
         if(!props.breedId) return;
-        setBreedName(Object.keys(breedNameId).find(key => breedNameId[key] === props.breedId))
+        setBreedName((breedNameId.find(item => item.id === props.breedId)).name)
         fetchImagesByBreedId(props.breedId, props.limit)
         .then((response) => response.json())
         .then(res  => {
@@ -54,9 +54,9 @@ export const BreedsPhotoLoader = (props) => {
                     to={{
                         pathname: PATHS.photoDetails,
                         state: {
+                            breedId: props.breedId,
                             photoData,
                             url: current,
-                            breedName: breedName
                         },
 
                     }}

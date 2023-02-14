@@ -14,11 +14,9 @@ export const Breeds = () => {
 
     const breedInfo = useSelector(state => state.breeds)
     const breedNameId = getBreedNameId(breedInfo)
-    const breedsNames = Object.keys(breedNameId)
 
     const handleBreedChange = (event) => {
-        const selectedBreed=event.target.value
-        setSelectedBreedId(breedNameId[selectedBreed])
+        setSelectedBreedId(event.target.value)
     }
 
     const handleLimitChange = (event) => {
@@ -34,7 +32,7 @@ export const Breeds = () => {
                     <p className={styles.next}>&lt;</p>
                     <p className={styles.vote}>BREEDS</p>
                     <select className={`${styles.vote} ${styles.breedSelect}`} onChange={handleBreedChange}>
-                        {breedsNames.map(current => <option key={current}>{current}</option> )}
+                        {breedNameId.map(current => <option key={current.id} value={current.id}>{current.name}</option> )}
                     </select>
                     <select className={`${styles.vote} ${styles.breedsLimit}`} onChange={handleLimitChange} >
                         {LIMITS.map(current => <option key={current} value={current}>Limit: {current}</option> )}
