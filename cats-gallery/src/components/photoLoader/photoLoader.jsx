@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { CATS_URL } from '../constants/constants';
+import { CATS_URL } from '../constants/requests.constants';
 import styles from './photoLoader.module.scss'
 import PropTypes from 'prop-types';
-
 
 export const PhotoLoader = (props) => {
     const [data, setData] = useState(null);   

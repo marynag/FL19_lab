@@ -2,31 +2,31 @@ import React from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom'
 import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
-import {BREEDS_PATH, GALLERY_PATH, PHOTO_INFO_PATH, VOTING_PATH} from './components/constants/path.constants';
-import {PhotoInfo} from "./components/photoInfo/photoInfo";
+import {PATHS} from './components/constants/path.constants';
+import {PhotoDetails} from "./components/photoDetails/photoDetails";
 import {Redirect} from "react-router";
 
 function App () {
   return(
     <main>
-        <Redirect to="/home" />
         <StaticSection/>
+        <Redirect to="/home" />
             <Switch>
-                <Route exect path="/home" >
+                <Route exect path={PATHS.home} >
                     <MainSection/>
                 </Route>
-                <Route path={VOTING_PATH}>
+                <Route path={PATHS.voting}>
                     <Voting/>
                 </Route>
-                <Route path={BREEDS_PATH}>
+                <Route path={PATHS.breeds}>
                     <Breeds/>
                 </Route>
-                <Route path={GALLERY_PATH}>
+                <Route path={PATHS.gallery}>
                     <Gallery/>
                 </Route>
 
-                <Route path={PHOTO_INFO_PATH}>
-                    <PhotoInfo />
+                <Route path={PATHS.photoDetails}>
+                    <PhotoDetails />
                 </Route>
             </Switch>
     </main>

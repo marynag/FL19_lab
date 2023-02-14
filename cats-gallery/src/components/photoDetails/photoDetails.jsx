@@ -1,12 +1,12 @@
-import styles from './photoInfo.module.scss'
-import {SearchImg} from "../searchImg";
+import styles from './photoDetails.module.scss'
+import {SearchingBar} from "../searchingBar";
 import React from "react";
 import {useLocation} from "react-router";
 import {useSelector} from "react-redux";
-import {BREEDS_PATH} from "../constants/path.constants";
+import {PATHS} from "../constants/path.constants";
 import { Link } from "react-router-dom";
 
-export const PhotoInfo = () => {
+export const PhotoDetails = () => {
     const location = useLocation();
     const {url, breedName, photoData} = location.state
     const id = photoData.map(item => {
@@ -15,8 +15,8 @@ export const PhotoInfo = () => {
         }
      })
 
-    const AllbreedsInfo = useSelector(state => state.breeds)
-    const selectedBreedInfo = AllbreedsInfo.find(item => {
+    const allbreedsInfo = useSelector(state => state.breeds)
+    const selectedBreedInfo = allbreedsInfo.find(item => {
         if(item.name==breedName){
             return item
         }
@@ -27,11 +27,11 @@ export const PhotoInfo = () => {
 
     return (
         <div className={styles.photoInfoWrapper}>
-            <SearchImg/>
+            <SearchingBar/>
             <div className={styles.wraperImgBlokSearchImages}>
                 <div className={styles.wraperImgBlokSearch}>
                     <div className={styles.headerBreeds}>
-                        <Link to={BREEDS_PATH}>
+                        <Link to={PATHS.breeds}>
                             <p className={styles.next} >&lt;</p>
                         </Link>
                         <p className={styles.vote}>BREEDS</p>

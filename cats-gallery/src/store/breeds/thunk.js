@@ -1,10 +1,10 @@
-import {IMG_INFO} from "../../components/constants/constants";
+import {URL_BREEDS_INFO} from "../../components/constants/requests.constants";
 
 export const getBreeds = () =>{
     return (dispatch) =>{
-        fetch(IMG_INFO)
+        fetch(URL_BREEDS_INFO)
             .then(response => response.json())
-            .then(response =>dispatch({ type: 'GET_BREEDS', payload: response })
+            .then(response =>dispatch({ type: 'BREEDS_FETCHED', payload: response })
             )
     }
 }

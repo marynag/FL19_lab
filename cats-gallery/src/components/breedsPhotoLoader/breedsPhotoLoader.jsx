@@ -1,46 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../loadPhotoByBreed/loadPhotoByBreed.module.scss'
+import styles from './breedsPhotoLoader.module.scss'
 import { Link } from 'react-router-dom';
-import {convertDataToArr, getImagesByBreedId, getImagesByImageId, getImagesCommon} from "./loadPhoto.utils";
+import {getUtls} from "./breedsPhotoLoader.utils";
+import {PATHS} from "../constants/path.constants";
+import {fetchImagesByBreedId, fetchImagesByImageId, fetchImages} from "../constants/requests.constants";
 
-export const LoadPhotoByBreed = (props) => {
+export const BreedsPhotoLoader = (props) => {
     const [data, setData] = useState([]);
     const [photoData, setPhotoData] = useState([]);
 
     useEffect(() => {
         if(props.breedId) return
         if (props.imgId) return;
-       getImagesCommon(props.limit)
+       fetchImages(props.limit)
             .then((response) => response.json())
             .then(res  => {
-                const result= convertDataToArr(res)
+                const result= getUtls(res)
                 setData(result)
                 const capyData=[...photoData]
                 setPhotoData([...capyData, ...res])
             })
             .catch((error) =>{
-                console.log('Error:', error)
+                console.error(`Failed to get images`, error);
             })
     }, [props.limit]);
 
     useEffect(() => {
         if(!props.breedId) return;
-        getImagesByBreedId(props.breedId, props.limit)
+        fetchImagesByBreedId(props.breedId, props.limit)
         .then((response) => response.json())
         .then(res  => {
-            const result= convertDataToArr(res)
+            const result= getUtls(res)
             setData(result)
             const capyData=[...photoData]
             setPhotoData([...capyData, ...res])
         })
         .catch((error) =>{
-            console.log('Error:', error)
+            console.error(`Failed to get images`, error);
         })
        }, [props.breedId,props.limit]);
 
     useEffect(() => {
         if(!props.imgId) return;
-        getImagesByImageId(props.imgId)
+        fetchImagesByImageId(props.imgId)
             .then((response) => response.json())
             .then(res  => {
                 setData([res.url])
@@ -48,7 +50,7 @@ export const LoadPhotoByBreed = (props) => {
                 setPhotoData([...capyData, res])
             })
             .catch((error) =>{
-                console.log('Error:', error)
+                console.error(`Failed to get images by id ${props.imgId}`, error);
             })
     }, [props.imgId]);
 
@@ -58,7 +60,7 @@ export const LoadPhotoByBreed = (props) => {
                 <div className={`${styles.catImgBreedsDiv}`} key={current}>
                 <Link
                     to={{
-                        pathname: 'img',
+                        pathname: PATHS.photoDetails,
                         state: {
                             photoData,
                             url: current,

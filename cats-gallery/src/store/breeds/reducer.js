@@ -1,6 +1,6 @@
 export const breedReducer = (state = [], action) =>{
     switch(action.type){
-        case 'GET_BREEDS':
+        case 'BREEDS_FETCHED':
             return action.payload
         default:
             return state

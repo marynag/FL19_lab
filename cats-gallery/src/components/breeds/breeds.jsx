@@ -3,8 +3,8 @@ import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
 import { LIMITS } from './breed.constants'
 import styles from './breeds.module.scss'
-import { SearchImg }  from '../searchImg';
-import { LoadPhotoByBreed } from '../loadPhotoByBreed/loadPhotoByBreed';
+import { SearchingBar }  from '../searchingBar';
+import { BreedsPhotoLoader } from '../breedsPhotoLoader/breedsPhotoLoader';
 import { useSelector } from 'react-redux';
 
 export const Breeds = () => {
@@ -30,13 +30,12 @@ export const Breeds = () => {
     }
 
     const handleLimitChange = (event) => {
-        const selectedLimit = event.target.value;
-        setLimit(selectedLimit)
+        setLimit(event.target.value)
     }
 
     return(
         <div className={styles.breeds}>
-            <SearchImg onChange={setInputId}/>
+            <SearchingBar onChange={setInputId}/>
         <div className={styles.wraperImgBlokSearchImages}>
         <div className={styles.wraperImgBlokSearch}>
                 <div className={styles.headerBreeds}>
@@ -53,7 +52,7 @@ export const Breeds = () => {
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>
-                <LoadPhotoByBreed breedId={selectedBreedId} breedName={breedName} imgId={inputId} limit={limit}/>
+                <BreedsPhotoLoader breedId={selectedBreedId} breedName={breedName} imgId={inputId} limit={limit}/>
             </div>
         </div>           
     </div>
