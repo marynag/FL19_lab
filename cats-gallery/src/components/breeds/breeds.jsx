@@ -6,26 +6,19 @@ import styles from './breeds.module.scss'
 import { SearchingBar }  from '../searchingBar';
 import { BreedsPhotoLoader } from '../breedsPhotoLoader/breedsPhotoLoader';
 import { useSelector } from 'react-redux';
+import {getBreedNameId} from "./breeds.utils";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
-    const [breedName, setBreedName] = useState('');
     const [limit, setLimit] = useState(LIMITS[0])
-    const [inputId, setInputId] = useState();
 
     const breedInfo = useSelector(state => state.breeds)
-
-    const breedNameId = breedInfo.reduce((acc, item) =>{
-        acc[item.name]=item.id
-        return acc
-    }, {})
-
+    const breedNameId = getBreedNameId(breedInfo)
     const breedsNames = Object.keys(breedNameId)
 
     const handleBreedChange = (event) => {
         const selectedBreed=event.target.value
         setSelectedBreedId(breedNameId[selectedBreed])
-        setBreedName(selectedBreed)
     }
 
     const handleLimitChange = (event) => {
@@ -34,7 +27,7 @@ export const Breeds = () => {
 
     return(
         <div className={styles.breeds}>
-            <SearchingBar onChange={setInputId}/>
+            <SearchingBar onChange={setSelectedBreedId}/>
         <div className={styles.wraperImgBlokSearchImages}>
         <div className={styles.wraperImgBlokSearch}>
                 <div className={styles.headerBreeds}>
@@ -51,7 +44,7 @@ export const Breeds = () => {
                 </div>
             </div>
             <div className={styles.catImgBreedsWrapper}>
-                <BreedsPhotoLoader breedId={selectedBreedId} breedName={breedName} imgId={inputId} limit={limit}/>
+                <BreedsPhotoLoader breedId={selectedBreedId} limit={limit}/>
             </div>
         </div>           
     </div>

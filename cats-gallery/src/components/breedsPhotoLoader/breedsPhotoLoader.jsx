@@ -3,15 +3,20 @@ import styles from './breedsPhotoLoader.module.scss'
 import { Link } from 'react-router-dom';
 import {getUtls} from "./breedsPhotoLoader.utils";
 import {PATHS} from "../constants/path.constants";
-import {fetchImagesByBreedId, fetchImagesByImageId, fetchImages} from "../constants/requests.constants";
+import {fetchImagesByBreedId, fetchImages} from "../constants/requests.constants";
+import {useSelector} from "react-redux";
+import {getBreedNameId} from "../breeds/breeds.utils";
 
 export const BreedsPhotoLoader = (props) => {
     const [data, setData] = useState([]);
     const [photoData, setPhotoData] = useState([]);
+    const [breedName, setBreedName] = useState('')
+
+    const breedInfo = useSelector(state => state.breeds)
+    const breedNameId = getBreedNameId(breedInfo)
 
     useEffect(() => {
         if(props.breedId) return
-        if (props.imgId) return;
        fetchImages(props.limit)
             .then((response) => response.json())
             .then(res  => {
@@ -27,6 +32,7 @@ export const BreedsPhotoLoader = (props) => {
 
     useEffect(() => {
         if(!props.breedId) return;
+        setBreedName(Object.keys(breedNameId).find(key => breedNameId[key] === props.breedId))
         fetchImagesByBreedId(props.breedId, props.limit)
         .then((response) => response.json())
         .then(res  => {
@@ -40,20 +46,6 @@ export const BreedsPhotoLoader = (props) => {
         })
        }, [props.breedId,props.limit]);
 
-    useEffect(() => {
-        if(!props.imgId) return;
-        fetchImagesByImageId(props.imgId)
-            .then((response) => response.json())
-            .then(res  => {
-                setData([res.url])
-                const capyData=[...photoData]
-                setPhotoData([...capyData, res])
-            })
-            .catch((error) =>{
-                console.error(`Failed to get images by id ${props.imgId}`, error);
-            })
-    }, [props.imgId]);
-
     return(
         <>
                 {data.map((current)=>(
@@ -64,7 +56,7 @@ export const BreedsPhotoLoader = (props) => {
                         state: {
                             photoData,
                             url: current,
-                            breedName: props.breedName
+                            breedName: breedName
                         },
 
                     }}
@@ -74,7 +66,7 @@ export const BreedsPhotoLoader = (props) => {
                         src={current}
                         alt="cat"
                     />
-                    <p className={styles.breedName}>{props.breedName}</p>
+                    <p className={styles.breedName}>{breedName}</p>
                 </Link>
             </div>
                 ))}
