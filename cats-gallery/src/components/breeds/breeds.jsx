@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useMemo, useState} from 'react';
 import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
 import { LIMITS } from './breed.constants'
@@ -13,7 +13,7 @@ export const Breeds = () => {
     const [limit, setLimit] = useState(LIMITS[0])
 
     const breedInfo = useSelector(state => state.breeds)
-    const breedNameId = getBreedNameId(breedInfo)
+    const breedNameId = useMemo(()=>getBreedNameId(breedInfo))
 
     const handleBreedChange = (event) => {
         setSelectedBreedId(event.target.value)
