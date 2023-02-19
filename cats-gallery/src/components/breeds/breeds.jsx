@@ -6,12 +6,13 @@ import styles from './breeds.module.scss'
 import { SearchingBar }  from '../searchingBar';
 import { BreedsPhotoLoader } from '../breedsPhotoLoader/breedsPhotoLoader';
 import { useSelector } from 'react-redux';
+import {getBreedInfo} from "../../store/selectors";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
 
-    const breedNameId = useSelector(state => state.breeds)
+    const breedNameId = useSelector(getBreedInfo)
 
     const handleBreedChange = (event) => {
         setSelectedBreedId(event.target.value)
