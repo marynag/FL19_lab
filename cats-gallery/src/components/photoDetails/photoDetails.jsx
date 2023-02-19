@@ -5,15 +5,12 @@ import {useLocation} from "react-router";
 import {useSelector} from "react-redux";
 import {PATHS} from "../constants/path.constants";
 import { Link } from "react-router-dom";
+import {getPhotoId} from "./photoDetails.utils";
 
 export const PhotoDetails = () => {
     const location = useLocation();
-    const {url, photoData, breedId} = location.state
-    const id = photoData.map(item => {
-        if(item.url===url){
-            return item.id
-        }
-     })
+    const {url, breedId} = location.state
+    const photoId = getPhotoId(url)
 
     const allbreedsInfo = useSelector(state => state.breeds)
     const selectedBreedInfo = allbreedsInfo.find(item => {
@@ -35,7 +32,7 @@ export const PhotoDetails = () => {
                             <p className={styles.next} >&lt;</p>
                         </Link>
                         <p className={styles.vote}>BREEDS</p>
-                        <p className={styles.vote}>{id}</p>
+                        <p className={styles.vote}>{photoId}</p>
                     </div>
 
                     <img className ={styles.catPhoto} src={url} alt="cat"/>

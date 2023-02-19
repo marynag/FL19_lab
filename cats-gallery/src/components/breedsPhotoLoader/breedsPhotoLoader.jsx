@@ -10,7 +10,6 @@ import {LoaringSpinner} from "../loaringSpinner/loaringSpinner";
 
 export const BreedsPhotoLoader = (props) => {
     const [data, setData] = useState([]);
-    const [photoData, setPhotoData] = useState([]);
     const [breedName, setBreedName] = useState('')
     const [isLoading, setIsLoading] = useState(true)
 
@@ -25,8 +24,6 @@ export const BreedsPhotoLoader = (props) => {
             .then(res  => {
                 const result= getUtls(res)
                 setData(result)
-                const capyData=[...photoData]
-                setPhotoData([...capyData, ...res])
                 setIsLoading(false)
             })
             .catch((error) =>{
@@ -43,8 +40,6 @@ export const BreedsPhotoLoader = (props) => {
         .then(res  => {
             const result= getUtls(res)
             setData(result)
-            const capyData=[...photoData]
-            setPhotoData([...capyData, ...res])
             setIsLoading(false)
         })
         .catch((error) =>{
@@ -63,7 +58,6 @@ export const BreedsPhotoLoader = (props) => {
                         pathname: PATHS.photoDetails,
                         state: {
                             breedId: props.breedId,
-                            photoData,
                             url: current,
                         },
 
