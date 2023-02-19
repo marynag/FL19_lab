@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useState} from 'react';
 import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
 import { LIMITS } from './breed.constants'
@@ -6,14 +6,12 @@ import styles from './breeds.module.scss'
 import { SearchingBar }  from '../searchingBar';
 import { BreedsPhotoLoader } from '../breedsPhotoLoader/breedsPhotoLoader';
 import { useSelector } from 'react-redux';
-import {getBreedNameId} from "./breeds.utils";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
 
-    const breedInfo = useSelector(state => state.breeds)
-    const breedNameId = useMemo(()=>getBreedNameId(breedInfo))
+    const breedNameId = useSelector(state => state.breeds)
 
     const handleBreedChange = (event) => {
         setSelectedBreedId(event.target.value)

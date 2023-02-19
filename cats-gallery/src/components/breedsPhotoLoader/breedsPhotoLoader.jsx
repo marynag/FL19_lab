@@ -5,7 +5,6 @@ import {getUtls} from "./breedsPhotoLoader.utils";
 import {PATHS} from "../constants/path.constants";
 import {fetchImagesByBreedId, fetchImages} from "../constants/requests.constants";
 import {useSelector} from "react-redux";
-import {getBreedNameId} from "../breeds/breeds.utils";
 import {LoaringSpinner} from "../loaringSpinner/loaringSpinner";
 
 export const BreedsPhotoLoader = (props) => {
@@ -13,8 +12,7 @@ export const BreedsPhotoLoader = (props) => {
     const [breedName, setBreedName] = useState('')
     const [isLoading, setIsLoading] = useState(true)
 
-    const breedInfo = useSelector(state => state.breeds)
-    const breedNameId = getBreedNameId(breedInfo)
+    const breedNameId = useSelector(state => state.breeds)
 
     useEffect(() => {
         if(props.breedId) return
