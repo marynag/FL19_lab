@@ -44,7 +44,7 @@
     border: solid 4px #FBE0DC; 
   }
 
-.btn{
+button{
     grid-row: 2;
     border: none;
     text-align: center;
@@ -53,15 +53,13 @@
     margin-top: 10px;
     border-radius: 10px;
     background-color: #FFFFFF;
-    
-    text-decoration: none;
 }
 
-.btn:hover{
+button:hover{
     background-color: #FBE0DC;
 }
 
-.btn:active{
+button:active{
     background-color: #FF868E;
     color: #FFFFFF
 }
@@ -70,6 +68,9 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+}
+a:hover{
     text-decoration: none;
 }
 

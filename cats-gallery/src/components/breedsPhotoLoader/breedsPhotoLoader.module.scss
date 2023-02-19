@@ -2,6 +2,12 @@
   display: flex;
 }
 
+.catImgBreedsWrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:7px;
+}
+
 .catImgBreeds{
   border-radius: 10px;
   width: 100%;
@@ -84,4 +90,7 @@
 
 .catImgBreedsDiv:hover .breedName {
   display: block;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:7px;
 }

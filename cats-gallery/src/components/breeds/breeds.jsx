@@ -41,7 +41,7 @@ export const Breeds = () => {
                     <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={ImgSort2} alt="sort" /></div>
                 </div>
             </div>
-            <div className={styles.catImgBreedsWrapper}>
+            <div>
                 <BreedsPhotoLoader breedId={selectedBreedId} limit={limit}/>
             </div>
         </div>           

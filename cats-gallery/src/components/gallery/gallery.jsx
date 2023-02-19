@@ -13,11 +13,7 @@ export const Gallery = () => {
                     <p className={styles.next}>&lt;</p>
                     <p className={styles.vote}>GALLERY</p>
                 </div>
-
-                <div className={styles.catImgBreedsWrapper}>
-                    <BreedsPhotoLoader imgId={inputBreed} limit='25'/>
-                </div>
-
+                <BreedsPhotoLoader imgId={inputBreed} limit='25'/>
             </div>
         </div>
     )
