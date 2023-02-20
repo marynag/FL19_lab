@@ -6,18 +6,10 @@ import { rootReducer } from "./store";
 import { Provider } from "react-redux";
 import {getBreeds} from "./store/breeds/thunk";
 import {BrowserRouter as Router} from "react-router-dom";
+import thunk from "redux-thunk";
 
 //TODO: restucture files according to redux thunk architecture
-const asyncFunctionMiddleware = (store) => (next) => (action) => {
-    if (typeof action === 'function') {
-        return action(store.dispatch, store.getState);
-    }
-    return next(action);
-};
-
-
-const middlewareEnhancer = applyMiddleware(asyncFunctionMiddleware);
-const store = createStore(rootReducer, middlewareEnhancer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 store.dispatch(getBreeds());
