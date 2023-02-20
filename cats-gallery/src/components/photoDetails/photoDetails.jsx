@@ -1,5 +1,5 @@
 import styles from './photoDetails.module.scss'
-import {SearchingBar} from "../searchingBar";
+import {SearchingBar} from "../searchBar";
 import React from "react";
 import {useLocation} from "react-router";
 import {useSelector} from "react-redux";

@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import styles from './voting.module.scss'
 import { VoteReactionsPanel } from '../voteReactionsPanel';
 import {VotePhoto } from '../votePhoto';
-import {SearchingBar} from '../searchingBar'
+import {SearchingBar} from '../searchBar'
 
 
 export const Voting = () =>{

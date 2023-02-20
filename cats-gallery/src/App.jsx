@@ -10,7 +10,6 @@ function App () {
   return(
     <main>
         <StaticSection/>
-        <Redirect to="/home" />
             <Switch>
                 <Route exect path={PATHS.home} >
                     <MainSection/>
