@@ -43,7 +43,7 @@ export const Breeds = () => {
             </div>
             <div>
                 {selectedBreedId ? (<PhotoLoaderByBreed breedId={selectedBreedId} limit={limit} />) :
-                    <GridPhotoLoader limit='5'/> }
+                    <GridPhotoLoader limit={limit}/> }
             </div>
         </div>           
     </div>
