@@ -3,7 +3,7 @@ import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
 import { LIMITS } from './breed.constants'
 import styles from './breeds.module.scss'
-import { SearchingBar }  from '../searchBar';
+import { SearchBar }  from '../searchBar';
 import { useSelector } from 'react-redux';
 import {getBreedNameId} from "../../store/selectors";
 import {PhotoGrid} from "../photoGrid/photoGrid";
@@ -24,7 +24,7 @@ export const Breeds = () => {
 
     return(
         <div className={styles.breeds}>
-            <SearchingBar onChange={setSelectedBreedId}/>
+            <SearchBar onChange={setSelectedBreedId}/>
         <div className={styles.wraperImgBlokSearchImages}>
         <div className={styles.wraperImgBlokSearch}>
                 <div className={styles.headerBreeds}>

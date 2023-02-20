@@ -2,20 +2,20 @@ import searchPanel from '../../img/Vector.png'
 import styles from './searchingBar.module.scss'
 import React from 'react';
 import {useSelector} from "react-redux";
-import {getBreedInfo} from "../../store/selectors";
+import {getBreedInfo, getBreedNameId} from "../../store/selectors";
 import {ReactionBar} from "../reactionBar/reactionBar";
 
-export const SearchingBar = (props) => {
+export const SearchBar = (props) => {
     const input = React.createRef();
+    const breedNameId = useSelector(getBreedNameId)
 
-    const breedNameId = useSelector(getBreedInfo)
     const handleClick = () =>{
-        const matchedBreed = Object.entries(breedNameId).find((breed) => {
-            const {name} = breed[1]
-            return (name.toLowerCase().includes(input.current.value.toLowerCase()) )
+        const matchedBreed = (breedNameId).find((breed) => {
+            const {name} = breed
+           return (name.toLowerCase().includes(input.current.value.toLowerCase()) )
          })
 
-        const matchedBreedId = matchedBreed[1].id
+        const matchedBreedId = matchedBreed.id
         props.onChange(matchedBreedId)
     }
 

@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import styles from "./gallery.module.scss";
-import { SearchingBar } from "../searchBar";
+import { SearchBar } from "../searchBar";
 import {PhotoGrid} from "../photoGrid/photoGrid";
 
 export const Gallery = () => {
@@ -9,7 +9,7 @@ export const Gallery = () => {
 
     return(
         <div className={styles.voting}>
-            <SearchingBar onChange={setInputBreedId}/>
+            <SearchBar onChange={setInputBreedId}/>
             <div className={styles.votingWraper}>
                 <div className={styles.votingBlockName}>
                     <p className={styles.next}>&lt;</p>

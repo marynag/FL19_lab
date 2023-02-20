@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import styles from './voting.module.scss'
 import { VoteReactionsPanel } from '../voteReactionsPanel';
 import {VotePhoto } from '../votePhoto';
-import {SearchingBar} from '../searchBar'
+import {SearchBar} from '../searchBar'
 
 
 export const Voting = () =>{
@@ -10,7 +10,7 @@ export const Voting = () =>{
 
     return(
         <div className={styles.voting}>
-            <SearchingBar/>
+            <SearchBar/>
             <div className={styles.votingWraper}>
                 <div className={styles.votingBlockName}>
                     <p className={styles.next}>&lt;</p>

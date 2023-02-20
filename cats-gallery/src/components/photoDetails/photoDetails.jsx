@@ -1,5 +1,5 @@
 import styles from './photoDetails.module.scss'
-import {SearchingBar} from "../searchBar";
+import {SearchBar} from "../searchBar";
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import {PATHS} from "../constants/path.constants";
@@ -40,7 +40,7 @@ export const PhotoDetails = () => {
 
     return (
         <div className={styles.photoInfoWrapper}>
-            <SearchingBar/>
+            <SearchBar/>
             <div className={styles.wraperImgBlokSearchImages}>
                 <div className={styles.wraperImgBlokSearch}>
                     <div className={styles.headerBreeds}>
