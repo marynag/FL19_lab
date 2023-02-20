@@ -1,26 +1,42 @@
 import styles from './photoDetails.module.scss'
 import {SearchingBar} from "../searchBar";
-import React from "react";
-import {useLocation} from "react-router";
-import {useSelector} from "react-redux";
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router";
 import {PATHS} from "../constants/path.constants";
 import { Link } from "react-router-dom";
-import {getPhotoId} from "./photoDetails.utils";
+import {fetchPhotoById} from "../requests/request.utils";
+import {Spinner} from "../spinner/spinner";
+
 
 export const PhotoDetails = () => {
-    const location = useLocation();
-    const {url, breedId} = location.state
-    const photoId = getPhotoId(url)
+    const [isLoading, setLoading] = useState(false)
+    const [photo, setPhoto]=useState()
+    const [name, setName]=useState('')
+    const [temperament, setTemperament]=useState('')
+    const [description, setDescription]=useState('')
+    const [origin, setOrigin]=useState('')
+    const [weight, setWeight]=useState('')
+    const [lifeSpan, setLifeSpan]=useState('')
+     const { id } = useParams()
 
-    const allbreedsInfo = useSelector(state => state.breeds)
-    const selectedBreedInfo = allbreedsInfo.find(item => {
-        if(item.id==breedId){
-            return item
-        }
-    })
-
-    const {name, temperament, origin, weight, life_span, description} = selectedBreedInfo ?? ''
-    const weigthMetric = weight ? weight.metric : ''
+    useEffect(() => {
+        setLoading(true);
+            fetchPhotoById(id)
+            .then((response) => response.json())
+            .then(res  => {
+                setPhoto(res.url)
+                setName(res.breeds[0].name)
+                setOrigin(res.breeds[0].origin)
+                setLifeSpan(res.breeds[0].life_span)
+                setWeight(res.breeds[0].weight.metric)
+                setDescription(res.breeds[0].description)
+                setTemperament(res.breeds[0].temperament)
+                setLoading(false)
+            })
+            .catch((error) =>{
+                console.error(`Failed to get photo by id ${id} `, error)
+            })
+    }, []);
 
     return (
         <div className={styles.photoInfoWrapper}>
@@ -32,17 +48,15 @@ export const PhotoDetails = () => {
                             <p className={styles.next} >&lt;</p>
                         </Link>
                         <p className={styles.vote}>BREEDS</p>
-                        <p className={styles.vote}>{photoId}</p>
+                        <p className={styles.vote}>{id}</p>
                     </div>
 
-                    <img className ={styles.catPhoto} src={url} alt="cat"/>
-                    {selectedBreedInfo &&(
+                    {isLoading ? <Spinner /> : <img className={styles.catPhoto} src={photo} alt="cat"/>}
                         <div className={styles.photoInfo}>
                         <div className={styles.photoInfoHeader}>
                             <h2>{name}</h2>
                             <p className={styles.description}>{description}</p>
                         </div>
-
                         <div className={styles.details}>
                             <div>
                                 <p>Temperament:</p>
@@ -52,17 +66,15 @@ export const PhotoDetails = () => {
                                 <p>Origin: <p className={[`${styles.description}, ${styles.dataDetails}`]}>{origin}</p>
                                 </p>
                                 <p>Weight: <p
-                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{weigthMetric} kgs</p>
+                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{weight} kgs</p>
                                 </p>
                                 <p>Life span: <p
-                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{life_span} years</p>
+                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{lifeSpan} years</p>
                                 </p>
                             </div>
 
                         </div>
                     </div>
-                    )}
-
                 </div>
                 </div>
         </div>

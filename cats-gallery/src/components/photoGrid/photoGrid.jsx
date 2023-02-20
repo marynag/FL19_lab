@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
-import {PATHS} from "../constants/path.constants";
 import {useSelector} from "react-redux";
 import {getBreedNameId} from "../../store/selectors";
 import {fetchImages, fetchImagesByBreedId} from "../requests/request.utils";
-import {getUtls} from "./photoGrid.utils";
+import {getUtlId } from "./photoGrid.utils";
 import {Spinner} from "../spinner/spinner";
 
 export const PhotoGrid = ({breedId, limit}) =>{
@@ -24,7 +23,7 @@ export const PhotoGrid = ({breedId, limit}) =>{
         request
             .then((response) => response.json())
             .then(res  => {
-                const result= getUtls(res)
+                const result= getUtlId(res)
                 setPhotos(result)
                 setLoading(false)
             })
@@ -36,24 +35,15 @@ export const PhotoGrid = ({breedId, limit}) =>{
             })
     }, [breedId, limit]);
 
-
     return(
         <>
             {isLoading ? <Spinner /> :(<div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
-                    <div className={`${styles.catImgBreedsDiv}`} key={current}>
-                        <Link
-                            to={{
-                                pathname: PATHS.photoDetails,
-                                state: {
-                                    url: current,
-                                },
-
-                            }}
-                        >
+                    <div className={`${styles.catImgBreedsDiv}`} key={current.id}>
+                        <Link to={current.id}>
                             <img
                                 className={`${styles.catImgBreeds} `}
-                                src={current}
+                                src={current.url}
                                 alt="cat"
                             />
                             {breedName && <p className={styles.breedName}>{breedName}</p>}

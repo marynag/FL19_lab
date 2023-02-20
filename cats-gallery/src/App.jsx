@@ -24,7 +24,7 @@ function App () {
                     <Gallery/>
                 </Route>
 
-                <Route path={PATHS.photoDetails}>
+                <Route path='/:id'>
                     <PhotoDetails />
                 </Route>
             </Switch>
