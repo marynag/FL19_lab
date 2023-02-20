@@ -15,7 +15,7 @@
   object-fit: cover;
  }
 
-.catImgBreeds:hover, .breedName:hover{
+.catImgBreeds:hover{
   -webkit-filter: invert(40%) grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
   filter: grayscale(40%) brightness(60%) sepia(50%) hue-rotate(-55deg) saturate(500%) contrast(0.6);
 }
@@ -90,7 +90,4 @@
 
 .catImgBreedsDiv:hover .breedName {
   display: block;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap:7px;
 }
