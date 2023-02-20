@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../voting/voting.module.scss'
 import getId from '../voting/voting.utils'
-import {URL_IMAGES_SEARCH} from '../constants/requests.constants';
+import {URL_IMAGES_SEARCH} from '../requests/requests.constants';
 import PropTypes from 'prop-types';
 
 

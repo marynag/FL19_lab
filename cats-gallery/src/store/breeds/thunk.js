@@ -1,4 +1,4 @@
-import {URL_BREEDS_INFO} from "../../components/constants/requests.constants";
+import {URL_BREEDS_INFO} from "../../components/requests/requests.constants";
 import {BREEDS_FETCHED} from "./actionTypes";
 
 export const getBreeds = () =>{

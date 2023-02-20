@@ -3,10 +3,10 @@ import styles from './breedsPhotoLoader.module.scss'
 import { Link } from 'react-router-dom';
 import {getUtls} from "./breedsPhotoLoader.utils";
 import {PATHS} from "../constants/path.constants";
-import {fetchImagesByBreedId, fetchImages} from "../constants/requests.constants";
 import {useSelector} from "react-redux";
 import {LoaringSpinner} from "../loaringSpinner/loaringSpinner";
 import {getBreedInfo} from "../../store/selectors";
+import {fetchImages, fetchImagesByBreedId} from "../requests/request.utils";
 
 export const BreedsPhotoLoader = (props) => {
     const [data, setData] = useState([]);
