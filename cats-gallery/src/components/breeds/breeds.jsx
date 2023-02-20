@@ -4,17 +4,18 @@ import ImgSort2 from '../../img/ab.png'
 import { LIMITS } from './breed.constants'
 import styles from './breeds.module.scss'
 import { SearchingBar }  from '../searchingBar';
-import { BreedsPhotoLoader } from '../breedsPhotoLoader/breedsPhotoLoader';
+import { PhotoLoaderByBreed } from '../photoLoaders/photoLoaderByBreed/photoLoaderByBreed';
 import { useSelector } from 'react-redux';
-import {getBreedInfo} from "../../store/selectors";
+import {getBreedNameId} from "../../store/selectors";
+import {GridPhotoLoader} from "../photoLoaders/gridPhotoLoader/gridPhotoLoader";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
 
-    const breedNameId = useSelector(getBreedInfo)
+    const breedNameId = useSelector(getBreedNameId)
 
-    const handleBreedChange = (event) => {
+    const handleBreedIdChange = (event) => {
         setSelectedBreedId(event.target.value)
     }
 
@@ -30,7 +31,7 @@ export const Breeds = () => {
                 <div className={styles.headerBreeds}>
                     <p className={styles.next}>&lt;</p>
                     <p className={styles.vote}>BREEDS</p>
-                    <select className={`${styles.vote} ${styles.breedSelect}`} onChange={handleBreedChange}>
+                    <select className={`${styles.vote} ${styles.breedSelect}`} onChange={handleBreedIdChange}>
                         {breedNameId.map(current => <option key={current.id} value={current.id}>{current.name}</option> )}
                     </select>
                     <select className={`${styles.vote} ${styles.breedsLimit}`} onChange={handleLimitChange} >
@@ -41,7 +42,8 @@ export const Breeds = () => {
                 </div>
             </div>
             <div>
-                <BreedsPhotoLoader breedId={selectedBreedId} limit={limit}/>
+                {selectedBreedId ? (<PhotoLoaderByBreed breedId={selectedBreedId} limit={limit} />) :
+                    <GridPhotoLoader limit='5'/> }
             </div>
         </div>           
     </div>

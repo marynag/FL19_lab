@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import styles from './breedsPhotoLoader.module.scss'
+import styles from '../photoLoaders.module.scss'
 import { Link } from 'react-router-dom';
-import {getUtls} from "./breedsPhotoLoader.utils";
-import {PATHS} from "../constants/path.constants";
+import {getUtls} from "../photoLoaders.utils";
+import {PATHS} from "../../constants/path.constants";
 import {useSelector} from "react-redux";
-import {LoaringSpinner} from "../loaringSpinner/loaringSpinner";
-import {getBreedInfo} from "../../store/selectors";
-import {fetchImages, fetchImagesByBreedId} from "../requests/request.utils";
+import {LoaringSpinner} from "../../loaringSpinner/loaringSpinner";
+import {getBreedInfo} from "../../../store/selectors";
+import {fetchImagesByBreedId} from "../../requests/request.utils";
 
-export const BreedsPhotoLoader = (props) => {
+export const PhotoLoaderByBreed = (props) => {
     const [data, setData] = useState([]);
     const [breedName, setBreedName] = useState('')
     const [isLoading, setIsLoading] = useState(true)
 
     const breedNameId = useSelector(getBreedInfo)
-
-    useEffect(() => {
-        if(props.breedId) return
-        setIsLoading(true);
-       fetchImages(props.limit)
-            .then((response) => response.json())
-            .then(res  => {
-                const result= getUtls(res)
-                setData(result)
-                setIsLoading(false)
-            })
-            .catch((error) =>{
-                console.error(`Failed to get images`, error);
-            })
-    }, [props.limit]);
 
     useEffect(() => {
         if(!props.breedId) return;

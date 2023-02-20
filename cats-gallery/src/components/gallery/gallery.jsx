@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import styles from "./gallery.module.scss";
-import { BreedsPhotoLoader } from "../breedsPhotoLoader/breedsPhotoLoader";
-import { SearchingBar } from "../searchingBar";;
+import { SearchingBar } from "../searchingBar";
+import {GridPhotoLoader} from "../photoLoaders/gridPhotoLoader/gridPhotoLoader";
+import {PhotoLoaderByBreed} from "../photoLoaders/photoLoaderByBreed/photoLoaderByBreed";
 
 export const Gallery = () => {
     const [inputBreed, setInputBreed] = useState('');
@@ -13,7 +14,9 @@ export const Gallery = () => {
                     <p className={styles.next}>&lt;</p>
                     <p className={styles.vote}>GALLERY</p>
                 </div>
-                <BreedsPhotoLoader imgId={inputBreed} limit='25'/>
+                {inputBreed ?
+                    <PhotoLoaderByBreed breedId={inputBreed} limit='25'/> :
+                    <GridPhotoLoader limit='25'/> }
             </div>
         </div>
     )
