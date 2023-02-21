@@ -3,5 +3,5 @@ export const PATHS = {
     gallery: '/gallery',
     breeds: '/breeds',
     voting:'/voting',
-    photoDetails:'/photoDetails',
+    photoDetails:'/:id',
 }

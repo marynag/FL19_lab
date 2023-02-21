@@ -2,7 +2,7 @@ import searchPanel from '../../img/Vector.png'
 import styles from './searchingBar.module.scss'
 import React from 'react';
 import {useSelector} from "react-redux";
-import {getBreedInfo, getBreedNameId} from "../../store/selectors";
+import {getBreedNameId} from "../../store/selectors";
 import {ReactionBar} from "../reactionBar/reactionBar";
 
 export const SearchBar = (props) => {

@@ -4,7 +4,6 @@ import {Route, Switch} from 'react-router-dom'
 import {Voting, Gallery, Breeds, StaticSection, MainSection} from './components';
 import {PATHS} from './components/constants/path.constants';
 import {PhotoDetails} from "./components/photoDetails/photoDetails";
-import {Redirect} from "react-router";
 
 function App () {
   return(
@@ -24,7 +23,7 @@ function App () {
                     <Gallery/>
                 </Route>
 
-                <Route path='/:id'>
+                <Route path={PATHS.photoDetails}>
                     <PhotoDetails />
                 </Route>
             </Switch>
