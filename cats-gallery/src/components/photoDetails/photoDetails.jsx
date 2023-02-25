@@ -11,13 +11,8 @@ import {Spinner} from "../spinner/spinner";
 export const PhotoDetails = () => {
     const [isLoading, setLoading] = useState(false)
     const [photo, setPhoto]=useState()
-    const [name, setName]=useState('')
-    const [temperament, setTemperament]=useState('')
-    const [description, setDescription]=useState('')
-    const [origin, setOrigin]=useState('')
-    const [weight, setWeight]=useState('')
-    const [lifeSpan, setLifeSpan]=useState('')
-     const { id } = useParams()
+    const { id } = useParams()
+    const [details, setDetails] = useState({})
 
     useEffect(() => {
         setLoading(true);
@@ -25,18 +20,22 @@ export const PhotoDetails = () => {
             .then((response) => response.json())
             .then(res  => {
                 setPhoto(res.url)
-                setName(res.breeds[0].name)
-                setOrigin(res.breeds[0].origin)
-                setLifeSpan(res.breeds[0].life_span)
-                setWeight(res.breeds[0].weight.metric)
-                setDescription(res.breeds[0].description)
-                setTemperament(res.breeds[0].temperament)
+                setDetails({
+                    name: res.breeds[0].name,
+                    origin: res.breeds[0].origin,
+                    lifeSpan: res.breeds[0].life_span,
+                    weight: res.breeds[0].weight.metric,
+                    description: res.breeds[0].description,
+                    temperament: res.breeds[0].temperament
+                })
+
                 setLoading(false)
             })
             .catch((error) =>{
                 console.error(`Failed to get photo by id ${id} `, error)
             })
     }, [id]);
+
 
     return (
         <div className={styles.photoInfoWrapper}>
@@ -54,22 +53,22 @@ export const PhotoDetails = () => {
                     {isLoading ? <Spinner /> : <img className={styles.catPhoto} src={photo} alt="cat"/>}
                         <div className={styles.photoInfo}>
                         <div className={styles.photoInfoHeader}>
-                            <h2>{name}</h2>
-                            <p className={styles.description}>{description}</p>
+                            <h2>{details.name}</h2>
+                            <p className={styles.description}>{details.description}</p>
                         </div>
                         <div className={styles.details}>
                             <div>
                                 <p>Temperament:</p>
-                                <p className={styles.description}>{temperament}</p>
+                                <p className={styles.description}>{details.temperament}</p>
                             </div>
                             <div>
-                                <p>Origin: <p className={[`${styles.description}, ${styles.dataDetails}`]}>{origin}</p>
+                                <p>Origin: <p className={[`${styles.description}, ${styles.dataDetails}`]}>{details.origin}</p>
                                 </p>
                                 <p>Weight: <p
-                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{weight} kgs</p>
+                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{details.weight} kgs</p>
                                 </p>
                                 <p>Life span: <p
-                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{lifeSpan} years</p>
+                                    className={[`${styles.description}, ${styles.dataDetails}`]}>{details.lifeSpan} years</p>
                                 </p>
                             </div>
 
