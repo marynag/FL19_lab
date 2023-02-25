@@ -6,7 +6,7 @@ import {getBreedNameId} from "../../store/selectors";
 
 import {getUtlId } from "./photoGrid.utils";
 import {Spinner} from "../spinner/spinner";
-import {fetchPhotos, fetchPhotosByBreedId} from "../requests/requests.utils";
+import {fetchPhotos} from "../requests/requests.utils";
 
 export const PhotoGrid = ({breedId, limit}) =>{
     const breedNameId = useSelector(getBreedNameId)
@@ -20,7 +20,7 @@ export const PhotoGrid = ({breedId, limit}) =>{
 
     useEffect(() => {
         setLoading(true);
-        const request = breedId ? fetchPhotosByBreedId(breedId, limit) : fetchPhotos(limit)
+        const request = fetchPhotos(breedId, limit)
         request
             .then((response) => response.json())
             .then(res  => {
