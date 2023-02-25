@@ -15,7 +15,7 @@ export const Gallery = () => {
                     <p className={styles.next}>&lt;</p>
                     <p className={styles.vote}>GALLERY</p>
                 </div>
-                    <PhotoGrid limit={limit} breedId={inputBreedId}/>
+                <PhotoGrid limit={limit} breedId={inputBreedId}/>
             </div>
         </div>
     )

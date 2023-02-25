@@ -40,9 +40,7 @@ export const Breeds = () => {
                     <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={ImgSort2} alt="sort" /></div>
                 </div>
             </div>
-            <div>
-                <PhotoGrid breedId={selectedBreedId} limit={limit}/>
-            </div>
+            <PhotoGrid breedId={selectedBreedId} limit={limit}/>
         </div>           
     </div>
     )

@@ -37,7 +37,7 @@ export const PhotoGrid = ({breedId, limit}) =>{
     }, [breedId, limit]);
 
     return(
-        <>
+        <div>
             {isLoading ? <Spinner /> :(<div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
                     <div className={`${styles.catImgBreedsDiv}`} key={current.id}>
@@ -53,6 +53,6 @@ export const PhotoGrid = ({breedId, limit}) =>{
                     </div>
                 ))}
             </div>)}
-        </>
+        </div>
     )
 }

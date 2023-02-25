@@ -41,7 +41,6 @@ export const PhotoDetails = () => {
         <div className={styles.photoInfoWrapper}>
             <SearchBar/>
             <div className={styles.wraperImgBlokSearchImages}>
-                <div className={styles.wraperImgBlokSearch}>
                     <div className={styles.headerBreeds}>
                         <Link to={PATHS.breeds}>
                             <p className={styles.next} >&lt;</p>
@@ -74,7 +73,6 @@ export const PhotoDetails = () => {
 
                         </div>
                     </div>
-                </div>
                 </div>
         </div>
     )
