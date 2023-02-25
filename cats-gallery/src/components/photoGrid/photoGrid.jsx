@@ -3,9 +3,10 @@ import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
 import {useSelector} from "react-redux";
 import {getBreedNameId} from "../../store/selectors";
-import {fetchImages, fetchImagesByBreedId} from "../requests/request.utils";
+
 import {getUtlId } from "./photoGrid.utils";
 import {Spinner} from "../spinner/spinner";
+import {fetchPhotos, fetchPhotosByBreedId} from "../requests/requests.utils";
 
 export const PhotoGrid = ({breedId, limit}) =>{
     const breedNameId = useSelector(getBreedNameId)
@@ -13,13 +14,13 @@ export const PhotoGrid = ({breedId, limit}) =>{
     const [photos, setPhotos] = useState([]);
 
     const matchedBreed =breedId ?  breedNameId.find((breed) => {
-        return breed.id == breedId
+        return breed.id === breedId
     }) : null
     const breedName = breedId ? matchedBreed.name : null
 
     useEffect(() => {
         setLoading(true);
-        const request = breedId ? fetchImagesByBreedId(breedId, limit) : fetchImages(limit)
+        const request = breedId ? fetchPhotosByBreedId(breedId, limit) : fetchPhotos(limit)
         request
             .then((response) => response.json())
             .then(res  => {

@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import {PATHS} from "../constants/path.constants";
 import { Link } from "react-router-dom";
-import {fetchPhotoById} from "../requests/request.utils";
+import {fetchPhotoById} from "../requests/requests.utils";
 import {Spinner} from "../spinner/spinner";
 
 
@@ -36,7 +36,7 @@ export const PhotoDetails = () => {
             .catch((error) =>{
                 console.error(`Failed to get photo by id ${id} `, error)
             })
-    }, []);
+    }, [id]);
 
     return (
         <div className={styles.photoInfoWrapper}>

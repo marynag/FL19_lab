@@ -1,19 +1,19 @@
-import {API_KEY, URL_BASE, URL_IMAGES_SEARCH} from "./requests.constants";
+import {API_KEY, URL_BASE, URL_PHOTOS_SEARCH,} from "./requests.constants";
 
-export const fetchImages = (limit) =>{
+export const fetchPhotos = (limit) =>{
     const params = new URLSearchParams();
     params.append('limit', limit);
     params.append('api_key', API_KEY);
     params.append('has_breeds',1)
-    return fetch(`${URL_IMAGES_SEARCH}?${params}`);
+    return fetch(`${URL_PHOTOS_SEARCH}?${params}`);
 }
 
-export const fetchImagesByBreedId = (breedId, limit) => {
+export const fetchPhotosByBreedId = (breedId, limit) => {
     const params = new URLSearchParams();
     params.append('breed_ids', breedId);
     params.append('limit', limit);
     params.append('api_key', API_KEY);
-    return fetch(`${URL_IMAGES_SEARCH}?${params}`);
+    return fetch(`${URL_PHOTOS_SEARCH}?${params}`);
 }
 
 export const fetchPhotoById = (id) => {
