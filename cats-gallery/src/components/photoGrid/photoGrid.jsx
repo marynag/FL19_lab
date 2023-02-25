@@ -30,9 +30,9 @@ export const PhotoGrid = ({breedId, limit}) =>{
             })
             .catch((error) =>{
                 breedId ?
-                    console.error(`Failed to get photos by breedsId ${breedId} `, error)
+                    console.error(`Failed to get photos by breedsId ${breedId} and by limit ${limit}`, error)
                     :
-                    console.error(`Failed to get photos `, error)
+                    console.error(`Failed to get photos by limit ${limit}`, error)
             })
     }, [breedId, limit]);
 
