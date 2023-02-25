@@ -1,8 +1,8 @@
-import searchPanel from '../../img/Vector.png'
+import searchImg from '../../img/Vector.png'
 import styles from './searchingBar.module.scss'
 import React from 'react';
 import {useSelector} from "react-redux";
-import {getBreedNames, matchBreedNames} from "../../store/selectors";
+import {matchBreedNames} from "../../store/selectors";
 import {ReactionBar} from "../reactionBar/reactionBar";
 
 export const SearchBar = (props) => {
@@ -23,7 +23,7 @@ export const SearchBar = (props) => {
         <div className={styles.searchingLine}>
                 <div className={styles.search}>
                     <input type="text"  column placeholder="Search for breeds by name" className={styles.searchInput} ref={inputRef}/>
-                    <div className={styles.searchItem} onClick={handleClick}><img src={searchPanel} alt="search" className={styles.search_img}/></div>
+                    <div className={styles.searchItem} onClick={handleClick}><img src={searchImg} alt="search" className={styles.search_img}/></div>
                 </div>
             <ReactionBar />
         </div> 

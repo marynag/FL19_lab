@@ -39,7 +39,7 @@ export const PhotoGrid = ({breedId, limit}) =>{
             {isLoading ? <Spinner /> :(<div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
                     <div className={`${styles.catImgBreedsDiv}`} key={current}>
-                        <Link to={getId(current)}>
+                        <Link to={`/photo/${getId(current)}`}>
                             <img
                                 className={`${styles.catImgBreeds} `}
                                 src={current}
