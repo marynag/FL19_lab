@@ -25,8 +25,7 @@ export const Breeds = () => {
     return(
         <div className={styles.breeds}>
             <SearchBar onChange={setSelectedBreedId}/>
-        <div className={styles.wraperImgBlokSearchImages}>
-        <div className={styles.wraperImgBlokSearch}>
+            <div className={styles.wraperImgBlokSearchImages}>
                 <div className={styles.headerBreeds}>
                     <p className={styles.next}>&lt;</p>
                     <p className={styles.vote}>BREEDS</p>
@@ -39,10 +38,9 @@ export const Breeds = () => {
                     <div className={styles.sortImg}><img className={styles.sort} src={ImgSort1} alt="sort" /></div>
                     <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={ImgSort2} alt="sort" /></div>
                 </div>
+                <PhotoGrid breedId={selectedBreedId} limit={limit}/>
             </div>
-            <PhotoGrid breedId={selectedBreedId} limit={limit}/>
-        </div>           
-    </div>
+        </div>
     )
 }
 

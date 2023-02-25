@@ -20,8 +20,7 @@ export const PhotoGrid = ({breedId, limit}) =>{
 
     useEffect(() => {
         setLoading(true);
-        const request = fetchPhotos(breedId, limit)
-        request
+        fetchPhotos(breedId, limit)
             .then((response) => response.json())
             .then(res  => {
                 const result= getUtlId(res)

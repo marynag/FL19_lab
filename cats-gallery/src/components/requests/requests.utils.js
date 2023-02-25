@@ -1,4 +1,4 @@
-import {API_KEY, URL_PHOTOS, URL_PHOTOS_SEARCH,} from "./requests.constants";
+import {API_KEY, URL_BREEDS, URL_PHOTOS, URL_PHOTOS_SEARCH,} from "./requests.constants";
 
 export const fetchPhotos = (breedId, limit) => {
     const params = new URLSearchParams();
@@ -11,4 +11,8 @@ export const fetchPhotos = (breedId, limit) => {
 
 export const fetchPhotoById = (id) => {
     return fetch(`${URL_PHOTOS}/${id}`);
+}
+
+export const fetchBreeds = () => {
+    return fetch(URL_BREEDS);
 }
