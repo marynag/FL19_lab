@@ -2,17 +2,17 @@ import React, {useEffect, useState} from 'react';
 import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
 import {useSelector} from "react-redux";
-import {getBreedNameId} from "../../store/selectors";
+import {getBreedNames} from "../../store/selectors";
 import {getId, getUrls} from "./photoGrid.utils";
 import {Spinner} from "../spinner/spinner";
 import {fetchPhotos} from "../requests/requests.utils";
 
 export const PhotoGrid = ({breedId, limit}) =>{
-    const breedNameId = useSelector(getBreedNameId)
+    const breedNames = useSelector(getBreedNames)
     const [isLoading, setLoading] = useState(true)
     const [photos, setPhotos] = useState([]);
 
-    const matchedBreed =breedId ?  breedNameId.find((breed) => {
+    const matchedBreed =breedId ?  breedNames.find((breed) => {
         return breed.id === breedId
     }) : null
     const breedName = breedId ? matchedBreed.name : null
