@@ -3,8 +3,7 @@ import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
 import {useSelector} from "react-redux";
 import {getBreedNameId} from "../../store/selectors";
-
-import {getUtlId } from "./photoGrid.utils";
+import {getId, getUrls} from "./photoGrid.utils";
 import {Spinner} from "../spinner/spinner";
 import {fetchPhotos} from "../requests/requests.utils";
 
@@ -23,7 +22,7 @@ export const PhotoGrid = ({breedId, limit}) =>{
         fetchPhotos(breedId, limit)
             .then((response) => response.json())
             .then(res  => {
-                const result= getUtlId(res)
+                const result= getUrls(res)
                 setPhotos(result)
                 setLoading(false)
             })
@@ -39,11 +38,11 @@ export const PhotoGrid = ({breedId, limit}) =>{
         <div>
             {isLoading ? <Spinner /> :(<div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
-                    <div className={`${styles.catImgBreedsDiv}`} key={current.id}>
-                        <Link to={current.id}>
+                    <div className={`${styles.catImgBreedsDiv}`} key={current}>
+                        <Link to={getId(current)}>
                             <img
                                 className={`${styles.catImgBreeds} `}
-                                src={current.url}
+                                src={current}
                                 alt="cat"
                             />
                             {breedName && <p className={styles.breedName}>{breedName}</p>}

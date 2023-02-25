@@ -1,12 +1,13 @@
-import {getPhotoId} from "../photoDetails/photoDetails.utils";
-
-export const getUtlId = (res) =>{
-    const result= res.reduce((acc, item) =>{
-        const obj={};
-        obj['url']=item.url
-        obj['id']=getPhotoId(item.url)
-        acc.push(obj)
-        return acc
-    },[])
+export const getUrls = (res) =>{
+    const result= res.map(item =>{
+        return item.url
+    })
     return result
+}
+
+export const getId = (urls) =>{
+        const splitedLink = urls.split('/');
+        const photo = splitedLink[splitedLink.length-1].split('.')
+        const id = photo[0]
+        return id
 }
