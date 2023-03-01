@@ -2,7 +2,7 @@ import {API_KEY, URL_BREEDS, URL_PHOTOS, URL_PHOTOS_SEARCH,} from "./requests.co
 
 export const fetchPhotos = (breedId, limit) => {
     const params = new URLSearchParams();
-    const isBreedId = breedId ? params.append('breed_ids', breedId) : null
+    breedId && params.append('breed_ids', breedId)
     params.append('has_breeds', 1);
     params.append('limit', limit);
     params.append('api_key', API_KEY);

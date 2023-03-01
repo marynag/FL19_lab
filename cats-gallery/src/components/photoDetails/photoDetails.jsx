@@ -9,6 +9,7 @@ import {Spinner} from "../spinner/spinner";
 
 
 export const PhotoDetails = () => {
+    //add location
     const [isLoading, setLoading] = useState(false)
     const [photo, setPhoto]=useState()
     const { id } = useParams()
@@ -42,7 +43,7 @@ export const PhotoDetails = () => {
             <SearchBar/>
             <div className={styles.wraperImgBlokSearchImages}>
                     <div className={styles.headerBreeds}>
-                        <Link to={PATHS.breeds}>
+                        <Link to={PATHS.home}>
                             <p className={styles.next} >&lt;</p>
                         </Link>
                         <p className={styles.vote}>BREEDS</p>

@@ -7,6 +7,8 @@ import { SearchBar }  from '../searchBar';
 import { useSelector } from 'react-redux';
 import {getBreedNames} from "../../store/selectors";
 import {PhotoGrid} from "../photoGrid/photoGrid";
+import {Link} from "react-router-dom";
+import {PATHS} from "../constants/path.constants";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
@@ -27,7 +29,9 @@ export const Breeds = () => {
             <SearchBar onChange={setSelectedBreedId}/>
             <div className={styles.wraperImgBlokSearchImages}>
                 <div className={styles.headerBreeds}>
-                    <p className={styles.next}>&lt;</p>
+                    <Link to={PATHS.home}>
+                        <p className={styles.next} >&lt;</p>
+                    </Link>
                     <p className={styles.vote}>BREEDS</p>
                     <select className={`${styles.vote} ${styles.breedSelect}`} onChange={handleBreedIdChange}>
                         {breedNamesIds.map(current => <option key={current.id} value={current.id}>{current.name}</option> )}

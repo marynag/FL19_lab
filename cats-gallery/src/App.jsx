@@ -10,7 +10,7 @@ function App () {
     <main>
         <StaticSection/>
             <Switch>
-                <Route exect path={PATHS.home} >
+                <Route exect path={PATHS.home}>
                     <MainSection/>
                 </Route>
                 <Route path={PATHS.voting}>
