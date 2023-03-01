@@ -13,18 +13,22 @@ function App () {
                 <Route exect path={PATHS.home}>
                     <MainSection/>
                 </Route>
-                <Route path={PATHS.voting}>
+                <Route exect path={PATHS.voting}>
                     <Voting/>
                 </Route>
-                <Route path={PATHS.breeds}>
+                <Route exect path={PATHS.breeds}>
                     <Breeds/>
                 </Route>
-                <Route path={PATHS.gallery}>
+                <Route exect path={PATHS.gallery}>
                     <Gallery/>
                 </Route>
 
-                <Route path={PATHS.photoDetails}>
+                <Route exect path={PATHS.photoDetails}>
                     <PhotoDetails />
+                </Route>
+
+                <Route exect path='*'>
+                    <MainSection/>
                 </Route>
             </Switch>
     </main>
