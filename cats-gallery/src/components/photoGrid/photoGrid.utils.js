@@ -5,6 +5,17 @@ export const getUrls = (res) =>{
     return result
 }
 
+export const getUrlAndOverlay = (urls, overlay) =>{
+    const res = urls.map((element, index)=>{
+        const obj ={
+            url:element,
+            overlay: overlay[index],
+        }
+        return obj
+    })
+    return res
+}
+
 export const getId = (urls) =>{
         const splitedLink = urls.split('/');
         const photo = splitedLink[splitedLink.length-1].split('.')

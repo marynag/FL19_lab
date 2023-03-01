@@ -14,6 +14,8 @@ export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
 
+    const photoOverlay=Array(limit).fill('breedName')
+
     const breedNamesIds = useSelector(getBreedNames)
 
     const handleBreedIdChange = (event) => {
@@ -42,7 +44,7 @@ export const Breeds = () => {
                     <div className={styles.sortImg}><img className={styles.sort} src={ImgSort1} alt="sort" /></div>
                     <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={ImgSort2} alt="sort" /></div>
                 </div>
-                <PhotoGrid breedId={selectedBreedId} limit={limit}/>
+                <PhotoGrid breedId={selectedBreedId} limit={limit} overlay={photoOverlay} />
             </div>
         </div>
     )

@@ -3,11 +3,11 @@ import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
 import {useSelector} from "react-redux";
 import {getBreedNames} from "../../store/selectors";
-import {getId, getUrls} from "./photoGrid.utils";
+import {getId, getUrlAndOverlay, getUrls} from "./photoGrid.utils";
 import {Spinner} from "../spinner/spinner";
 import {fetchPhotos} from "../requests/requests.utils";
 
-export const PhotoGrid = ({breedId, limit}) =>{
+export const PhotoGrid = ({breedId, limit, overlay}) =>{
     const breedNames = useSelector(getBreedNames)
     const [isLoading, setLoading] = useState(true)
     const [photos, setPhotos] = useState([]);
@@ -15,14 +15,14 @@ export const PhotoGrid = ({breedId, limit}) =>{
     const matchedBreed =breedId ?  breedNames.find((breed) => {
         return breed.id === breedId
     }) : null
-    const breedName = breedId ? matchedBreed.name : null
 
     useEffect(() => {
         setLoading(true);
         fetchPhotos(breedId, limit)
             .then((response) => response.json())
             .then(res  => {
-                const result= getUrls(res)
+                const url = getUrls(res)
+                const result= getUrlAndOverlay(url, overlay)
                 setPhotos(result)
                 setLoading(false)
             })
@@ -39,13 +39,13 @@ export const PhotoGrid = ({breedId, limit}) =>{
             {isLoading ? <Spinner /> :(<div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
                     <div className={`${styles.catImgBreedsDiv}`} key={current}>
-                        <Link to={`/photo/${getId(current)}`}>
+                        <Link to={`/photo/${getId(current.url)}`}>
                             <img
                                 className={`${styles.catImgBreeds} `}
-                                src={current}
+                                src={current.url}
                                 alt="cat"
                             />
-                            {breedName && <p className={styles.breedName}>{breedName}</p>}
+                            {<p className={styles.breedName}>{current.overlay}</p>}
                         </Link>
 
                     </div>
