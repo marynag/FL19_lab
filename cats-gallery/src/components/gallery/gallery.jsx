@@ -5,12 +5,16 @@ import {PhotoGrid} from "../photoGrid/photoGrid";
 import {Link} from "react-router-dom";
 import {PATHS} from "../constants/path.constants";
 import imgLike from "../../img/Vector 348 (Stroke).png";
+import {usePhotos} from "../../customHooks/usePhotos";
+import {Spinner} from "../spinner/spinner";
 
 export const Gallery = () => {
     const [inputBreedId, setInputBreedId] = useState('');
     const limit = 25;
 
     const photoOverlay=Array(limit).fill(<img src={imgLike} className={styles.breedName} />)
+
+    const photos = usePhotos(inputBreedId, limit, photoOverlay)
 
     return(
         <div className={styles.voting}>
@@ -22,7 +26,7 @@ export const Gallery = () => {
                     </Link>
                     <p className={styles.vote}>GALLERY</p>
                 </div>
-                <PhotoGrid limit={limit} breedId={inputBreedId} overlay={photoOverlay}/>
+                <PhotoGrid photos={photos}/>
             </div>
         </div>
     )

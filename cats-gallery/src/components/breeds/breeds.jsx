@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
 import { LIMITS } from './breed.constants'
@@ -9,14 +9,29 @@ import {getBreedNames} from "../../store/selectors";
 import {PhotoGrid} from "../photoGrid/photoGrid";
 import {Link} from "react-router-dom";
 import {PATHS} from "../constants/path.constants";
+import {usePhotos} from "../../customHooks/usePhotos";
+import {Spinner} from "../spinner/spinner";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
+    const [isLoading, setLoading] = useState(false)
+
+    const breedNamesIds = useSelector(getBreedNames)
 
     const photoOverlay=Array(limit).fill('breedName')
 
-    const breedNamesIds = useSelector(getBreedNames)
+    const photos = usePhotos(selectedBreedId, limit, photoOverlay)
+
+    //Loading
+    useEffect(()=>{
+        if(photos.length!=limit){
+            setLoading(true)
+        }else{
+            setLoading(false)
+        }
+    },[photos])
+
 
     const handleBreedIdChange = (event) => {
         setSelectedBreedId(event.target.value)
@@ -44,7 +59,7 @@ export const Breeds = () => {
                     <div className={styles.sortImg}><img className={styles.sort} src={ImgSort1} alt="sort" /></div>
                     <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={ImgSort2} alt="sort" /></div>
                 </div>
-                <PhotoGrid breedId={selectedBreedId} limit={limit} overlay={photoOverlay} />
+                <PhotoGrid photos={photos} />
             </div>
         </div>
     )
