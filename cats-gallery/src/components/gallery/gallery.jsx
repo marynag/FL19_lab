@@ -14,7 +14,7 @@ export const Gallery = () => {
 
     const photoOverlay=Array(limit).fill(<img src={imgLike} className={styles.breedName} />)
 
-    const photos = usePhotos(inputBreedId, limit, photoOverlay)
+    const {photos, isLoading}  = usePhotos(inputBreedId, limit, photoOverlay)
 
     return(
         <div className={styles.voting}>
@@ -26,7 +26,7 @@ export const Gallery = () => {
                     </Link>
                     <p className={styles.vote}>GALLERY</p>
                 </div>
-                <PhotoGrid photos={photos}/>
+                {isLoading ? <Spinner /> : <PhotoGrid photos={photos} />}
             </div>
         </div>
     )

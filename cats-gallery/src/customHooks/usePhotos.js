@@ -7,12 +7,14 @@ export const usePhotos = (breedId, limit,overlay) => {
     const [isLoading, setLoading] = useState(false)
 
     useEffect(()=>{
+        setLoading(true)
         fetchPhotos(breedId, limit)
             .then((response) => response.json())
             .then(res  => {
                 const url = getUrls(res)
                 const result= getUrlAndOverlay(url, overlay)
                 setPhotos(result)
+                setLoading(false)
             })
             .catch((error) =>{
                 breedId ?
@@ -22,5 +24,5 @@ export const usePhotos = (breedId, limit,overlay) => {
             })
     },[breedId, limit])
 
-    return photos;
+    return {photos, isLoading};
 }
