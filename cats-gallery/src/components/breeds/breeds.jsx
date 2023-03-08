@@ -5,7 +5,7 @@ import { LIMITS } from './breed.constants'
 import styles from './breeds.module.scss'
 import { SearchBar }  from '../searchBar';
 import { useSelector } from 'react-redux';
-import {getBreedNames} from "../../store/selectors";
+import {breedsNamesSelector} from "../../store/selectors";
 import {PhotoGrid} from "../photoGrid/photoGrid";
 import {Link} from "react-router-dom";
 import {PATHS} from "../constants/path.constants";
@@ -16,7 +16,7 @@ export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
 
-    const breedNamesIds = useSelector(getBreedNames)
+    const breedNamesIds = useSelector(breedsNamesSelector)
 
     const photoOverlay='breedName'
 
@@ -40,7 +40,7 @@ export const Breeds = () => {
                     </Link>
                     <p className={styles.vote}>BREEDS</p>
                     <select className={`${styles.vote} ${styles.breedSelect}`} onChange={handleBreedIdChange}>
-                        {breedNamesIds.map(current => <option key={current.id} value={current.id}>{current.name}</option> )}
+                        {Object.entries(breedNamesIds).map(([id, name]) => <option key={id} value={id}>{name}</option> )}
                     </select>
                     <select className={`${styles.vote} ${styles.breedsLimit}`} onChange={handleLimitChange} >
                         {LIMITS.map(current => <option key={current} value={current}>Limit: {current}</option> )}
