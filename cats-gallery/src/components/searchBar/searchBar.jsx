@@ -11,10 +11,10 @@ export const SearchBar = (props) => {
 
     const handleClick = () =>{
         const search = inputRef.current.value.toLowerCase();
-        const matchedBreedId = Object.entries(breedNamesIds).find(item=>{
+        const matchedBreedId = search ? Object.entries(breedNamesIds).find(item=>{
             const [id,name] = item
             return (name.toLowerCase().includes(search))
-        })
+        }) : ''
 
         props.onChange(matchedBreedId)
     }

@@ -17,7 +17,7 @@ export const Breeds = () => {
     const [limit, setLimit] = useState(LIMITS[0])
 
     const breedNamesIdsSelected = useSelector(breedsNamesSelector)
-    const breedNamesIds = Object.assign({'': 'Not selected'}, breedNamesIdsSelected);
+    const breedNamesIds = Object.assign({'': 'All breeds'}, breedNamesIdsSelected);
 
     const photoOverlay='breedName'
 
