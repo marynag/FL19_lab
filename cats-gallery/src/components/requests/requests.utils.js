@@ -3,7 +3,9 @@ import {BREEDS_FETCHED} from "../../store/breeds/actionTypes";
 
 export const fetchPhotos = (breedId, limit) => {
     const params = new URLSearchParams();
-    breedId && params.append('breed_ids', breedId)
+    if(breedId) {
+        params.append('breed_ids', breedId);
+    }
     params.append('has_breeds', 1);
     params.append('limit', limit);
     params.append('api_key', API_KEY);

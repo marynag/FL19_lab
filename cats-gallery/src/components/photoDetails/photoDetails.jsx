@@ -11,7 +11,6 @@ import {Spinner} from "../spinner/spinner";
 export const PhotoDetails = () => {
     //add location
     const [isLoading, setLoading] = useState(false)
-    const [photo, setPhoto]=useState()
     const { id } = useParams()
     const [details, setDetails] = useState({})
 
@@ -20,14 +19,16 @@ export const PhotoDetails = () => {
             fetchPhotoById(id)
             .then((response) => response.json())
             .then(res  => {
-                setPhoto(res.url)
+                const breed = res.breeds[0];
+                const { name, origin, description, temperament} = breed;
                 setDetails({
-                    name: res.breeds[0].name,
-                    origin: res.breeds[0].origin,
-                    lifeSpan: res.breeds[0].life_span,
-                    weight: res.breeds[0].weight.metric,
-                    description: res.breeds[0].description,
-                    temperament: res.breeds[0].temperament
+                    url: res.url,
+                    name,
+                    origin,
+                    description,
+                    temperament,
+                    lifeSpan: breed.life_span,
+                    weight: breed.weight.metric
                 })
 
                 setLoading(false)
@@ -50,7 +51,7 @@ export const PhotoDetails = () => {
                         <p className={styles.vote}>{id}</p>
                     </div>
 
-                    {isLoading ? <Spinner /> : <img className={styles.catPhoto} src={photo} alt="cat"/>}
+                    {isLoading ? <Spinner /> : <img className={styles.catPhoto} src={details.url} alt="cat"/>}
                         <div className={styles.photoInfo}>
                         <div className={styles.photoInfoHeader}>
                             <h2>{details.name}</h2>

@@ -18,10 +18,7 @@ export const usePhotos = (breedId, limit, overlay) => {
                 setLoading(false)
             })
             .catch((error) =>{
-                breedId ?
-                    console.error(`Failed to get photos by breedsId ${breedId} and by limit ${limit}`, error)
-                    :
-                    console.error(`Failed to get photos by limit ${limit}`, error)
+                console.error('Failed to get photos by params', {breedId, limit}, error);
             })
     },[breedId, limit])
 
