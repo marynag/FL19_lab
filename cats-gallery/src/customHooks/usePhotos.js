@@ -5,7 +5,7 @@ import {getUrlAndOverlay} from "./usePhotos.utils";
 export const usePhotos = (breedId, limit, overlay) => {
     const [photos, setPhotos] = useState([]);
     const [isLoading, setLoading] = useState(false)
-    const overlays=Array(limit).fill(overlay)
+    const overlays=Array(parseInt(limit)).fill(overlay)
 
     useEffect(()=>{
         setLoading(true)
