@@ -23,7 +23,7 @@ function App () {
                     <Gallery/>
                 </Route>
 
-                <Route exect path={PATHS.photoDetails}>
+                <Route exect path={PATHS.photo}>
                     <PhotoDetails />
                 </Route>
 

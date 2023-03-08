@@ -9,12 +9,11 @@ export const SearchBar = (props) => {
     const inputRef = React.createRef();
     const breedNamesIds = useSelector(breedsNamesSelector)
 
-    const search = inputRef.current.value.toLowerCase();
-
     const handleClick = () =>{
-        const [matchedBreedId, matchedBreedId2] = Object.entries(breedNamesIds).find(item=>{
+        const search = inputRef.current.value.toLowerCase();
+        const matchedBreedId = Object.entries(breedNamesIds).find(item=>{
             const [id,name] = item
-            return (name.toLowerCase().includes(search) )
+            return (name.toLowerCase().includes(search))
         })
 
         props.onChange(matchedBreedId)
