@@ -1,4 +1,5 @@
 import {API_KEY, URL_BREEDS, URL_PHOTOS, URL_PHOTOS_SEARCH,} from "./requests.constants";
+import {BREEDS_FETCHED} from "../../store/breeds/actionTypes";
 
 export const fetchPhotos = (breedId, limit) => {
     const params = new URLSearchParams();
@@ -13,6 +14,11 @@ export const fetchPhotoById = (id) => {
     return fetch(`${URL_PHOTOS}/${id}`);
 }
 
-export const fetchBreeds = () => {
-    return fetch(URL_BREEDS);
+export const getBreeds = () =>{
+    return (dispatch) =>{
+        fetch(URL_BREEDS)
+            .then(response => response.json())
+            .then(response =>dispatch({ type: BREEDS_FETCHED, payload: response })
+            )
+    }
 }
