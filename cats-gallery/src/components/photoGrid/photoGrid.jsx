@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
-import { getId } from "./photoGrid.utils";
 import {PATHS} from "../constants/path.constants";
 
 export const PhotoGrid = ({photos}) =>{
@@ -10,7 +9,7 @@ export const PhotoGrid = ({photos}) =>{
             <div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
                     <div className={`${styles.catImgBreedsDiv}`} key={current.url}>
-                        <Link to={`${PATHS.switchToPhoto}${getId(current.url)}`}>
+                        <Link to={`${PATHS.switchToPhoto}${current.id}`}>
                             <img
                                 className={`${styles.catImgBreeds} `}
                                 src={current.url}

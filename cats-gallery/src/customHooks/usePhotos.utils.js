@@ -1,17 +1,8 @@
-export const getUrls = (res) =>{
-    const result= res.map(item =>{
-        return item.url
-    })
+export const getUrlAndOverlay = (response, overlays) =>{
+    const result =response.map(({url,id}, index)=>({
+        url,
+        overlay: overlays[index],
+        id,
+    }));
     return result
-}
-
-export const getUrlAndOverlay = (urls, overlay) =>{
-    const res = urls.map((element, index)=>{
-        const obj ={
-            url:element,
-            overlay: overlay[index],
-        }
-        return obj
-    })
-    return res
 }

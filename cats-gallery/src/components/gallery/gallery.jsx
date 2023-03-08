@@ -9,15 +9,15 @@ import {usePhotos} from "../../customHooks/usePhotos";
 import {Spinner} from "../spinner/spinner";
 
 export const Gallery = () => {
-    const [inputBreedId, setInputBreedId] = useState('');
+    const [searchBreedId, setSearchBreedId] = useState('');
     const limit = 25;
 
     const overlay = <img src={imgLike} className={styles.breedName} />
 
-    const {photos, isLoading}  = usePhotos(inputBreedId, limit, overlay)
+    const {photos, isLoading}  = usePhotos(searchBreedId, limit, overlay)
     return(
         <div className={styles.voting}>
-            <SearchBar onChange={setInputBreedId}/>
+            <SearchBar onChange={setSearchBreedId}/>
             <div className={styles.votingWraper}>
                 <div className={styles.votingBlockName}>
                     <Link to={PATHS.home}>
