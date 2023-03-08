@@ -12,10 +12,9 @@ export const Gallery = () => {
     const [inputBreedId, setInputBreedId] = useState('');
     const limit = 25;
 
-    const photoOverlay=Array(limit).fill(<img src={imgLike} className={styles.breedName} />)
+    const overlay = <img src={imgLike} className={styles.breedName} />
 
-    const {photos, isLoading}  = usePhotos(inputBreedId, limit, photoOverlay)
-
+    const {photos, isLoading}  = usePhotos(inputBreedId, limit, overlay)
     return(
         <div className={styles.voting}>
             <SearchBar onChange={setInputBreedId}/>

@@ -1,7 +1,7 @@
 import styles from './photoDetails.module.scss'
 import {SearchBar} from "../searchBar";
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router";
+import {useLocation, useParams} from "react-router";
 import {PATHS} from "../constants/path.constants";
 import { Link } from "react-router-dom";
 import {fetchPhotoById} from "../requests/requests.utils";

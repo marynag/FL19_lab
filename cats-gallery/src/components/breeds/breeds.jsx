@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
 import { LIMITS } from './breed.constants'
@@ -18,7 +18,7 @@ export const Breeds = () => {
 
     const breedNamesIds = useSelector(getBreedNames)
 
-    const photoOverlay=Array(limit).fill('breedName')
+    const photoOverlay='breedName'
 
     const {photos, isLoading} = usePhotos(selectedBreedId, limit, photoOverlay)
 

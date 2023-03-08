@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
 import { getId } from "./photoGrid.utils";
-export const PhotoGrid = ({photos}) =>{
 
+export const PhotoGrid = ({photos}) =>{
     return(
         <div>
             <div className={styles.catImgBreedsWrapper}>
