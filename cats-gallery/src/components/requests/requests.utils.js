@@ -1,5 +1,6 @@
 import {API_KEY, URL_BREEDS, URL_PHOTOS, URL_PHOTOS_SEARCH,} from "./requests.constants";
 import {BREEDS_FETCHED} from "../../store/breeds/actionTypes";
+import {IMAGE_SIZE} from "../constants/constants";
 
 export const fetchPhotos = (breedId, limit) => {
     const params = new URLSearchParams();
@@ -8,6 +9,7 @@ export const fetchPhotos = (breedId, limit) => {
     }
     params.append('has_breeds', 1);
     params.append('limit', limit);
+    params.append('size', IMAGE_SIZE);
     params.append('api_key', API_KEY);
     return fetch(`${URL_PHOTOS_SEARCH}?${params}`);
 }

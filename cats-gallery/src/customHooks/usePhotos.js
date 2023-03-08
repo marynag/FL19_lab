@@ -1,6 +1,6 @@
 import {fetchPhotos} from "../components/requests/requests.utils";
 import React, {useEffect, useState} from "react";
-import {getUrlAndOverlay} from "./usePhotos.utils";
+import {extractDetail} from "./usePhotos.utils";
 
 export const usePhotos = (breedId, limit, overlay) => {
     const [photos, setPhotos] = useState([]);
@@ -12,7 +12,7 @@ export const usePhotos = (breedId, limit, overlay) => {
         fetchPhotos(breedId, limit)
             .then((response) => response.json())
             .then(res  => {
-                const result= getUrlAndOverlay(res, overlays)
+                const result= extractDetail(res, overlays)
                 setPhotos(result)
                 setLoading(false)
             })

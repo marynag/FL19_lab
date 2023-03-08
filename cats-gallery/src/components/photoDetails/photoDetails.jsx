@@ -44,7 +44,7 @@ export const PhotoDetails = () => {
             <SearchBar/>
             <div className={styles.wraperImgBlokSearchImages}>
                     <div className={styles.headerBreeds}>
-                        <Link to={PATHS.home}>
+                        <Link to={PATHS.breeds}>
                             <p className={styles.next} >&lt;</p>
                         </Link>
                         <p className={styles.vote}>BREEDS</p>
