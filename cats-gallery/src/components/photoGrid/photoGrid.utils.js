@@ -1,6 +1,5 @@
 export const getId = (urls) =>{
-        const splitedLink = urls.split('/');
-        const photo = splitedLink[splitedLink.length-1].split('.')
-        const id = photo[0]
+        const regex = /\/([\w-]+)\.\w+$/;
+        const id = regex.exec(urls)[1]
         return id
 }
