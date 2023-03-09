@@ -4,17 +4,16 @@ import { SearchBar } from "../searchBar";
 import {PhotoGrid} from "../photoGrid/photoGrid";
 import {Link} from "react-router-dom";
 import {PATHS} from "../constants/path.constants";
-import imgLike from "../../img/Vector 348 (Stroke).png";
 import {usePhotos} from "../../customHooks/usePhotos";
 import {Spinner} from "../spinner/spinner";
+import {HeartOverlay} from "../heartOverlay/heartOverlay";
 
 export const Gallery = () => {
     const [searchBreedId, setSearchBreedId] = useState('');
+    //TODO add selector
     const limit = 25;
 
-    const overlay = <img src={imgLike} className={styles.breedName} />
-
-    const {photos, isLoading}  = usePhotos(searchBreedId, limit, overlay)
+    const {photos, isLoading}  = usePhotos(searchBreedId, limit)
     return(
         <div className={styles.voting}>
             <SearchBar onChange={setSearchBreedId}/>
@@ -25,7 +24,7 @@ export const Gallery = () => {
                     </Link>
                     <p className={styles.vote}>GALLERY</p>
                 </div>
-                {isLoading ? <Spinner /> : <PhotoGrid photos={photos} />}
+                {isLoading ? <Spinner /> : <PhotoGrid photos={photos} Overlay={HeartOverlay} />}
             </div>
         </div>
     )

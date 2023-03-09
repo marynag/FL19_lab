@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './photoGrid.module.scss';
+import styles from '../breeds/breeds.module.scss';
 import { Link } from 'react-router-dom';
 import {PATHS} from "../constants/path.constants";
 
-export const PhotoGrid = ({photos}) =>{
+export const PhotoGrid = ({photos, Overlay}) =>{
     return(
         <>
             <div className={styles.catImgBreedsWrapper}>
@@ -15,7 +15,7 @@ export const PhotoGrid = ({photos}) =>{
                                 src={current.url}
                                 alt="cat"
                             />
-                            {<p className={styles.breedName}>{current.overlay}</p>}
+                            <Overlay breed={current.breed} />
                         </Link>
 
                     </div>

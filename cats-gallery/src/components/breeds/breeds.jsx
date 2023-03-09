@@ -11,6 +11,7 @@ import {Link} from "react-router-dom";
 import {PATHS} from "../constants/path.constants";
 import {usePhotos} from "../../customHooks/usePhotos";
 import {Spinner} from "../spinner/spinner";
+import {BreedOverlay} from "../breedOverlay/breedOverlay";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
@@ -43,7 +44,7 @@ export const Breeds = () => {
                     <div className={styles.sortImg}><img className={styles.sort} src={ImgSort1} alt="sort" /></div>
                     <div className={styles.sortImg}><img className={`${styles.sort} ${styles.sort1}`} src={ImgSort2} alt="sort" /></div>
                 </div>
-                {isLoading ? <Spinner /> : <PhotoGrid photos={photos} />}
+                {isLoading ? <Spinner /> : <PhotoGrid photos={photos}  Overlay={BreedOverlay}/>}
             </div>
         </div>
     )
