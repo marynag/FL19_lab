@@ -5,7 +5,7 @@ import {extractDetail} from "./usePhotos.utils";
 export const usePhotos = (breedId, limit, overlay) => {
     const [photos, setPhotos] = useState([]);
     const [isLoading, setLoading] = useState(false)
-    const overlays=Array(parseInt(limit)).fill(overlay)
+    const overlays= overlay && Array(parseInt(limit)).fill(overlay)
 
     useEffect(()=>{
         setLoading(true)

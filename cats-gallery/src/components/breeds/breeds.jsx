@@ -19,17 +19,11 @@ export const Breeds = () => {
     const breedNamesIdsSelected = useSelector(breedsNamesSelector)
     const breedNamesIds = Object.assign({'': 'All breeds'}, breedNamesIdsSelected);
 
-    const photoOverlay='breedName'
+    const {photos, isLoading} = usePhotos(selectedBreedId, limit)
 
-    const {photos, isLoading} = usePhotos(selectedBreedId, limit, photoOverlay)
+    const handleBreedIdChange = event => setSelectedBreedId(event.target.value);
 
-    const handleBreedIdChange = (event) => {
-        setSelectedBreedId(event.target.value)
-    }
-
-    const handleLimitChange = (event) => {
-        setLimit(event.target.value)
-    }
+    const handleLimitChange = event => setLimit(event.target.value);
 
     return(
         <div className={styles.breeds}>
