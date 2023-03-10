@@ -17,7 +17,6 @@ export const PhotoDetails = () => {
     useEffect(() => {
         setLoading(true);
             fetchPhotoById(id)
-            .then((response) => response.json())
             .then(res  => {
                 const breed = res.breeds[0];
                 const { name, origin, description, temperament} = breed;

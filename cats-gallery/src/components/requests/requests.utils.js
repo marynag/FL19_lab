@@ -1,6 +1,10 @@
 import {API_KEY, URL_BREEDS, URL_PHOTOS, URL_PHOTOS_SEARCH,} from "./requests.constants";
-import {BREEDS_FETCHED} from "../../store/breeds/actionTypes";
 import {IMAGE_SIZE} from "../constants/constants";
+
+const getResponse = (url) =>{
+    return fetch(url)
+        .then(response => response.json())
+}
 
 export const fetchPhotos = (breedId, limit) => {
     const params = new URLSearchParams();
@@ -11,18 +15,14 @@ export const fetchPhotos = (breedId, limit) => {
     params.append('limit', limit);
     params.append('size', IMAGE_SIZE);
     params.append('api_key', API_KEY);
-    return fetch(`${URL_PHOTOS_SEARCH}?${params}`);
+    return getResponse(`${URL_PHOTOS_SEARCH}?${params}`);
 }
 
 export const fetchPhotoById = (id) => {
-    return fetch(`${URL_PHOTOS}/${id}`);
+    return getResponse(`${URL_PHOTOS}/${id}`)
 }
 
-export const getBreeds = () =>{
-    return (dispatch) =>{
-        fetch(URL_BREEDS)
-            .then(response => response.json())
-            .then(response =>dispatch({ type: BREEDS_FETCHED, payload: response })
-            )
-    }
+export const fetchBreeds = () => {
+    return getResponse(URL_BREEDS)
+
 }

@@ -6,7 +6,8 @@ import { rootReducer } from "./store";
 import { Provider } from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
 import thunk from "redux-thunk";
-import {getBreeds} from "./components/requests/requests.utils";
+import {getBreeds} from "./store/breeds/thunk";
+
 
 //TODO: restucture files according to redux thunk architecture
 const store = createStore(rootReducer, applyMiddleware(thunk));

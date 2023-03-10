@@ -8,7 +8,6 @@ export const usePhotos = (breedId, limit, overlay) => {
     useEffect(()=>{
         setLoading(true)
         fetchPhotos(breedId, limit)
-            .then((response) => response.json())
             .then(res  => {
                 const result =res.map(({url,id, breeds})=>({
                     url,
