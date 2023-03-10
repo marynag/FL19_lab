@@ -9,11 +9,6 @@
     width:100%;
     border-radius: 10px;
   }
-  
-  .catImgBreedsDiv:hover,.catImg:hover{
-    filter: invert(30%) grayscale(80%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(200%) contrast(1);
-      filter: grayscale(80%) brightness(60%) sepia(40%) hue-rotate(-50deg) saturate(400%) contrast(1);
-  }
 
   .wraperImgBlokSearchImages{
     background-color: rgb(255, 255, 255);

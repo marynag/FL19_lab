@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../breeds/breeds.module.scss';
+import styles from './photoGrid.module.scss';
 import { Link } from 'react-router-dom';
 import {PATHS} from "../constants/path.constants";
 

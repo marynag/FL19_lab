@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import {PATHS} from "../constants/path.constants";
 import {usePhotos} from "../../customHooks/usePhotos";
 import {Spinner} from "../spinner/spinner";
-import {HeartOverlay} from "../heartOverlay/heartOverlay";
+import {HeartOverlay} from "../photoGrid/overlays/heartOverlay";
 
 export const Gallery = () => {
     const [searchBreedId, setSearchBreedId] = useState('');

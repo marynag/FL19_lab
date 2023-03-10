@@ -1,5 +1,5 @@
-import imgLike from "../../img/Vector 348 (Stroke).png";
-import styles from "../gallery/gallery.module.scss";
+import imgLike from "../../../img/Vector 348 (Stroke).png";
+import styles from "../photoGrid.module.scss";
 import React from "react";
 
 export const HeartOverlay =() =>{

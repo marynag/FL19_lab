@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 import {PATHS} from "../constants/path.constants";
 import {usePhotos} from "../../customHooks/usePhotos";
 import {Spinner} from "../spinner/spinner";
-import {BreedOverlay} from "../breedOverlay/breedOverlay";
+import {BreedOverlay} from "../photoGrid/overlays/breedOverlay";
 
 export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
