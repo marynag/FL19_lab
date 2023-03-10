@@ -5,7 +5,6 @@ import {PATHS} from "../constants/path.constants";
 
 export const PhotoGrid = ({photos, Overlay}) =>{
     return(
-        <>
             <div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
                     <div className={`${styles.catImgBreedsDiv}`} key={current.url}>
@@ -21,6 +20,5 @@ export const PhotoGrid = ({photos, Overlay}) =>{
                     </div>
                 ))}
             </div>
-        </>
     )
 }

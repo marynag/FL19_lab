@@ -17,8 +17,7 @@ export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
 
-    const breedNamesIdsSelected = useSelector(breedsNamesSelector)
-    const breedNamesIds = Object.assign({'': 'All breeds'}, breedNamesIdsSelected);
+    const breedNamesIds = useSelector(breedsNamesSelector)
 
     const {photos, isLoading} = usePhotos(selectedBreedId, limit)
 
