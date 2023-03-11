@@ -4,3 +4,5 @@ export const LIMITS=[
     15,
     20
 ]
+
+export const IMAGE_SIZE = 'small';

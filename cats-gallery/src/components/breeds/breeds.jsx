@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ImgSort1 from '../../img/ba.png'
 import ImgSort2 from '../../img/ab.png'
-import { LIMITS } from './breed.constants'
+import {LIMITS} from "../../constants/constants";
 import styles from './breeds.module.scss'
 import { SearchBar }  from '../searchBar';
 import { useSelector } from 'react-redux';
@@ -17,7 +17,8 @@ export const Breeds = () => {
     const [selectedBreedId, setSelectedBreedId] = useState()
     const [limit, setLimit] = useState(LIMITS[0])
 
-    const breedNamesIds = useSelector(breedsNamesSelector)
+    const breedNamesIdsSelected = useSelector(breedsNamesSelector)
+    const breedNamesIds = Object.assign({'': 'All breeds'}, breedNamesIdsSelected);
 
     const {photos, isLoading} = usePhotos(selectedBreedId, limit)
 

@@ -4,5 +4,4 @@ export const PATHS = {
     breeds: '/breeds',
     voting:'/voting',
     photo:`/photo/:id`,
-    switchToPhoto:`/photo/`,
 }

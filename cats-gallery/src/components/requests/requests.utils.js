@@ -1,12 +1,12 @@
 import {API_KEY, URL_BREEDS, URL_PHOTOS, URL_PHOTOS_SEARCH,} from "./requests.constants";
-import {IMAGE_SIZE} from "../constants/constants";
+import {IMAGE_SIZE} from "../../constants/constants";
 
 const getResponse = (url) =>{
     return fetch(url)
         .then(response => response.json())
 }
 
-export const fetchPhotos = (breedId, limit) => {
+export const fetchPhotos = (limit, breedId) => {
     const params = new URLSearchParams();
     if(breedId) {
         params.append('breed_ids', breedId);

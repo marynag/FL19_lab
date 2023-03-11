@@ -8,7 +8,7 @@ export const PhotoGrid = ({photos, Overlay}) =>{
             <div className={styles.catImgBreedsWrapper}>
                 {photos.map((current) => (
                     <div className={`${styles.catImgBreedsDiv}`} key={current.url}>
-                        <Link to={`${PATHS.switchToPhoto}${current.id}`}>
+                        <Link to={PATHS.photo.replace(":id", current.id)}>
                             <img
                                 className={`${styles.catImgBreeds} `}
                                 src={current.url}
