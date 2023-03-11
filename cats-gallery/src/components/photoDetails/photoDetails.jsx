@@ -9,7 +9,7 @@ import {Spinner} from "../spinner/spinner";
 
 
 export const PhotoDetails = () => {
-    //add location
+    //TODO: pass location to avoid fetching
     const [isLoading, setLoading] = useState(false)
     const { id } = useParams()
     const [details, setDetails] = useState({})
@@ -18,10 +18,11 @@ export const PhotoDetails = () => {
         setLoading(true);
             fetchPhotoById(id)
             .then(res  => {
-                const breed = res.breeds[0];
+                const {url, breeds} = res;
+                const breed = breeds[0];
                 const { name, origin, description, temperament} = breed;
                 setDetails({
-                    url: res.url,
+                    url,
                     name,
                     origin,
                     description,

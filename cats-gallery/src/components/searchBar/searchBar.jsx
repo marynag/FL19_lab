@@ -11,18 +11,18 @@ export const SearchBar = (props) => {
 
     const handleClick = () =>{
         const search = inputRef.current.value.toLowerCase();
-        const matchedBreedId = search ? Object.entries(breedNamesIds).find(item=>{
-            const [id,name] = item
+        const matchedBreed = search ? Object.entries(breedNamesIds).find(item=>{
+            const name = item[1];
             return (name.toLowerCase().includes(search))
         }) : ''
 
-        props.onChange(matchedBreedId)
+        props.onChange(matchedBreed[0])
     }
 
     return(
         <div className={styles.searchingLine}>
                 <div className={styles.search}>
-                    <input type="text"  column placeholder="Search for breeds by name" className={styles.searchInput} ref={inputRef}/>
+                    <input type="text"  placeholder="Search for breeds by name" className={styles.searchInput} ref={inputRef}/>
                     <div className={styles.searchItem} onClick={handleClick}><img src={searchImg} alt="search" className={styles.search_img}/></div>
                 </div>
             <ReactionBar />
