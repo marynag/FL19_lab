@@ -1,27 +1,68 @@
-   .breeds{
+  .voting{
     grid-column:2;
     grid-row: 1;
-    margin:-10px 30px -70px 160px;
+    margin:-10px 30px -60px 160px;
   }
-    
+
+  .votingWraper{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+    text-align: center;
+  }
+
+  .votingBlockName{
+    margin: 0 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .next{
+    color: #FF868E;
+    padding: 2px 8px;
+    font-size: 25px;
+    background-color: #FBE0DC;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .catImgBreedsWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:7px;
+    padding: 0 10px 10px 10px;
+  }
+  
   .catImgBreedsDiv{
     margin-top: 0;
     width:100%;
     border-radius: 10px;
   }
-
+  
+  .catImgBreedsDiv:hover,.catImg:hover{
+    filter: invert(30%) grayscale(80%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(200%) contrast(1);
+    filter: grayscale(80%) brightness(60%) sepia(40%) hue-rotate(-50deg) saturate(400%) contrast(1);
+  }
+  
+  .catImgBreedsDiv {
+    position: relative;
+  }
+  
   .wraperImgBlokSearchImages{
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
-    padding: 0 10px 10px 10px;
-    text-align: center;
+    padding: 0 10px;
   }
-
+  
   .sort{
     width: 100%;
   }
   
-  .next{   
+  .next{
     color: #FF868E;
     padding: 2px 8px;
     font-size: 25px;
@@ -36,9 +77,9 @@
     align-items: center;
     margin-left: 5px;
     margin-right: 5px;
-    gap:10px;    
+    gap:10px;
   }
-
+  
   .vote{
     padding: 8px 20px;
     display: flex;
@@ -50,7 +91,7 @@
     font-size: 15px;
     color: #FFFFFF;
   }
-
+  
   .breedSelect{
     width: 140px;
     font-size: 12px;
@@ -68,3 +109,4 @@
     border: none;
     padding: 12px;
   }
+  
