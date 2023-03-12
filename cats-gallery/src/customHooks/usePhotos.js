@@ -1,13 +1,13 @@
 import {fetchPhotos} from "../components/requests/requests.utils";
 import React, {useEffect, useState} from "react";
 
-export const usePhotos = (breedId, limit, overlay) => {
+export const usePhotos = (breedId, limit) => {
     const [photos, setPhotos] = useState([]);
     const [isLoading, setLoading] = useState(false)
 
     useEffect(()=>{
         setLoading(true)
-        fetchPhotos(breedId, limit)
+        fetchPhotos(limit, breedId)
             .then(res  => {
                 const result =res.map(({url,id, breeds})=>({
                     url,

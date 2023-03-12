@@ -9,7 +9,7 @@ import {Spinner} from "../spinner/spinner";
 import {HeartOverlay} from "../photoGrid/overlays/heartOverlay";
 
 export const Gallery = () => {
-    const [searchBreedId, setSearchBreedId] = useState('');
+    const [searchBreedId, setSearchBreedId] = useState();
     //TODO add selector
     const limit = 25;
 

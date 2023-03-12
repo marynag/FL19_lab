@@ -5,18 +5,24 @@ import {useSelector} from "react-redux";
 import {breedsNamesSelector} from "../../store/selectors";
 import {ReactionBar} from "../reactionBar/reactionBar";
 
-export const SearchBar = (props) => {
+export const SearchBar = ({onChange}) => {
     const inputRef = React.createRef();
     const breedNamesIds = useSelector(breedsNamesSelector)
 
     const handleClick = () =>{
         const search = inputRef.current.value.toLowerCase();
-        const matchedBreed = search ? Object.entries(breedNamesIds).find(item=>{
-            const name = item[1];
-            return (name.toLowerCase().includes(search))
-        }) : ''
 
-        props.onChange(matchedBreed[0])
+        if(!search){
+            onChange(undefined)
+            return
+        }
+
+        const matchedBreedId =  Object.entries(breedNamesIds).find(item=>{
+            const name = item[1];
+            return name.toLowerCase().includes(search)
+        })
+
+        onChange(matchedBreedId?.[0])
     }
 
     return(
