@@ -3,3 +3,4 @@ export * from './gallery';
 export * from './mainSection';
 export * from './staticSection';
 export * from './voting';
+export * from './photoDetails';

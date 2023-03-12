@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import styles from './gallery.module.scss';
 import { SearchBar } from '../searchBar';
-import { PhotoGrid } from '../photoGrid/photoGrid';
 import { Link } from 'react-router-dom';
 import { PATHS } from '../constants/path.constants';
-import { usePhotos } from '../../customHooks/usePhotos';
-import { Spinner } from '../spinner/spinner';
-import { HeartOverlay } from '../photoGrid/overlays/heartOverlay';
+import { usePhotos } from '../../customHooks';
+import { Spinner } from '../spinner';
+import { HeartOverlay, PhotoGrid } from '../photoGrid';
 
 export const Gallery = () => {
 	const [searchBreedId, setSearchBreedId] = useState();

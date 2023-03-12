@@ -7,9 +7,9 @@ import {
 	Breeds,
 	StaticSection,
 	MainSection,
+	PhotoDetails,
 } from './components';
 import { PATHS } from './components/constants/path.constants';
-import { PhotoDetails } from './components/photoDetails/photoDetails';
 
 function App() {
 	return (
