@@ -1,1 +1,1 @@
-export const BREEDS_FETCHED = 'BREEDS_FETCHED'
+export const BREEDS_FETCHED = 'BREEDS_FETCHED';

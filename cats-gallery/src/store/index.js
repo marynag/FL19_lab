@@ -1,6 +1,6 @@
-import {combineReducers} from "redux";
-import {breedReducer} from "./breeds/reducer";
+import { combineReducers } from 'redux';
+import { breedReducer } from './breeds/reducer';
 
 export const rootReducer = combineReducers({
-    breeds: breedReducer
-})
+	breeds: breedReducer,
+});

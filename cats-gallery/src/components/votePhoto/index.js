@@ -1,1 +1,1 @@
-export * from './votePhoto'
+export * from './votePhoto';
