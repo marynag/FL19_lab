@@ -36,32 +36,24 @@
     gap:7px;
     padding: 0 10px 10px 10px;
   }
-  
+
   .catImgBreedsDiv{
     margin-top: 0;
     width:100%;
     border-radius: 10px;
   }
-  
-  .catImgBreedsDiv:hover,.catImg:hover{
-    filter: invert(30%) grayscale(80%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(200%) contrast(1);
-    filter: grayscale(80%) brightness(60%) sepia(40%) hue-rotate(-50deg) saturate(400%) contrast(1);
-  }
-  
-  .catImgBreedsDiv {
-    position: relative;
-  }
-  
+
   .wraperImgBlokSearchImages{
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
-    padding: 0 10px;
+    padding: 0 10px 10px 10px;
+    text-align: center;
   }
-  
+
   .sort{
     width: 100%;
   }
-  
+
   .next{
     color: #FF868E;
     padding: 2px 8px;
@@ -70,7 +62,7 @@
     border-radius: 10px;
     cursor: pointer;
   }
-  
+
   .headerBreeds{
     display: flex;
     justify-content: space-evenly;
@@ -79,7 +71,7 @@
     margin-right: 5px;
     gap:10px;
   }
-  
+
   .vote{
     padding: 8px 20px;
     display: flex;
@@ -91,7 +83,7 @@
     font-size: 15px;
     color: #FFFFFF;
   }
-  
+
   .breedSelect{
     width: 140px;
     font-size: 12px;
@@ -100,7 +92,7 @@
     border: none;
     padding: 12px;
   }
-  
+
   .breedsLimit{
     width: 140px;
     font-size: 12px;
@@ -109,4 +101,3 @@
     border: none;
     padding: 12px;
   }
-  
