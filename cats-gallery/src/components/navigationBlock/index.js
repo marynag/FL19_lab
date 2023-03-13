@@ -1,1 +1,1 @@
-export * from './navigationBlocks'
+export * from './navigationBlocks';

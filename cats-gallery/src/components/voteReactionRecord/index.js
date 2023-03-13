@@ -1,1 +1,1 @@
-export * from './voteReactionRecord'
+export * from './voteReactionRecord';
