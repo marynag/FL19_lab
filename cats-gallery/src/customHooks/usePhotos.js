@@ -7,13 +7,24 @@ export const usePhotos = (breedId, limit, order) => {
 
 	useEffect(() => {
 		setLoading(true);
+		//There are some backend problems, so the 'broken' photo has been replaced by a right one
+		if (order === 'DESC' && !breedId) {
+			limit = limit + 1;
+		}
 		fetchPhotos(limit, order, breedId)
 			.then((res) => {
-				const result = res.map(({ url, id, breeds }) => ({
-					url,
-					breed: breeds[0],
-					id,
-				}));
+				const result = res.reduce((acc, { url, id, breeds }) => {
+					if (!breeds[0]) {
+						return acc;
+					}
+					const obj = {
+						url,
+						breed: breeds[0],
+						id,
+					};
+					acc.push(obj);
+					return acc;
+				}, []);
 				setPhotos(result);
 				setLoading(false);
 			})
