@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
 import IMG_UPDATE from '../../img/update.png';
 
-export const FilterBar = ({ setState }) => {
+export const FilterBar = ({ setState, setBreed }) => {
 	const [selectedOrder, setSelectedOrder] = useState();
 	const [selectedType, setSelectedType] = useState();
 	const [selectedBreedId, setSelectedBreedId] = useState();
@@ -37,9 +37,9 @@ export const FilterBar = ({ setState }) => {
 		setState({
 			limit: selectedLimit,
 			order: selectedOrder,
-			breedId: selectedBreedId,
 			type: selectedType,
 		});
+		setBreed(selectedBreedId);
 	};
 
 	return (

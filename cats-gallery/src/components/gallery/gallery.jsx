@@ -10,14 +10,13 @@ import { FilterBar } from '../filterBar/filterBar';
 import { LIMITS } from '../../constants/constants';
 
 export const Gallery = () => {
-	//TODO make common searchBreedId for FilterBar and SearchBar
 	const [searchBreedId, setSearchBreedId] = useState();
 	const [selectedAttributes, setSelectedAttributes] = useState({
 		limit: LIMITS[0],
 	});
 
 	const { photos, isLoading } = usePhotos(
-		selectedAttributes.breedId,
+		searchBreedId,
 		selectedAttributes.limit,
 		selectedAttributes.order,
 		selectedAttributes.type
@@ -35,7 +34,10 @@ export const Gallery = () => {
 					<p className={styles.uploadPhoto}>UPLOAD</p>
 				</div>
 
-				<FilterBar setState={setSelectedAttributes} />
+				<FilterBar
+					setState={setSelectedAttributes}
+					setBreed={setSearchBreedId}
+				/>
 
 				{isLoading ? (
 					<Spinner />
