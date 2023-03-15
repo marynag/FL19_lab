@@ -10,15 +10,21 @@ const getResponse = (url) => {
 	return fetch(url).then((response) => response.json());
 };
 
-export const fetchPhotos = (limit, order, breedId) => {
+export const fetchPhotos = (limit, order, breedId, type) => {
 	const params = new URLSearchParams();
 	if (breedId) {
 		params.append('breed_ids', breedId);
 	}
-	params.append('has_breeds', 1);
 	params.append('order', order);
 	params.append('limit', limit);
 	params.append('size', IMAGE_SIZE);
+
+	//mime_types==='gif' is not compatible with has_breeds
+	if (type === 'gif') {
+		params.append('mime_types', type);
+	} else {
+		params.append('has_breeds', 1);
+	}
 	params.append('api_key', API_KEY);
 	return getResponse(`${URL_PHOTOS_SEARCH}?${params}`);
 };

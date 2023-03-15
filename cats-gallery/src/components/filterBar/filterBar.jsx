@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
 import IMG_UPDATE from '../../img/update.png';
 
-export const FilterBar = () => {
+export const FilterBar = ({ setState }) => {
 	const [selectedOrder, setSelectedOrder] = useState();
 	const [selectedType, setSelectedType] = useState();
 	const [selectedBreedId, setSelectedBreedId] = useState();
-	const [selectedLimit, setSelectedLimit] = useState();
+	const [selectedLimit, setSelectedLimit] = useState(LIMITS[0]);
 
 	const limit = LIMITS.map((item) => {
 		return {
@@ -33,14 +33,20 @@ export const FilterBar = () => {
 
 	const handleLimit = (e) => setSelectedLimit(e.target.value);
 
+	const handleClick = () => {
+		setState({
+			limit: selectedLimit,
+			order: selectedOrder,
+			breedId: selectedBreedId,
+			type: selectedType,
+		});
+	};
+
 	return (
 		<div className={styles.filterBar}>
 			<div className={styles.filteredItem}>
 				<p className={styles.filterLabel}>ORDER</p>
-				<select
-					className={`${styles.vote} ${styles.breedSelect}`}
-					onChange={(e) => handleOrder(e)}
-				>
+				<select className={styles.vote} onChange={(e) => handleOrder(e)}>
 					{order.map((item) => (
 						<option key={item} value={item}>
 							{item}
@@ -51,10 +57,7 @@ export const FilterBar = () => {
 
 			<div className={styles.filteredItem}>
 				<p className={styles.filterLabel}>TYPE</p>
-				<select
-					className={`${styles.vote} ${styles.breedSelect}`}
-					onChange={(e) => handleType(e)}
-				>
+				<select className={styles.vote} onChange={(e) => handleType(e)}>
 					{type.map((item) => (
 						<option key={item} value={item}>
 							{item}
@@ -65,10 +68,7 @@ export const FilterBar = () => {
 
 			<div className={styles.filteredItem}>
 				<p className={styles.filterLabel}>BREED</p>
-				<select
-					className={`${styles.vote} ${styles.breedSelect}`}
-					onChange={(e) => handleBreed(e)}
-				>
+				<select className={styles.vote} onChange={(e) => handleBreed(e)}>
 					{Object.entries(breedNamesIds).map(([id, name]) => (
 						<option key={id} value={id}>
 							{name}
@@ -80,17 +80,18 @@ export const FilterBar = () => {
 			<div className={styles.filteredItem}>
 				<p className={styles.filterLabel}>LIMIT</p>
 				<div className={styles.selectionReload}>
-					<select
-						className={`${styles.vote} ${styles.breedSelect}`}
-						onChange={(e) => handleLimit(e)}
-					>
+					<select className={styles.vote} onChange={(e) => handleLimit(e)}>
 						{limit.map(({ limit, text }) => (
 							<option key={limit} value={limit}>
 								{text}
 							</option>
 						))}
 					</select>
-					<img src={IMG_UPDATE} className={styles.reload} />
+					<img
+						src={IMG_UPDATE}
+						className={styles.reload}
+						onClick={handleClick}
+					/>
 				</div>
 			</div>
 		</div>

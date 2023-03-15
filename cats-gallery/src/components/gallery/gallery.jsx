@@ -6,31 +6,23 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { HeartOverlay, PhotoGrid } from '../photoGrid';
-import { LIMITS } from '../../constants/constants';
-import { useSelector } from 'react-redux';
-import { breedsNamesSelector } from '../../store/selectors';
 import { FilterBar } from '../filterBar/filterBar';
+import { LIMITS } from '../../constants/constants';
 
 export const Gallery = () => {
+	//TODO make common searchBreedId for FilterBar and SearchBar
 	const [searchBreedId, setSearchBreedId] = useState();
-	//TODO add selector
-	const limit = LIMITS.map((item) => {
-		return {
-			length: item,
-			text: item + ' items per page',
-		};
+	const [selectedAttributes, setSelectedAttributes] = useState({
+		limit: LIMITS[0],
 	});
 
-	const breedNamesIdsSelected = useSelector(breedsNamesSelector);
-	const breedNamesIds = Object.assign({ '': 'None' }, breedNamesIdsSelected);
-
-	const order = 'RAND';
-
 	const { photos, isLoading } = usePhotos(
-		searchBreedId,
-		limit[3].length,
-		order
+		selectedAttributes.breedId,
+		selectedAttributes.limit,
+		selectedAttributes.order,
+		selectedAttributes.type
 	);
+
 	return (
 		<div className={styles.voting}>
 			<SearchBar onChange={setSearchBreedId} />
@@ -43,7 +35,7 @@ export const Gallery = () => {
 					<p className={styles.uploadPhoto}>UPLOAD</p>
 				</div>
 
-				<FilterBar />
+				<FilterBar setState={setSelectedAttributes} />
 
 				{isLoading ? (
 					<Spinner />
