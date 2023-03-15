@@ -1,0 +1,50 @@
+.filterBar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+  background-color: #F8F8F7;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.filteredItem{
+  display: flex;
+  flex-direction: column;
+}
+.vote{
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #1D1D1D;
+  width: 100%;
+}
+
+.filterLabel{
+  text-align: left;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #8C8C8C;
+}
+
+.selectionReload{
+  display: flex;
+  gap: 15px;
+}
+
+.reload{
+  padding: 10px;
+  border: none;
+  background-color: #ffffff;
+  justify-self: flex-end;
+  border-radius: 10px
+}
+
+.reload:hover{
+  background-color: #FBE0DC;
+}

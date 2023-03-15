@@ -6,14 +6,31 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { HeartOverlay, PhotoGrid } from '../photoGrid';
+import { LIMITS } from '../../constants/constants';
+import { useSelector } from 'react-redux';
+import { breedsNamesSelector } from '../../store/selectors';
+import { FilterBar } from '../filterBar/filterBar';
 
 export const Gallery = () => {
 	const [searchBreedId, setSearchBreedId] = useState();
 	//TODO add selector
-	const limit = 25;
+	const limit = LIMITS.map((item) => {
+		return {
+			length: item,
+			text: item + ' items per page',
+		};
+	});
+
+	const breedNamesIdsSelected = useSelector(breedsNamesSelector);
+	const breedNamesIds = Object.assign({ '': 'None' }, breedNamesIdsSelected);
+
 	const order = 'RAND';
 
-	const { photos, isLoading } = usePhotos(searchBreedId, limit, order);
+	const { photos, isLoading } = usePhotos(
+		searchBreedId,
+		limit[3].length,
+		order
+	);
 	return (
 		<div className={styles.voting}>
 			<SearchBar onChange={setSearchBreedId} />
@@ -23,7 +40,11 @@ export const Gallery = () => {
 						<p className={styles.next}>&lt;</p>
 					</Link>
 					<p className={styles.vote}>GALLERY</p>
+					<p className={styles.uploadPhoto}>UPLOAD</p>
 				</div>
+
+				<FilterBar />
+
 				{isLoading ? (
 					<Spinner />
 				) : (

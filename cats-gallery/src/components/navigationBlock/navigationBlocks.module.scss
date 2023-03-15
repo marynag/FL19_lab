@@ -44,7 +44,7 @@
     border: solid 4px #FBE0DC; 
   }
 
-button{
+.btn{
     grid-row: 2;
     border: none;
     text-align: center;
@@ -55,11 +55,11 @@ button{
     background-color: #FFFFFF;
 }
 
-button:hover{
+.btn:hover{
     background-color: #FBE0DC;
 }
 
-button:active{
+.btn:active{
     background-color: #FF868E;
     color: #FFFFFF
 }
