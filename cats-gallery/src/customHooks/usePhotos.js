@@ -7,22 +7,21 @@ export const usePhotos = (breedId, limit, order) => {
 
 	useEffect(() => {
 		setLoading(true);
-		//There are some backend problems, so the 'broken' photo has been replaced by a right one
-		if (order === 'DESC' && !breedId) {
-			limit = limit + 1;
-		}
-		fetchPhotos(limit, order, breedId)
+		/*
+		 * When requesting photos in DESC order and without specifying breed,
+		 * even though we request "breed-only" photos,
+		 * backend sends one single photo that doesn't have breed info.
+		 * That is why we request one additional photo in this particular case and filter out the broken one
+		 */
+		const requestLimit = !breedId && order === 'DESC' ? limit + 1 : limit;
+		fetchPhotos(requestLimit, order, breedId)
 			.then((res) => {
 				const result = res.reduce((acc, { url, id, breeds }) => {
-					if (!breeds[0]) {
+					const breed = breeds[0];
+					if (!breed) {
 						return acc;
 					}
-					const obj = {
-						url,
-						breed: breeds[0],
-						id,
-					};
-					acc.push(obj);
+					acc.push({ url, id, breed });
 					return acc;
 				}, []);
 				setPhotos(result);
