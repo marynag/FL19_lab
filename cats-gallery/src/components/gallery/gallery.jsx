@@ -22,6 +22,12 @@ export const Gallery = () => {
 		selectedAttributes.type
 	);
 
+	const display = photos.length ? (
+		<PhotoGrid photos={photos} Overlay={HeartOverlay} />
+	) : (
+		<p className={styles.notFound}>No item found</p>
+	);
+
 	return (
 		<div className={styles.voting}>
 			<SearchBar onChange={setSearchBreedId} />
@@ -39,11 +45,7 @@ export const Gallery = () => {
 					setBreed={setSearchBreedId}
 				/>
 
-				{isLoading ? (
-					<Spinner />
-				) : (
-					<PhotoGrid photos={photos} Overlay={HeartOverlay} />
-				)}
+				{isLoading ? <Spinner /> : display}
 			</div>
 		</div>
 	);
