@@ -38,7 +38,7 @@
   gap: 15px;
 }
 
-.reload{
+.uploadContainer img{
   padding: 10px;
   border: none;
   background-color: #ffffff;
@@ -46,6 +46,16 @@
   border-radius: 10px
 }
 
-.reload:hover{
-  background-color: #FBE0DC;
+.uploadContainer img:nth-child(2) {
+  display: none;
+}
+
+.uploadContainer:hover img:nth-child(1) {
+  display: none;
+}
+
+.uploadContainer:hover img:nth-child(2) {
+  background-color: #FF868E;
+  display: block;
+  cursor: pointer;
 }

@@ -4,6 +4,7 @@ import { LIMITS, ORDER, TYPE } from '../../constants/constants';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
 import IMG_UPDATE from '../../img/update.png';
+import IMG_UPDATE_HOVER from '../../img/update-white.png';
 
 export const FilterBar = ({ setState, setBreed }) => {
 	const [selectedOrder, setSelectedOrder] = useState();
@@ -87,11 +88,10 @@ export const FilterBar = ({ setState, setBreed }) => {
 							</option>
 						))}
 					</select>
-					<img
-						src={IMG_UPDATE}
-						className={styles.reload}
-						onClick={handleClick}
-					/>
+					<div className={styles.uploadContainer}>
+						<img src={IMG_UPDATE} onClick={handleClick} alt='update' />
+						<img src={IMG_UPDATE_HOVER} onClick={handleClick} alt='update' />
+					</div>
 				</div>
 			</div>
 		</div>
