@@ -10,12 +10,13 @@ const getResponse = (url) => {
 	return fetch(url).then((response) => response.json());
 };
 
-export const fetchPhotos = (limit, breedId) => {
+export const fetchPhotos = (limit, order, breedId) => {
 	const params = new URLSearchParams();
 	if (breedId) {
 		params.append('breed_ids', breedId);
 	}
 	params.append('has_breeds', 1);
+	params.append('order', order);
 	params.append('limit', limit);
 	params.append('size', IMAGE_SIZE);
 	params.append('api_key', API_KEY);

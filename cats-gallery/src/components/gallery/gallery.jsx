@@ -11,8 +11,9 @@ export const Gallery = () => {
 	const [searchBreedId, setSearchBreedId] = useState();
 	//TODO add selector
 	const limit = 25;
+	const order = 'RAND';
 
-	const { photos, isLoading } = usePhotos(searchBreedId, limit);
+	const { photos, isLoading } = usePhotos(searchBreedId, limit, order);
 	return (
 		<div className={styles.voting}>
 			<SearchBar onChange={setSearchBreedId} />

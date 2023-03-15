@@ -15,6 +15,7 @@ import { BreedOverlay, PhotoGrid } from '../photoGrid';
 export const Breeds = () => {
 	const [selectedBreedId, setSelectedBreedId] = useState();
 	const [limit, setLimit] = useState(LIMITS[0]);
+	const [order, setOrder] = useState('RAND');
 
 	const breedNamesIdsSelected = useSelector(breedsNamesSelector);
 	const breedNamesIds = Object.assign(
@@ -22,11 +23,15 @@ export const Breeds = () => {
 		breedNamesIdsSelected
 	);
 
-	const { photos, isLoading } = usePhotos(selectedBreedId, limit);
+	const { photos, isLoading } = usePhotos(selectedBreedId, limit, order);
 
 	const handleBreedIdChange = (event) => setSelectedBreedId(event.target.value);
 
 	const handleLimitChange = (event) => setLimit(event.target.value);
+
+	const handleSortForward = () => setOrder('ASC');
+
+	const handleSortBackward = () => setOrder('DESC');
 
 	return (
 		<div className={styles.breeds}>
@@ -57,10 +62,10 @@ export const Breeds = () => {
 							</option>
 						))}
 					</select>
-					<div className={styles.sortImg}>
+					<div className={styles.sortImg} onClick={handleSortForward}>
 						<img className={styles.sort} src={ImgSort1} alt='sort' />
 					</div>
-					<div className={styles.sortImg}>
+					<div className={styles.sortImg} onClick={handleSortBackward}>
 						<img
 							className={`${styles.sort} ${styles.sort1}`}
 							src={ImgSort2}
