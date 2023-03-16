@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './filterBar.module.scss';
-import { LIMITS, ORDER, TYPE } from '../../constants/constants';
+import { LIMITS, ORDER, TYPE, TYPE_NAME } from '../../constants/constants';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
 import IMG_UPDATE from '../../img/update.png';
@@ -22,9 +22,19 @@ export const FilterBar = ({ setState, setBreed }) => {
 	const breedNamesIdsSelected = useSelector(breedsNamesSelector);
 	const breedNamesIds = Object.assign({ '': 'None' }, breedNamesIdsSelected);
 
-	const order = ['None', ...ORDER];
+	const typeStart = {
+		type: '',
+		text: 'All',
+	};
 
-	const type = ['None', ...TYPE];
+	const typeDefault = TYPE.map((item, index) => {
+		return {
+			type: item,
+			text: TYPE_NAME[index],
+		};
+	});
+
+	const type = [typeStart, ...typeDefault];
 
 	const handleOrder = (e) => setSelectedOrder(e.target.value);
 
@@ -48,7 +58,7 @@ export const FilterBar = ({ setState, setBreed }) => {
 			<div className={styles.filteredItem}>
 				<p className={styles.filterLabel}>ORDER</p>
 				<select className={styles.vote} onChange={(e) => handleOrder(e)}>
-					{order.map((item) => (
+					{ORDER.map((item) => (
 						<option key={item} value={item}>
 							{item}
 						</option>
@@ -59,9 +69,9 @@ export const FilterBar = ({ setState, setBreed }) => {
 			<div className={styles.filteredItem}>
 				<p className={styles.filterLabel}>TYPE</p>
 				<select className={styles.vote} onChange={(e) => handleType(e)}>
-					{type.map((item) => (
-						<option key={item} value={item}>
-							{item}
+					{type.map(({ type, text }) => (
+						<option key={type} value={type}>
+							{text}
 						</option>
 					))}
 				</select>
