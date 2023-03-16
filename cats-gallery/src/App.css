@@ -17,4 +17,8 @@ main{
   grid-template-columns: 3fr 4fr;
 }
 
+select:focus{
+  outline: 2px solid #FBE0DC;
+}
+
 

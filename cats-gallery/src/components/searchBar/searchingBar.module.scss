@@ -17,11 +17,14 @@
     width: 100%;
     border: none;
     font-size: 15px;
-    margin-left: 10px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #8C8C8C;   
+    color: #8C8C8C;
+    pointer-events: auto;
   }
   
   .searchItem{
@@ -32,4 +35,14 @@
     padding: 5px 5px;
     background-color: #FBE0DC;
     border-radius: 10px;
+    pointer-events: auto;
   }
+
+
+.search:focus-within {
+  outline: 2px solid #FBE0DC;
+}
+
+.search:active {
+  outline: 2px solid #FF868E;
+}
