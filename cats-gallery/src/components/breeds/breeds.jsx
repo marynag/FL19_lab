@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import ImgSort1 from '../../img/ba.png';
-import ImgSort2 from '../../img/ab.png';
+import IMG_SORT_FORWARD from '../../img/sort-ab.png';
+import IMG_SORT_BACKWARD from '../../img/sort-ba.png';
+import IMG_SORT_FORWARD_HOVER from '../../img/sort-ab-hover.png';
+import IMG_SORT_BACKWARD_HOVER from '../../img/sort-ba-hover.png';
 import { LIMITS } from '../../constants/constants';
 import styles from './breeds.module.scss';
 import { SearchBar } from '../searchBar';
@@ -32,7 +34,6 @@ export const Breeds = () => {
 	const handleSortForward = () => setOrder('ASC');
 
 	const handleSortBackward = () => setOrder('DESC');
-
 	return (
 		<div className={styles.breeds}>
 			<SearchBar onChange={setSelectedBreedId} />
@@ -63,12 +64,18 @@ export const Breeds = () => {
 						))}
 					</select>
 					<div className={styles.sortImg} onClick={handleSortForward}>
-						<img className={styles.sort} src={ImgSort1} alt='sort' />
+						<img className={styles.sort} src={IMG_SORT_FORWARD} alt='sort' />
+						<img
+							className={styles.sort}
+							src={IMG_SORT_FORWARD_HOVER}
+							alt='sort'
+						/>
 					</div>
 					<div className={styles.sortImg} onClick={handleSortBackward}>
+						<img className={styles.sort} src={IMG_SORT_BACKWARD} alt='sort' />
 						<img
-							className={`${styles.sort} ${styles.sort1}`}
-							src={ImgSort2}
+							className={styles.sort}
+							src={IMG_SORT_BACKWARD_HOVER}
 							alt='sort'
 						/>
 					</div>
