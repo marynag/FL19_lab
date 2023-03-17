@@ -18,7 +18,10 @@
   }
 
   .sort{
+    padding: 5px;
     width: 100%;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
   }
   
   .next{   
@@ -28,6 +31,10 @@
     background-color: #FBE0DC;
     border-radius: 10px;
     cursor: pointer;
+    &:hover{
+      background-color: #FF868E;
+      color: #FFFFFF;
+    }
   }
   
   .headerBreeds{
@@ -68,3 +75,17 @@
     border: none;
     padding: 12px;
   }
+
+   .sortImg img:nth-child(2) {
+     display: none;
+   }
+
+   .sortImg:hover img:nth-child(1) {
+     display: none;
+   }
+
+   .sortImg:hover img:nth-child(2) {
+     border: 2px solid #FBE0DC;
+     display: block;
+     cursor: pointer;
+   }
