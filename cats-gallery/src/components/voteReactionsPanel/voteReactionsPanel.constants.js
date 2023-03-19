@@ -1,21 +1,21 @@
 import styles from '../voting/voting.module.scss';
-import currentReactionSmile from '../../img/Vector(Stroke123).png';
-import currentReactionLike from '../../img/Vector 348 (Stroke)1.png';
-import currentReactionSad from '../../img/Vectorfvf (Stroke).png';
-import smile from '../../img/Vector (Stroke) (1242).png';
-import heart from '../../img/VectorStroke1232.png';
-import sad from '../../img/Vector (Stroke) (122).png';
+import ICON_CURRENT_SMILE from '../../svg/like-color-20.svg';
+import ICON_CURRENT_LIKE from '../../svg/fav-20.svg';
+import ICON_CURRENT_SAD from '../../svg/dislike-color-20.svg';
+import ICON_SAD from '../../svg/dislike-white-30.svg';
+import ICON_SMILE from '../../svg/like-white-30.svg';
+import ICON_LIKE from '../../svg/fav-white-30.svg';
 
 export const reactionsMap = {
-	smile: { currentReactionSmile },
-	like: { currentReactionLike },
-	sad: { currentReactionSad },
+	smile: { ICON_CURRENT_SMILE },
+	like: { ICON_CURRENT_LIKE },
+	sad: { ICON_CURRENT_SAD },
 };
 
 const REACTIONS = [
-	{ className: styles.smile, text: 'smile', img: `${smile}` },
-	{ className: styles.like, text: 'like', img: `${heart}` },
-	{ className: styles.sad, text: 'sad', img: `${sad}` },
+	{ className: styles.smile, text: 'smile', img: `${ICON_SMILE}` },
+	{ className: styles.like, text: 'like', img: `${ICON_LIKE}` },
+	{ className: styles.sad, text: 'sad', img: `${ICON_SAD}` },
 ];
 
 export default REACTIONS;

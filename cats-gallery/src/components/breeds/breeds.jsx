@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import IMG_SORT_FORWARD from '../../img/sort-ab.png';
-import IMG_SORT_BACKWARD from '../../img/sort-ba.png';
-import IMG_SORT_FORWARD_HOVER from '../../img/sort-ab-hover.png';
-import IMG_SORT_BACKWARD_HOVER from '../../img/sort-ba-hover.png';
+import ICON_SORT_ASC from '../../svg/sort-asc.svg';
+import ICON_SORT_DESC from '../../svg/soft-desc.svg';
 import { LIMITS } from '../../constants/constants';
 import styles from './breeds.module.scss';
 import { SearchBar } from '../searchBar';
@@ -63,22 +61,18 @@ export const Breeds = () => {
 							</option>
 						))}
 					</select>
-					<div className={styles.sortImg} onClick={handleSortForward}>
-						<img className={styles.sort} src={IMG_SORT_FORWARD} alt='sort' />
-						<img
-							className={styles.sort}
-							src={IMG_SORT_FORWARD_HOVER}
-							alt='sort'
-						/>
-					</div>
-					<div className={styles.sortImg} onClick={handleSortBackward}>
-						<img className={styles.sort} src={IMG_SORT_BACKWARD} alt='sort' />
-						<img
-							className={styles.sort}
-							src={IMG_SORT_BACKWARD_HOVER}
-							alt='sort'
-						/>
-					</div>
+					<img
+						className={styles.sort}
+						src={ICON_SORT_ASC}
+						alt='sort'
+						onClick={handleSortForward}
+					/>
+					<img
+						className={styles.sort}
+						src={ICON_SORT_DESC}
+						alt='sort'
+						onClick={handleSortBackward}
+					/>
 				</div>
 				{isLoading ? (
 					<Spinner />

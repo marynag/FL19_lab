@@ -3,8 +3,7 @@ import styles from './filterBar.module.scss';
 import { LIMITS, ORDER, TYPE, TYPE_NAME } from '../../constants/constants';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
-import IMG_UPDATE from '../../img/update.png';
-import IMG_UPDATE_HOVER from '../../img/update-white.png';
+import ICON_UPDATE from '../../svg/update.svg';
 
 export const FilterBar = ({ setState, setBreed }) => {
 	const [selectedOrder, setSelectedOrder] = useState();
@@ -99,8 +98,7 @@ export const FilterBar = ({ setState, setBreed }) => {
 						))}
 					</select>
 					<div className={styles.uploadContainer}>
-						<img src={IMG_UPDATE} onClick={handleClick} alt='update' />
-						<img src={IMG_UPDATE_HOVER} onClick={handleClick} alt='update' />
+						<img src={ICON_UPDATE} onClick={handleClick} alt='update' />
 					</div>
 				</div>
 			</div>

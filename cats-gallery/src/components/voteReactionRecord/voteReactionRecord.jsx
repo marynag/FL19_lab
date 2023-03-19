@@ -5,10 +5,9 @@ import PropTypes from 'prop-types';
 export const VoteReactionRecord = (props) => {
 	const { history } = props;
 	const { time } = props;
-	const { currentReactionSad, currentReactionLike, currentReactionSmile } =
+	const { ICON_CURRENT_SAD, ICON_CURRENT_LIKE, ICON_CURRENT_SMILE } =
 		props.icon;
-	const iconLink =
-		currentReactionSad ?? currentReactionLike ?? currentReactionSmile;
+	const iconLink = ICON_CURRENT_SAD ?? ICON_CURRENT_LIKE ?? ICON_CURRENT_SMILE;
 	return (
 		<div className={styles.reactionDescription}>
 			<p>{time}</p>

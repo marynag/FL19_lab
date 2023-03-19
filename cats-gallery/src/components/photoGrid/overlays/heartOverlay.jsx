@@ -1,7 +1,9 @@
-import imgLike from '../../../img/Vector 348 (Stroke).png';
+import ICON_FAVOURITE from '../../../svg/heart.svg';
 import styles from '../photoGrid.module.scss';
 import React from 'react';
 
 export const HeartOverlay = () => {
-	return <img src={imgLike} className={styles.breedName} alt={'heart'} />;
+	return (
+		<img src={ICON_FAVOURITE} className={styles.breedName} alt={'heart'} />
+	);
 };

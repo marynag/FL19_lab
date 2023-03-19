@@ -1,5 +1,5 @@
-import searchImg from '../../img/Vector.png';
-import styles from './searchingBar.module.scss';
+import ICON_SEARCH from '../../svg/search.svg';
+import styles from './searchBar.module.scss';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
@@ -34,9 +34,12 @@ export const SearchBar = ({ onChange }) => {
 					className={styles.searchInput}
 					ref={inputRef}
 				/>
-				<div className={styles.searchItem} onClick={handleClick}>
-					<img src={searchImg} alt='search' className={styles.search_img} />
-				</div>
+				<img
+					src={ICON_SEARCH}
+					alt='search'
+					className={styles.searchItem}
+					onClick={handleClick}
+				/>
 			</div>
 			<ReactionBar />
 		</div>

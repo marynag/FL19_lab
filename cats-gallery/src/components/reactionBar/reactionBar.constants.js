@@ -1,18 +1,18 @@
-import imgSmile from '../../img/Vector (Stroke).png';
-import imgLike from '../../img/Vector 348 (Stroke).png';
-import imgSad from '../../img/Vector (Stroke) (1).png';
+import ICON_SMILE from '../../svg/like-30.svg';
+import ICON_FAVOURITE from '../../svg/fav-30.svg';
+import ICON_SAD from '../../svg/dislike-30.svg';
 
 export const REACTIONS = [
 	{
 		name: 'smile',
-		img: imgSmile,
+		img: ICON_SMILE,
 	},
 	{
 		name: 'heart',
-		img: imgLike,
+		img: ICON_FAVOURITE,
 	},
 	{
 		name: 'sad',
-		img: imgSad,
+		img: ICON_SAD,
 	},
 ];
