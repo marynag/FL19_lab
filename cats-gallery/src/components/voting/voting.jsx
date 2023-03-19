@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import styles from './voting.module.scss';
-import { VoteReactionsPanel } from '../voteReactionsPanel';
 import { VotePhoto } from '../votePhoto';
 import { SearchBar } from '../searchBar';
 import { Link } from 'react-router-dom';
 import { PATHS } from '../constants/path.constants';
+import { IconButton } from '../iconButton/iconButton';
+import { VoteReactionsPanel } from '../voteReactionsPanel/voteReactionsPanel';
+import { NEXT } from '../iconButton/iconButton.constants';
 
 export const Voting = () => {
 	const historyStorage = useRef([]);
@@ -15,7 +17,7 @@ export const Voting = () => {
 			<div className={styles.votingWraper}>
 				<div className={styles.votingBlockName}>
 					<Link to={PATHS.home}>
-						<p className={styles.next}>&lt;</p>
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 				</div>

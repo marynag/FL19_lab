@@ -1,5 +1,5 @@
 import './mainSection.module.scss';
-import girlDog from '../../img/girl-and-pet 1.png';
+import girlDog from '../../svg/girl-and-pet.svg';
 import styles from './mainSection.module.scss';
 
 export const MainSection = () => {

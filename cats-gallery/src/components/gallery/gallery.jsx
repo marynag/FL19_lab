@@ -6,6 +6,8 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { HeartOverlay, PhotoGrid } from '../photoGrid';
+import { IconButton } from '../iconButton/iconButton';
+import { NEXT, UPLOAD } from '../iconButton/iconButton.constants';
 
 export const Gallery = () => {
 	const [searchBreedId, setSearchBreedId] = useState();
@@ -20,9 +22,13 @@ export const Gallery = () => {
 			<div className={styles.votingWraper}>
 				<div className={styles.votingBlockName}>
 					<Link to={PATHS.home}>
-						<p className={styles.next}>&lt;</p>
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>GALLERY</p>
+					<div className={styles.uploadPhoto}>
+						<IconButton iconName={UPLOAD} />
+						<p>UPLOAD</p>
+					</div>
 				</div>
 				{isLoading ? (
 					<Spinner />

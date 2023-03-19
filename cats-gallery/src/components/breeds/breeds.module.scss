@@ -18,7 +18,9 @@
   }
 
   .sort{
-    width: 100%;
+    padding: 5px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
   }
   
   .next{   
@@ -28,6 +30,10 @@
     background-color: #FBE0DC;
     border-radius: 10px;
     cursor: pointer;
+    &:hover{
+      background-color: #FF868E;
+      color: #FFFFFF;
+    }
   }
   
   .headerBreeds{

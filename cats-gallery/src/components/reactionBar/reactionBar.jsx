@@ -1,15 +1,16 @@
 import styles from './reaction.module.scss';
 import React from 'react';
-import { REACTIONS } from './reactionBar.constants';
+import { IconButton } from '../iconButton/iconButton';
+import { REACTIONS } from '../constants/constants';
 
 export const ReactionBar = () => {
 	return (
-		<>
+		<div className={styles.reaction}>
 			{REACTIONS.map((current) => (
-				<div key={current.name} className={styles.reaction}>
-					<img src={current.img} alt={current.name} />
-				</div>
+				<>
+					<IconButton iconName={current} />
+				</>
 			))}
-		</>
+		</div>
 	);
 };
