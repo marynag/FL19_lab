@@ -3,7 +3,7 @@ import styles from './filterBar.module.scss';
 import { LIMITS, ORDER, TYPE, TYPE_NAME } from '../../constants/constants';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
-import ICON_UPDATE from '../../svg/update.svg';
+import { IconUpdate } from '../../svg';
 
 export const FilterBar = ({ setState, setBreed }) => {
 	const [selectedOrder, setSelectedOrder] = useState();
@@ -42,15 +42,6 @@ export const FilterBar = ({ setState, setBreed }) => {
 	const handleBreed = (e) => setSelectedBreedId(e.target.value);
 
 	const handleLimit = (e) => setSelectedLimit(e.target.value);
-
-	const handleClick = () => {
-		setState({
-			limit: selectedLimit,
-			order: selectedOrder,
-			type: selectedType,
-		});
-		setBreed(selectedBreedId);
-	};
 
 	return (
 		<div className={styles.filterBar}>
@@ -97,9 +88,17 @@ export const FilterBar = ({ setState, setBreed }) => {
 							</option>
 						))}
 					</select>
-					<div className={styles.uploadContainer}>
-						<img src={ICON_UPDATE} onClick={handleClick} alt='update' />
-					</div>
+
+					<IconUpdate
+						setState={setState}
+						setBreed={setBreed}
+						data={{
+							limit: selectedLimit,
+							order: selectedOrder,
+							type: selectedType,
+						}}
+						breed={selectedBreedId}
+					/>
 				</div>
 			</div>
 		</div>

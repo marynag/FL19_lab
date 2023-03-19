@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import ICON_SORT_ASC from '../../svg/sort-asc.svg';
-import ICON_SORT_DESC from '../../svg/soft-desc.svg';
 import { LIMITS } from '../../constants/constants';
 import styles from './breeds.module.scss';
 import { SearchBar } from '../searchBar';
@@ -11,6 +9,7 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { BreedOverlay, PhotoGrid } from '../photoGrid';
+import { IconSortAsc, IconSortDesc } from '../../svg';
 
 export const Breeds = () => {
 	const [selectedBreedId, setSelectedBreedId] = useState();
@@ -28,10 +27,6 @@ export const Breeds = () => {
 	const handleBreedIdChange = (event) => setSelectedBreedId(event.target.value);
 
 	const handleLimitChange = (event) => setLimit(event.target.value);
-
-	const handleSortForward = () => setOrder('ASC');
-
-	const handleSortBackward = () => setOrder('DESC');
 	return (
 		<div className={styles.breeds}>
 			<SearchBar onChange={setSelectedBreedId} />
@@ -61,18 +56,9 @@ export const Breeds = () => {
 							</option>
 						))}
 					</select>
-					<img
-						className={styles.sort}
-						src={ICON_SORT_ASC}
-						alt='sort'
-						onClick={handleSortForward}
-					/>
-					<img
-						className={styles.sort}
-						src={ICON_SORT_DESC}
-						alt='sort'
-						onClick={handleSortBackward}
-					/>
+
+					<IconSortAsc onClick={setOrder} />
+					<IconSortDesc onClick={setOrder} />
 				</div>
 				{isLoading ? (
 					<Spinner />

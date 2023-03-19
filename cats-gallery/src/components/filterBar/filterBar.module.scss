@@ -37,25 +37,3 @@
   display: flex;
   gap: 15px;
 }
-
-.uploadContainer img{
-  padding: 10px;
-  border: none;
-  background-color: #ffffff;
-  justify-self: flex-end;
-  border-radius: 10px
-}
-
-.uploadContainer img:nth-child(2) {
-  display: none;
-}
-
-.uploadContainer:hover img:nth-child(1) {
-  display: none;
-}
-
-.uploadContainer:hover img:nth-child(2) {
-  background-color: #FF868E;
-  display: block;
-  cursor: pointer;
-}

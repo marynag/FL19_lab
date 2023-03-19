@@ -8,7 +8,7 @@ import { Spinner } from '../spinner';
 import { HeartOverlay, PhotoGrid } from '../photoGrid';
 import { FilterBar } from '../filterBar/filterBar';
 import { LIMITS } from '../../constants/constants';
-import ICON_UPLOAD from '../../svg/upload.svg';
+import { IconUpload } from '../../svg';
 
 export const Gallery = () => {
 	const [searchBreedId, setSearchBreedId] = useState();
@@ -39,7 +39,7 @@ export const Gallery = () => {
 					</Link>
 					<p className={styles.vote}>GALLERY</p>
 					<div className={styles.uploadPhoto}>
-						<img src={ICON_UPLOAD} alt='upload' />
+						<IconUpload />
 						<p>UPLOAD</p>
 					</div>
 				</div>

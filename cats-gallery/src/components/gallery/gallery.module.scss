@@ -108,24 +108,12 @@
     padding: 7px 15px;
     border-radius: 7px;
     gap: 10px;
-    &:hover{
-      background-color: #FF868E;
-      color: #FFFFFF;
-      cursor: pointer;
-    }
+    //&:hover{
+    //  background-color: #FF868E;
+    //  color: #FFFFFF;
+    //  cursor: pointer;
+    //}
   }
-  .uploadPhoto img:nth-child(2) {
-    display: none;
-  }
-
-  .uploadPhoto:hover img:nth-child(1) {
-    display: none;
-  }
-
-  .uploadPhoto:hover img:nth-child(2) {
-    display: block;
-  }
-
 
   .notFound{
     color:#8C8C8C;

@@ -1,9 +1,9 @@
-import ICON_SEARCH from '../../svg/search.svg';
 import styles from './searchBar.module.scss';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
 import { ReactionBar } from '../reactionBar';
+import { IconSearch } from '../../svg';
 
 export const SearchBar = ({ onChange }) => {
 	const inputRef = React.createRef();
@@ -34,12 +34,7 @@ export const SearchBar = ({ onChange }) => {
 					className={styles.searchInput}
 					ref={inputRef}
 				/>
-				<img
-					src={ICON_SEARCH}
-					alt='search'
-					className={styles.searchItem}
-					onClick={handleClick}
-				/>
+				<IconSearch onChange={onChange} input={inputRef} />
 			</div>
 			<ReactionBar />
 		</div>

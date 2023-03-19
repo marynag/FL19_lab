@@ -6,8 +6,8 @@ export const ReactionBar = () => {
 	return (
 		<>
 			{REACTIONS.map((current) => (
-				<div key={current.name} className={styles.reaction}>
-					<img src={current.img} alt={current.name} />
+				<div key={current} className={styles.reaction}>
+					{current}
 				</div>
 			))}
 		</>
