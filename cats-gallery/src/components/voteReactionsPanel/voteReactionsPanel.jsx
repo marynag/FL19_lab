@@ -23,23 +23,23 @@ export const VoteReactionsPanel = (props) => {
 							className={`${styles.currentReaction} ${reaction.className}`}
 							onClick={() => handleReactionClick(reaction.text)}
 						>
-							<img
-								src={reaction.img}
-								alt='reaction'
-								className={styles.mainLike}
-							/>
+							{React.createElement(reaction.component, {
+								className: reaction.text,
+							})}
 						</div>
 					))}
 				</div>
 			</div>
 			{Object.entries(reactions).map((current) => (
-				<VoteReactionRecord
-					time={current[1]}
-					text={current[0]}
-					key={current[0]}
-					icon={reactionsMap[current[0]]}
-					history={history}
-				/>
+				<>
+					<VoteReactionRecord
+						time={current[1]}
+						text={current[0]}
+						key={current[0]}
+						icon={reactionsMap[current[0]]}
+						history={history}
+					/>
+				</>
 			))}
 		</div>
 	);

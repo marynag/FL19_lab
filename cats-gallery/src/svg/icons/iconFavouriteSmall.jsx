@@ -1,4 +1,4 @@
-export const IconLikeSmall = () => {
+export const IconFavouriteSmall = () => {
 	return (
 		<svg
 			width='20'

@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
 import { ReactionBar } from '../reactionBar';
-import { IconSearch } from '../../svg';
+import { IconSearch } from '../../svg/icons';
 
 export const SearchBar = ({ onChange }) => {
 	const inputRef = React.createRef();

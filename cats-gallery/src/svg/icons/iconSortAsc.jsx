@@ -1,4 +1,4 @@
-import { ORDER } from '../constants/constants';
+import { ORDER } from '../../constants/constants';
 
 export const IconSortAsc = ({ onClick }) => {
 	const handleClick = () => {

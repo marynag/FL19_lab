@@ -1,4 +1,4 @@
-import styles from '../components/voting/voting.module.scss';
+import styles from './icons.module.scss';
 
 export const IconDislikeBig = (props) => {
 	return (

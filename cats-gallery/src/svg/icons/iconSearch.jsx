@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { breedsNamesSelector } from '../store/selectors';
+import { breedsNamesSelector } from '../../store/selectors';
 
 export const IconSearch = ({ onChange, input }) => {
 	const breedNamesIds = useSelector(breedsNamesSelector);

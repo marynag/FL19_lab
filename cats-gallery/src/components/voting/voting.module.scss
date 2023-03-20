@@ -49,33 +49,6 @@
     display: flex;
   }
   
-  .smile{
-    background-color: #97EAB9;
-    border-radius: 15px 0 0 15px;
-  }
-  
-  .like{
-    background-color:#FF868E;
-  }
-  
-  .sad{
-    background-color:#FFD280;
-    border-radius: 0 15px 15px 0;
-    margin-right: 0;
-  }
-
-  .smile:hover{
-    background-color: #97eaba85;
-  }
-  
-  .like:hover{
-    background-color:#ff868e86;
-  }
-  
-  .sad:hover{
-    background-color:#ffd3807e;
-  }
-  
   .next{   
     color: #FF868E;
     padding: 2px 8px;
