@@ -96,3 +96,20 @@ svg:active path{
 .sad:active{
   background-color: rgb(255, 211, 128);
 }
+
+.updateButton{
+  background-color: #ffffff;
+  width: 37px;
+  height: 37px;
+  padding: 7px;
+  border-radius: 7px;
+  &:hover{
+    background-color: #FBE0DC;
+  }
+  &:active{
+    background-color: #FF868E;
+  }
+  &:active path{
+    fill: #ffffff;
+  }
+}

@@ -1,3 +1,5 @@
+import styles from './icons.module.scss';
+
 export const IconUpdate = ({ setState, data, setBreed, breed }) => {
 	const handleClick = () => {
 		setState(data);
@@ -12,6 +14,7 @@ export const IconUpdate = ({ setState, data, setBreed, breed }) => {
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
 			onClick={handleClick}
+			className={styles.updateButton}
 		>
 			<path
 				fill-rule='evenodd'
