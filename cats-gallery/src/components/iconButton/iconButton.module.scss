@@ -2,8 +2,23 @@
   width: 40px;
   height: 40px;
   background-color: #FBE0DC;
-  padding: 7px;
+  padding: 5px;
   border-radius: 7px;
+  & path{
+    fill: #FF868E;
+  }
+  &:active{
+    background-color: #FF868E;
+  }
+  &:active path{
+    fill: #FFFFFF;
+  }
+}
+
+.breedName {
+  position: absolute;
+  background-color: #FFFFFF;
+  display: none;
   & path{
     fill: #FF868E;
   }

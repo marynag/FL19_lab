@@ -3,5 +3,5 @@ import { FAVOURITE } from '../../../svg';
 import { IconButton } from '../../iconButton/iconButton';
 
 export const HeartOverlay = () => {
-	return <IconButton name={FAVOURITE} />;
+	return <IconButton name={FAVOURITE} className='breedName' />;
 };

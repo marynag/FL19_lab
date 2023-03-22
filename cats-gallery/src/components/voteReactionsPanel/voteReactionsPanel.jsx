@@ -1,9 +1,10 @@
 import styles from '../voting/voting.module.scss';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import REACTIONS, { reactionsMap } from './voteReactionsPanel.constants';
+import { REACTIONS } from './voteReactionsPanel.constants';
 import { VoteReactionRecord } from '../voteReactionRecord';
 import { getTime } from '../voting/voting.utils';
+import { IconButton } from '../iconButton/iconButton';
 
 export const VoteReactionsPanel = (props) => {
 	const history = props.history;
@@ -18,15 +19,11 @@ export const VoteReactionsPanel = (props) => {
 			<div className={styles.currentReactionBlock}>
 				<div className={styles.currentReactionBlockWrapper}>
 					{REACTIONS.map((reaction) => (
-						<div
-							key={reaction.text}
-							className={`${styles.currentReaction} ${reaction.className}`}
-							onClick={() => handleReactionClick(reaction.text)}
-						>
-							{React.createElement(reaction.component, {
-								className: reaction.text,
-							})}
-						</div>
+						<IconButton
+							key={reaction}
+							name={reaction}
+							onClick={() => handleReactionClick(reaction)}
+						/>
 					))}
 				</div>
 			</div>
@@ -36,7 +33,7 @@ export const VoteReactionsPanel = (props) => {
 						time={current[1]}
 						text={current[0]}
 						key={current[0]}
-						icon={reactionsMap[current[0]]}
+						icon={current[0]}
 						history={history}
 					/>
 				</>

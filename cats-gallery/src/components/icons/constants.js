@@ -1,8 +1,8 @@
 import { IconNext } from './iconNext';
 import { IconUpdate } from './iconUpdate';
-import { IconFavouriteBig } from './iconFavouriteBig';
-import { IconLikeBig } from './iconLikeBig';
-import { IconDislikeBig } from './iconDislikeBig';
+import { IconFavourite } from './iconFavourite';
+import { IconLike } from './iconLike';
+import { IconDislike } from './iconDislike';
 import { IconSearch } from './iconSearch';
 import { IconUpload } from './iconUpload';
 import { IconSortAsc } from './iconSortAsc';
@@ -11,9 +11,9 @@ import { IconSortDesc } from './iconSortDesc';
 export const SVG_COMPONENTS = {
 	next: IconNext,
 	update: IconUpdate,
-	favourite: IconFavouriteBig,
-	like: IconLikeBig,
-	dislike: IconDislikeBig,
+	favourite: IconFavourite,
+	like: IconLike,
+	dislike: IconDislike,
 	search: IconSearch,
 	upload: IconUpload,
 	sortAsc: IconSortAsc,

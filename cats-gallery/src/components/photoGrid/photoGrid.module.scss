@@ -85,7 +85,7 @@
   filter: grayscale(40%) brightness(60%) sepia(50%) hue-rotate(-55deg) saturate(500%) contrast(0.6);
 }
 
-.catImgBreedsDiv:hover svg {
+.catImgBreedsDiv:hover div,  .catImgBreedsDiv:hover p{
   display: block;
 }
 

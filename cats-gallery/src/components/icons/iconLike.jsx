@@ -1,5 +1,3 @@
-import styles from './icons.module.scss';
-
 export const IconLike = () => {
 	return (
 		<svg
