@@ -1,6 +1,6 @@
 import styles from './icons.module.scss';
 
-export const IconDislikeBig = (props) => {
+export const IconDislikeBig = () => {
 	return (
 		<svg
 			width='30'

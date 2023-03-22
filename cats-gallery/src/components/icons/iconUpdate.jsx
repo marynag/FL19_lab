@@ -1,10 +1,6 @@
 import styles from './icons.module.scss';
 
-export const IconUpdate = ({ setState, data, setBreed, breed }) => {
-	const handleClick = () => {
-		setState(data);
-		setBreed(breed);
-	};
+export const IconUpdate = () => {
 	return (
 		<svg
 			width='20'

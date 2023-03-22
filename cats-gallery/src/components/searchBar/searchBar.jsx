@@ -1,11 +1,30 @@
 import styles from './searchBar.module.scss';
 import React from 'react';
 import { ReactionBar } from '../reactionBar';
-import { IconSearch, SEARCH } from '../../svg';
+import { SEARCH } from '../../svg';
 import { IconButton } from '../iconButton/iconButton';
+import { useSelector } from 'react-redux';
+import { breedsNamesSelector } from '../../store/selectors';
 
 export const SearchBar = ({ onChange }) => {
 	const inputRef = React.createRef();
+
+	const breedNamesIds = useSelector(breedsNamesSelector);
+
+	const handleClick = () => {
+		const search = inputRef.current.value.toLowerCase();
+		if (!search) {
+			onChange(undefined);
+			return;
+		}
+
+		const matchedBreedId = Object.entries(breedNamesIds).find((item) => {
+			const name = item[1];
+			return name.toLowerCase().includes(search);
+		});
+
+		onChange(matchedBreedId?.[0]);
+	};
 
 	return (
 		<div className={styles.searchingLine}>
@@ -16,8 +35,7 @@ export const SearchBar = ({ onChange }) => {
 					className={styles.searchInput}
 					ref={inputRef}
 				/>
-				{/*<IconSearch onChange={onChange} input={inputRef} />*/}
-				<IconButton name={SEARCH} />
+				<IconButton name={SEARCH} onClick={handleClick} />
 			</div>
 			<ReactionBar />
 		</div>

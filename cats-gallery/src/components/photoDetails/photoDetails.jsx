@@ -6,7 +6,6 @@ import { PATHS } from '../constants/path.constants';
 import { Link } from 'react-router-dom';
 import { fetchPhotoById } from '../requests/requests.utils';
 import { Spinner } from '../spinner/spinner';
-import { IconNext } from '../icons/iconNext';
 import { NEXT } from '../icons';
 import { IconButton } from '../iconButton/iconButton';
 

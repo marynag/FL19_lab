@@ -1,23 +1,6 @@
-import { useSelector } from 'react-redux';
-import { breedsNamesSelector } from '../../store/selectors';
 import styles from './icons.module.scss';
 
-export const IconSearch = ({ onChange, input }) => {
-	const breedNamesIds = useSelector(breedsNamesSelector);
-	const handleClick = () => {
-		const search = input.current.value.toLowerCase();
-		if (!search) {
-			onChange(undefined);
-			return;
-		}
-
-		const matchedBreedId = Object.entries(breedNamesIds).find((item) => {
-			const name = item[1];
-			return name.toLowerCase().includes(search);
-		});
-
-		onChange(matchedBreedId?.[0]);
-	};
+export const IconSearch = () => {
 	return (
 		<div>
 			<svg

@@ -8,10 +8,6 @@ export const ReactionBar = () => {
 		<div className={styles.reaction}>
 			{REACTIONS.map((current) => (
 				<>
-					{/*{React.createElement(current, {*/}
-					{/*	searchBar: 'searchBar',*/}
-					{/*	className: 'reaction',*/}
-					{/*})}*/}
 					<IconButton name={current} />
 				</>
 			))}

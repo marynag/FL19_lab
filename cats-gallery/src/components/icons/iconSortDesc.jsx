@@ -1,9 +1,4 @@
-import { ORDER } from '../../constants/constants';
-
-export const IconSortDesc = ({ onClick }) => {
-	const handleClick = () => {
-		onClick(ORDER[1]);
-	};
+export const IconSortDesc = () => {
 	return (
 		<svg
 			width='20'

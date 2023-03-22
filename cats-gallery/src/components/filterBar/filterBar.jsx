@@ -3,7 +3,7 @@ import styles from './filterBar.module.scss';
 import { LIMITS, ORDER, TYPE, TYPE_NAME } from '../../constants/constants';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
-import { IconUpdate, UPDATE } from '../icons';
+import { UPDATE } from '../icons';
 import { IconButton } from '../iconButton/iconButton';
 
 export const FilterBar = ({ setState, setBreed }) => {
@@ -43,6 +43,15 @@ export const FilterBar = ({ setState, setBreed }) => {
 	const handleBreed = (e) => setSelectedBreedId(e.target.value);
 
 	const handleLimit = (e) => setSelectedLimit(e.target.value);
+
+	const handleUpdate = () => {
+		setBreed(selectedBreedId);
+		setState({
+			limit: selectedLimit,
+			order: selectedOrder,
+			type: selectedType,
+		});
+	};
 
 	return (
 		<div className={styles.filterBar}>
@@ -89,18 +98,7 @@ export const FilterBar = ({ setState, setBreed }) => {
 							</option>
 						))}
 					</select>
-					<IconButton name={UPDATE} />
-
-					{/*<IconUpdate*/}
-					{/*	setState={setState}*/}
-					{/*	setBreed={setBreed}*/}
-					{/*	data={{*/}
-					{/*		limit: selectedLimit,*/}
-					{/*		order: selectedOrder,*/}
-					{/*		type: selectedType,*/}
-					{/*	}}*/}
-					{/*	breed={selectedBreedId}*/}
-					{/*/>*/}
+					<IconButton name={UPDATE} onClick={handleUpdate} />
 				</div>
 			</div>
 		</div>

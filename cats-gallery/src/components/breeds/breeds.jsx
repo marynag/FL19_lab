@@ -15,7 +15,7 @@ import { IconButton } from '../iconButton/iconButton';
 export const Breeds = () => {
 	const [selectedBreedId, setSelectedBreedId] = useState();
 	const [limit, setLimit] = useState(LIMITS[0]);
-	const [order, setOrder] = useState('RAND');
+	const [order, setOrder] = useState(ORDER[0]);
 
 	const breedNamesIdsSelected = useSelector(breedsNamesSelector);
 	const breedNamesIds = Object.assign(
@@ -24,6 +24,9 @@ export const Breeds = () => {
 	);
 
 	const { photos, isLoading } = usePhotos(selectedBreedId, limit, order);
+
+	const handleSortAsc = () => setOrder(ORDER[2]);
+	const handleSortDesc = () => setOrder(ORDER[1]);
 
 	const handleBreedIdChange = (event) => setSelectedBreedId(event.target.value);
 
@@ -57,9 +60,8 @@ export const Breeds = () => {
 							</option>
 						))}
 					</select>
-
-					<IconButton name={SORT_ASC} setData={setOrder} data={ORDER[2]} />
-					<IconButton name={SORT_DESC} setData={setOrder} data={ORDER[1]} />
+					<IconButton name={SORT_ASC} onClick={handleSortAsc} />
+					<IconButton name={SORT_DESC} onClick={handleSortDesc} />
 				</div>
 				{isLoading ? (
 					<Spinner />
