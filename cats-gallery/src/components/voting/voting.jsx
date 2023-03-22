@@ -5,6 +5,7 @@ import { VotePhoto } from '../votePhoto';
 import { SearchBar } from '../searchBar';
 import { Link } from 'react-router-dom';
 import { PATHS } from '../constants/path.constants';
+import { IconNext } from '../icons/iconNext';
 
 export const Voting = () => {
 	const historyStorage = useRef([]);
@@ -15,7 +16,7 @@ export const Voting = () => {
 			<div className={styles.votingWraper}>
 				<div className={styles.votingBlockName}>
 					<Link to={PATHS.home}>
-						<p className={styles.next}>&lt;</p>
+						<IconNext />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 				</div>

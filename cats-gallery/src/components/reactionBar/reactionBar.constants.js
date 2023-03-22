@@ -1,7 +1,3 @@
-import { IconDislikeBig, IconFavouriteBig, IconLikeBig } from '../../svg/icons';
+import { IconDislikeBig, IconFavouriteBig, IconLikeBig } from '../icons';
 
-export const REACTIONS = [
-	<IconLikeBig />,
-	<IconFavouriteBig />,
-	<IconDislikeBig />,
-];
+export const REACTIONS = [IconLikeBig, IconFavouriteBig, IconDislikeBig];

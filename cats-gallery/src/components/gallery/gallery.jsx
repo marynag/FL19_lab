@@ -9,6 +9,7 @@ import { HeartOverlay, PhotoGrid } from '../photoGrid';
 import { FilterBar } from '../filterBar/filterBar';
 import { LIMITS } from '../../constants/constants';
 import { IconUpload } from '../../svg';
+import { IconNext } from '../icons/iconNext';
 
 export const Gallery = () => {
 	const [searchBreedId, setSearchBreedId] = useState();
@@ -35,7 +36,7 @@ export const Gallery = () => {
 			<div className={styles.votingWraper}>
 				<div className={styles.votingBlockName}>
 					<Link to={PATHS.home}>
-						<p className={styles.next}>&lt;</p>
+						<IconNext />
 					</Link>
 					<p className={styles.vote}>GALLERY</p>
 					<div className={styles.uploadPhoto}>

@@ -9,7 +9,8 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { BreedOverlay, PhotoGrid } from '../photoGrid';
-import { IconSortAsc, IconSortDesc } from '../../svg/icons';
+import { IconSortAsc, IconSortDesc } from '../icons';
+import { IconNext } from '../icons/iconNext';
 
 export const Breeds = () => {
 	const [selectedBreedId, setSelectedBreedId] = useState();
@@ -33,7 +34,7 @@ export const Breeds = () => {
 			<div className={styles.wraperImgBlokSearchImages}>
 				<div className={styles.headerBreeds}>
 					<Link to={PATHS.home}>
-						<p className={styles.next}>&lt;</p>
+						<IconNext />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 					<select

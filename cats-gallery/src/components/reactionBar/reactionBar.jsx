@@ -4,12 +4,15 @@ import { REACTIONS } from './reactionBar.constants';
 
 export const ReactionBar = () => {
 	return (
-		<>
+		<div className={styles.reaction}>
 			{REACTIONS.map((current) => (
-				<div key={current} className={styles.reaction}>
-					{current}
-				</div>
+				<>
+					{React.createElement(current, {
+						searchBar: 'searchBar',
+						className: 'reaction',
+					})}
+				</>
 			))}
-		</>
+		</div>
 	);
 };
