@@ -9,3 +9,4 @@ export * from './iconUpdate';
 export * from './iconUpload';
 export * from './iconFavouriteSmall';
 export * from './iconDislikeSmall';
+export * from './constants';

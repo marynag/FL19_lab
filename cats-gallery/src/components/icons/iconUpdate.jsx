@@ -5,7 +5,6 @@ export const IconUpdate = ({ setState, data, setBreed, breed }) => {
 		setState(data);
 		setBreed(breed);
 	};
-
 	return (
 		<svg
 			width='20'
@@ -13,8 +12,6 @@ export const IconUpdate = ({ setState, data, setBreed, breed }) => {
 			viewBox='0 0 20 20'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
-			onClick={handleClick}
-			className={styles.updateButton}
 		>
 			<path
 				fill-rule='evenodd'

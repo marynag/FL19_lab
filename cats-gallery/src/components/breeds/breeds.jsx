@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LIMITS } from '../../constants/constants';
+import { LIMITS, ORDER } from '../../constants/constants';
 import styles from './breeds.module.scss';
 import { SearchBar } from '../searchBar';
 import { useSelector } from 'react-redux';
@@ -9,8 +9,8 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { BreedOverlay, PhotoGrid } from '../photoGrid';
-import { IconSortAsc, IconSortDesc } from '../icons';
-import { IconNext } from '../icons/iconNext';
+import { NEXT, SORT_ASC, SORT_DESC } from '../icons';
+import { IconButton } from '../iconButton/iconButton';
 
 export const Breeds = () => {
 	const [selectedBreedId, setSelectedBreedId] = useState();
@@ -34,7 +34,7 @@ export const Breeds = () => {
 			<div className={styles.wraperImgBlokSearchImages}>
 				<div className={styles.headerBreeds}>
 					<Link to={PATHS.home}>
-						<IconNext />
+						<IconButton name={NEXT} />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 					<select
@@ -58,8 +58,8 @@ export const Breeds = () => {
 						))}
 					</select>
 
-					<IconSortAsc onClick={setOrder} />
-					<IconSortDesc onClick={setOrder} />
+					<IconButton name={SORT_ASC} setData={setOrder} data={ORDER[2]} />
+					<IconButton name={SORT_DESC} setData={setOrder} data={ORDER[1]} />
 				</div>
 				{isLoading ? (
 					<Spinner />

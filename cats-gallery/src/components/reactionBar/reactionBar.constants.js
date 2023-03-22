@@ -1,3 +1,3 @@
-import { IconDislikeBig, IconFavouriteBig, IconLikeBig } from '../icons';
+import { DISLIKE, FAVOURITE, LIKE } from '../icons';
 
-export const REACTIONS = [IconLikeBig, IconFavouriteBig, IconDislikeBig];
+export const REACTIONS = [LIKE, FAVOURITE, DISLIKE];
