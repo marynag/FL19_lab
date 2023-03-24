@@ -6,6 +6,7 @@ import { IconButton } from '../iconButton/iconButton';
 export const VoteReactionRecord = (props) => {
 	const { history } = props;
 	const { time } = props;
+	const className = `reactionRecord${props.icon}`;
 
 	return (
 		<div className={styles.reactionDescription}>
@@ -13,7 +14,7 @@ export const VoteReactionRecord = (props) => {
 			<p>
 				Image ID: <b>{history[history.length - 1]}</b> was added to {props.text}
 			</p>
-			<IconButton name={props.icon} />
+			<IconButton name={props.icon} className={className} />
 		</div>
 	);
 };

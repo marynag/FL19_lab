@@ -23,6 +23,7 @@ export const VoteReactionsPanel = (props) => {
 							key={reaction}
 							name={reaction}
 							onClick={() => handleReactionClick(reaction)}
+							className={reaction}
 						/>
 					))}
 				</div>
