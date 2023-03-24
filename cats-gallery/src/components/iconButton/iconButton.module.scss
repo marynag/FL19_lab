@@ -4,6 +4,7 @@
   background-color: #FBE0DC;
   padding: 5px;
   border-radius: 7px;
+  border: solid 2px rgba(255, 255, 255, 0);
   & path{
     fill: #FF868E;
   }
@@ -115,5 +116,18 @@
   & svg{
     width: 20px;
     height: 20px;
+  }
+}
+
+.sort{
+  background-color: #F8F8F7;
+  & path{
+    fill:#8C8C8C;
+  }
+  &:hover{
+    border: solid 2px #FBE0DC;
+  }
+  &:hover path{
+    fill:#FF868E;
   }
 }

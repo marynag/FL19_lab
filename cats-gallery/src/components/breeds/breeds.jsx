@@ -60,8 +60,16 @@ export const Breeds = () => {
 							</option>
 						))}
 					</select>
-					<IconButton name={SORT_ASC} onClick={handleSortAsc} />
-					<IconButton name={SORT_DESC} onClick={handleSortDesc} />
+					<IconButton
+						name={SORT_ASC}
+						onClick={handleSortAsc}
+						className='sort'
+					/>
+					<IconButton
+						name={SORT_DESC}
+						onClick={handleSortDesc}
+						className='sort'
+					/>
 				</div>
 				{isLoading ? (
 					<Spinner />
