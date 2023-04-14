@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './iconButton.module.scss';
-import { SVG_COMPONENTS } from '../icons';
+import { SVG_COMPONENTS } from './iconButton.constants';
 
 export const IconButton = ({ iconName, onClick, className }) => {
 	const handleClick = () => onClick();

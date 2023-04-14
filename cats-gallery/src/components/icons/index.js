@@ -6,4 +6,5 @@ export * from './iconSortDesc';
 export * from './iconSearch';
 export * from './iconUpdate';
 export * from './iconUpload';
-export * from './constants';
+export * from './iconNext';
+export * from '../iconButton/iconButton.constants';
