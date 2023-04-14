@@ -1,10 +1,10 @@
 import styles from '../voting/voting.module.scss';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { REACTIONS } from './voteReactionsPanel.constants';
 import { VoteReactionRecord } from '../voteReactionRecord';
 import { getTime } from '../voting/voting.utils';
 import { IconButton } from '../iconButton/iconButton';
+import { REACTIONS } from '../constants/constants';
 
 export const VoteReactionsPanel = (props) => {
 	const history = props.history;

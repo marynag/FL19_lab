@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import styles from './voting.module.scss';
-import { VoteReactionsPanel } from '../voteReactionsPanel';
 import { VotePhoto } from '../votePhoto';
 import { SearchBar } from '../searchBar';
 import { Link } from 'react-router-dom';
 import { PATHS } from '../constants/path.constants';
 import { IconButton } from '../iconButton/iconButton';
 import { NEXT } from '../icons';
+import { VoteReactionsPanel } from '../voteReactionsPanel/voteReactionsPanel';
 
 export const Voting = () => {
 	const historyStorage = useRef([]);
