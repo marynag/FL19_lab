@@ -35,7 +35,7 @@ export const SearchBar = ({ onChange }) => {
 					className={styles.searchInput}
 					ref={inputRef}
 				/>
-				<IconButton name={SEARCH} onClick={handleClick} />
+				<IconButton iconName={SEARCH} onClick={handleClick} />
 			</div>
 			<ReactionBar />
 		</div>

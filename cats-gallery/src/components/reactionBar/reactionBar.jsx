@@ -8,7 +8,7 @@ export const ReactionBar = () => {
 		<div className={styles.reaction}>
 			{REACTIONS.map((current) => (
 				<>
-					<IconButton name={current} />
+					<IconButton iconName={current} />
 				</>
 			))}
 		</div>

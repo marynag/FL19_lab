@@ -36,11 +36,11 @@ export const Gallery = () => {
 			<div className={styles.votingWraper}>
 				<div className={styles.votingBlockName}>
 					<Link to={PATHS.home}>
-						<IconButton name={NEXT} />
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>GALLERY</p>
 					<div className={styles.uploadPhoto}>
-						<IconButton name={UPLOAD} />
+						<IconButton iconName={UPLOAD} />
 						<p>UPLOAD</p>
 					</div>
 				</div>

@@ -37,7 +37,7 @@ export const Breeds = () => {
 			<div className={styles.wraperImgBlokSearchImages}>
 				<div className={styles.headerBreeds}>
 					<Link to={PATHS.home}>
-						<IconButton name={NEXT} />
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 					<select
@@ -61,12 +61,12 @@ export const Breeds = () => {
 						))}
 					</select>
 					<IconButton
-						name={SORT_ASC}
+						iconName={SORT_ASC}
 						onClick={handleSortAsc}
 						className='sort'
 					/>
 					<IconButton
-						name={SORT_DESC}
+						iconName={SORT_DESC}
 						onClick={handleSortDesc}
 						className='sort'
 					/>

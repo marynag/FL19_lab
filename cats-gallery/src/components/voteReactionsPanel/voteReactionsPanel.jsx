@@ -21,7 +21,7 @@ export const VoteReactionsPanel = (props) => {
 					{REACTIONS.map((reaction) => (
 						<IconButton
 							key={reaction}
-							name={reaction}
+							iconName={reaction}
 							onClick={() => handleReactionClick(reaction)}
 							className={reaction}
 						/>

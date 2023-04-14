@@ -45,7 +45,7 @@ export const PhotoDetails = () => {
 			<div className={styles.wraperImgBlokSearchImages}>
 				<div className={styles.headerBreeds}>
 					<Link to={PATHS.breeds}>
-						<IconButton name={NEXT} />
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 					<p className={styles.vote}>{id}</p>

@@ -17,7 +17,7 @@ export const Voting = () => {
 			<div className={styles.votingWraper}>
 				<div className={styles.votingBlockName}>
 					<Link to={PATHS.home}>
-						<IconButton name={NEXT} />
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 				</div>

@@ -98,7 +98,7 @@ export const FilterBar = ({ setState, setBreed }) => {
 							</option>
 						))}
 					</select>
-					<IconButton name={UPDATE} onClick={handleUpdate} />
+					<IconButton iconName={UPDATE} onClick={handleUpdate} />
 				</div>
 			</div>
 		</div>

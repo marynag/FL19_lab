@@ -14,7 +14,7 @@ export const VoteReactionRecord = (props) => {
 			<p>
 				Image ID: <b>{history[history.length - 1]}</b> was added to {props.text}
 			</p>
-			<IconButton name={props.icon} className={className} />
+			<IconButton iconName={props.icon} className={className} />
 		</div>
 	);
 };
