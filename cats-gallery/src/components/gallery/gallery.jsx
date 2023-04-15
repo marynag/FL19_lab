@@ -8,8 +8,8 @@ import { Spinner } from '../spinner';
 import { HeartOverlay, PhotoGrid } from '../photoGrid';
 import { FilterBar } from '../filterBar/filterBar';
 import { LIMITS } from '../../constants/constants';
-import { NEXT, UPLOAD } from '../../svg';
 import { IconButton } from '../iconButton/iconButton';
+import { NEXT, UPLOAD } from '../iconButton/iconButton.constants';
 
 export const Gallery = () => {
 	const [searchBreedId, setSearchBreedId] = useState();

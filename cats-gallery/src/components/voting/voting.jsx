@@ -5,8 +5,8 @@ import { SearchBar } from '../searchBar';
 import { Link } from 'react-router-dom';
 import { PATHS } from '../constants/path.constants';
 import { IconButton } from '../iconButton/iconButton';
-import { NEXT } from '../icons';
 import { VoteReactionsPanel } from '../voteReactionsPanel/voteReactionsPanel';
+import { NEXT } from '../iconButton/iconButton.constants';
 
 export const Voting = () => {
 	const historyStorage = useRef([]);

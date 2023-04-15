@@ -6,8 +6,8 @@ import { PATHS } from '../constants/path.constants';
 import { Link } from 'react-router-dom';
 import { fetchPhotoById } from '../requests/requests.utils';
 import { Spinner } from '../spinner/spinner';
-import { NEXT } from '../icons';
 import { IconButton } from '../iconButton/iconButton';
+import { NEXT } from '../iconButton/iconButton.constants';
 
 export const PhotoDetails = () => {
 	//TODO: pass location to avoid fetching

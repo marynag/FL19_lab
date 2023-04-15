@@ -9,8 +9,8 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { BreedOverlay, PhotoGrid } from '../photoGrid';
-import { NEXT, SORT_ASC, SORT_DESC } from '../icons';
 import { IconButton } from '../iconButton/iconButton';
+import { NEXT, SORT_ASC, SORT_DESC } from '../iconButton/iconButton.constants';
 
 export const Breeds = () => {
 	const [selectedBreedId, setSelectedBreedId] = useState();

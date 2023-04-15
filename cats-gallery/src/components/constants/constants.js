@@ -1,3 +1,3 @@
-import { DISLIKE, FAVOURITE, LIKE } from '../icons';
+import { DISLIKE, FAVOURITE, LIKE } from '../iconButton/iconButton.constants';
 
 export const REACTIONS = [LIKE, FAVOURITE, DISLIKE];

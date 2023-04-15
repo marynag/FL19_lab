@@ -3,8 +3,8 @@ import styles from './filterBar.module.scss';
 import { LIMITS, ORDER, TYPE, TYPE_NAME } from '../../constants/constants';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
-import { UPDATE } from '../icons';
 import { IconButton } from '../iconButton/iconButton';
+import { UPDATE } from '../iconButton/iconButton.constants';
 
 export const FilterBar = ({ setState, setBreed }) => {
 	const [selectedOrder, setSelectedOrder] = useState();

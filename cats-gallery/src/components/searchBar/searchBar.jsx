@@ -1,10 +1,10 @@
 import styles from './searchBar.module.scss';
 import React from 'react';
 import { ReactionBar } from '../reactionBar';
-import { SEARCH } from '../../svg';
 import { IconButton } from '../iconButton/iconButton';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
+import { SEARCH } from '../iconButton/iconButton.constants';
 
 export const SearchBar = ({ onChange }) => {
 	const inputRef = React.createRef();
