@@ -6,6 +6,8 @@ import { PATHS } from '../constants/path.constants';
 import { Link } from 'react-router-dom';
 import { fetchPhotoById } from '../requests/requests.utils';
 import { Spinner } from '../spinner/spinner';
+import { IconButton } from '../iconButton/iconButton';
+import { NEXT } from '../iconButton/iconButton.constants';
 
 export const PhotoDetails = () => {
 	//TODO: pass location to avoid fetching
@@ -43,7 +45,7 @@ export const PhotoDetails = () => {
 			<div className={styles.wraperImgBlokSearchImages}>
 				<div className={styles.headerBreeds}>
 					<Link to={PATHS.breeds}>
-						<p className={styles.next}>&lt;</p>
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 					<p className={styles.vote}>{id}</p>

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import ImgSort1 from '../../img/ba.png';
-import ImgSort2 from '../../img/ab.png';
 import { LIMITS } from '../../constants/constants';
 import styles from './breeds.module.scss';
 import { SearchBar } from '../searchBar';
@@ -11,6 +9,8 @@ import { PATHS } from '../constants/path.constants';
 import { usePhotos } from '../../customHooks';
 import { Spinner } from '../spinner';
 import { BreedOverlay, PhotoGrid } from '../photoGrid';
+import { IconButton } from '../iconButton/iconButton';
+import { NEXT, SORT_ASC, SORT_DESC } from '../iconButton/iconButton.constants';
 
 export const Breeds = () => {
 	const [selectedBreedId, setSelectedBreedId] = useState();
@@ -25,21 +25,19 @@ export const Breeds = () => {
 
 	const { photos, isLoading } = usePhotos(selectedBreedId, limit, order);
 
+	const handleSortAsc = () => setOrder('ASC');
+	const handleSortDesc = () => setOrder('DESC');
+
 	const handleBreedIdChange = (event) => setSelectedBreedId(event.target.value);
 
 	const handleLimitChange = (event) => setLimit(event.target.value);
-
-	const handleSortForward = () => setOrder('ASC');
-
-	const handleSortBackward = () => setOrder('DESC');
-
 	return (
 		<div className={styles.breeds}>
 			<SearchBar onChange={setSelectedBreedId} />
 			<div className={styles.wraperImgBlokSearchImages}>
 				<div className={styles.headerBreeds}>
 					<Link to={PATHS.home}>
-						<p className={styles.next}>&lt;</p>
+						<IconButton iconName={NEXT} />
 					</Link>
 					<p className={styles.vote}>BREEDS</p>
 					<select
@@ -62,16 +60,16 @@ export const Breeds = () => {
 							</option>
 						))}
 					</select>
-					<div className={styles.sortImg} onClick={handleSortForward}>
-						<img className={styles.sort} src={ImgSort1} alt='sort' />
-					</div>
-					<div className={styles.sortImg} onClick={handleSortBackward}>
-						<img
-							className={`${styles.sort} ${styles.sort1}`}
-							src={ImgSort2}
-							alt='sort'
-						/>
-					</div>
+					<IconButton
+						iconName={SORT_ASC}
+						onClick={handleSortAsc}
+						className='sort'
+					/>
+					<IconButton
+						iconName={SORT_DESC}
+						onClick={handleSortDesc}
+						className='sort'
+					/>
 				</div>
 				{isLoading ? (
 					<Spinner />

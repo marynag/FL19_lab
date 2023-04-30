@@ -1,17 +1,18 @@
-import searchImg from '../../img/Vector.png';
-import styles from './searchingBar.module.scss';
+import styles from './searchBar.module.scss';
 import React from 'react';
+import { ReactionBar } from '../reactionBar';
+import { IconButton } from '../iconButton/iconButton';
 import { useSelector } from 'react-redux';
 import { breedsNamesSelector } from '../../store/selectors';
-import { ReactionBar } from '../reactionBar';
+import { SEARCH } from '../iconButton/iconButton.constants';
 
 export const SearchBar = ({ onChange }) => {
 	const inputRef = React.createRef();
+
 	const breedNamesIds = useSelector(breedsNamesSelector);
 
 	const handleClick = () => {
 		const search = inputRef.current.value.toLowerCase();
-
 		if (!search) {
 			onChange(undefined);
 			return;
@@ -34,9 +35,7 @@ export const SearchBar = ({ onChange }) => {
 					className={styles.searchInput}
 					ref={inputRef}
 				/>
-				<div className={styles.searchItem} onClick={handleClick}>
-					<img src={searchImg} alt='search' className={styles.search_img} />
-				</div>
+				<IconButton iconName={SEARCH} onClick={handleClick} />
 			</div>
 			<ReactionBar />
 		</div>

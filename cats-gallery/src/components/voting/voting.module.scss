@@ -7,13 +7,12 @@
 .votingWraper{
     display: flex;
     flex-direction: column;
-    
     background-color: #ffffff;
     border-radius: 10px;
 }
 
 .votingBlockName{
-    margin: 0 25px;
+    margin: 10px 25px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -37,46 +36,18 @@
   }
   
   .currentReactionBlockWrapper{
-    display:flex;    
+    display:flex;
+    gap: 4px;
     justify-content: space-evenly;
     background-color: #ffffff;
     border: solid 4px #ffffff;
-    border-radius: 20px;
+    border-radius: 30px;
     z-index: 3;
     
   }
   .currentReaction{
     margin-right: 4px;
-    padding: 15px 17px;
     display: flex;
-  }
-  
-  .smile{
-    background-color: #97EAB9;
-    border-radius: 15px 0 0 15px;
-  }
-  
-  .like{
-    background-color:#FF868E;
-  }
-  
-  .sad{
-    background-color:#FFD280;
-    border-radius: 0 15px 15px 0;
-    margin-right: 0;
-  }
-  
-
-  .smile:hover{
-    background-color: #97eaba85;
-  }
-  
-  .like:hover{
-    background-color:#ff868e86;
-  }
-  
-  .sad:hover{
-    background-color:#ffd3807e;
   }
   
   .next{   
@@ -107,6 +78,7 @@
     border-radius: 10px;
     margin: 7px 25px;
     justify-content: space-between;
+    align-items: center;
   }
 
   .reactionImg{

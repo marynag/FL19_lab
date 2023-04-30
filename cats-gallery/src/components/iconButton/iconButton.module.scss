@@ -1,0 +1,133 @@
+.iconButtonWrapper{
+  width: 40px;
+  height: 40px;
+  background-color: #FBE0DC;
+  padding: 5px;
+  border-radius: 7px;
+  border: solid 2px rgba(255, 255, 255, 0);
+  & path{
+    fill: #FF868E;
+  }
+  &:active{
+    background-color: #FF868E;
+  }
+  &:active path{
+    fill: #FFFFFF;
+  }
+}
+
+.breedName {
+  position: absolute;
+  background-color: #FFFFFF;
+  display: none;
+  & path{
+    fill: #FF868E;
+  }
+}
+
+.like path,.favourite path, .dislike path{
+  fill: #FFFFFF;
+}
+
+.like, .favourite ,.dislike {
+  width: 80px;
+  height: 80px;
+  padding: 25px;
+}
+
+
+.like{
+  background-color: #97EAB9;
+  border-radius: 25px 0 0 25px;
+}
+
+.favourite{
+  background-color:#FF868E;
+  border-radius: 0;
+}
+
+.dislike{
+  background-color:#FFD280;
+  border-radius: 0 25px 25px 0;
+  margin-right: 0;
+}
+
+.like:hover{
+  background-color: rgba(151, 234, 186, 0.3);
+}
+
+.favourite:hover{
+  background-color:#ff868e86;
+}
+
+.dislike:hover{
+  background-color: rgba(255, 211, 128, 0.3);
+}
+
+
+.like:hover path{
+  fill:#97EAB9;
+}
+
+.favourite:hover path{
+  fill:#FF868E;
+}
+
+.dislike:hover path{
+  fill:#FFD280;
+}
+
+.like:active{
+  background-color: rgb(151, 234, 186);
+}
+
+.favourite:active{
+  background-color: #ff868e;
+}
+
+.dislike:active{
+  background-color: rgb(255, 211, 128);
+}
+
+.reactionRecordlike{
+  background-color: #F8F8F7;
+  & path{
+    fill: #97EAB9;
+  }
+  & svg{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.reactionRecordfavourite{
+  background-color: #F8F8F7;
+  & svg{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.reactionRecorddislike{
+  background-color: #F8F8F7;
+  & path{
+    fill: #FFD280;
+  }
+  & svg{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.sort{
+  background-color: #F8F8F7;
+  & path{
+    fill:#8C8C8C;
+  }
+  &:hover{
+    border: solid 2px #FBE0DC;
+  }
+  &:hover path{
+    fill:#FF868E;
+  }
+}
